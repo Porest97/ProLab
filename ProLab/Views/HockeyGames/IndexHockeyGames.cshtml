@@ -1,119 +1,118 @@
-﻿@model IEnumerable<ProLab.Models.DataModels.HockeyGame>
+﻿@model IEnumerable<HockeyGame>
 
 @{
     ViewData["Title"] = "Index";
 }
+<div class="card col-md-12 text-center">
+    <div class="card-header col-md-12 text-center">
+        <h6>Hockey Games !</h6>
+    </div>
+    <div class="card-header col-md-12 text-center">
+        <a class="btn btn-sm btn-outline-success" asp-action="Create">Register new game</a>
+    </div>   
+    <div class="card-body col-md-12 text-center">
+        <table class="table table-striped">
+            <thead class="col-md-12 text-center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameDateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameCategory)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameType)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.Series)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Arena)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HomeTeam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AwayTeam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Result)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HD1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HD2)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.LD1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LD2)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameStatus)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="col-md-12">
+                @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+                    </td>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.GameDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GameNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TSMNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GameCategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GameStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GameType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Series)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Arena)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HomeTeam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AwayTeam)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Result)
-            </th>            
-            <th>
-                @Html.DisplayNameFor(model => model.HD1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HD2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LD1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LD2)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TSMNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameType.GameTypeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Series.SeriesName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Arena.ArenaName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HomeTeam.ClubName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Result)
-            </td>            
-            <td>
-                @Html.DisplayFor(modelItem => item.HD1.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HD2.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LD1.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LD2.FullName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameType.GameTypeName)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Series.SeriesName)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arena.ArenaName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HomeTeam.ClubName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HD1.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HD2.FullName)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.LD1.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LD2.FullName)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-sm btn-outline-success" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
