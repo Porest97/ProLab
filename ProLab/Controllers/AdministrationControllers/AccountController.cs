@@ -57,7 +57,7 @@ namespace ProLab.Controllers.AdministrationControllers
                     StreetAddress = model.StreetAddress,
                     ZipCode = model.ZipCode,
                     City = model.City,
-                    Country = model.Country
+                    Country = model.Country                    
                 };
                 var result = await userManager.CreateAsync((ApplicationUser)user, model.Password);
 
