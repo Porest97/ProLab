@@ -313,7 +313,7 @@ namespace ProLab.Controllers.AdministrationControllers
                 user.UserName = model.UserName;
                 user.City = model.City;
                 user.FirstName = model.FirstName;
-                user.FirstName = model.LastName;
+                user.LastName = model.LastName;
                 user.StreetAddress = model.StreetAddress;
                 user.ZipCode = model.ZipCode;
                 user.City = model.City;

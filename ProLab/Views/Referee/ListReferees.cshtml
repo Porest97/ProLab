@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Referee>
+
+@{
+    ViewData["Title"] = "ListReferees";
+}
+
+<div class="card card-columns col-md-12 text-center">
+    <div class="card-header col-md-12 text-center">
+        <div>
+            <h6>Domare</h6>            
+        </div>
+        <div style="padding-bottom: 1em;">
+            <a class="btn btn-sm btn-outline-success" asp-action="RegisterReferee" asp-controller="Referee">Registrera ny domare</a>
+            @*<a class="btn btn-sm btn-outline-success" asp-action="IndexSearchTimBanksPostsPaid" asp-controller="Accounting">TimBanksPoster Betalade (Paid)</a>
+            <a class="btn btn-sm btn-outline-success" asp-action="Reports" asp-controller="Home">Back to Reports</a>*@
+        </div>
+        <div class="card-header col-md-12 text-center">
+            <form asp-controller="Referee" asp-action="ListReferees">
+                <div class="card-header">
+                    Förnamn: <input type="text" name="SearchString">
+                    Efternamn:<input type="text" name="SearchString1">
+                    P.Nummer:<input type="text" name="SearchString2">
+                </div>
+                <div class="card-header col-md-12 text-center">
+                    Email: <input type="text" name="SearchString3">
+                    Tele1: <input type="text" name="SearchString4">
+                    Tele2: <input type="text" name="SearchString5">
+                </div>
+                <div class="card-header col-md-12 text-center">
+                    <input type="submit" value="Search" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="card-body col-md-12 text-center">
+        <table class="table table-responsive-sm table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                    <th>@Html.DisplayNameFor(model => model.PrivateEmail)</th>
+                    <th>@Html.DisplayNameFor(model => model.PhoneNumbers)</th>
+                    @*<th>@Html.DisplayNameFor(model => model.Ended)</th>
+                    <th>@Html.DisplayNameFor(model => model.Hours)</th>
+                    <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    <th>@Html.DisplayNameFor(model => model.Outlay)</th>
+                    <th>@Html.DisplayNameFor(model => model.Total)</th>
+                    <th>@Html.DisplayNameFor(model => model.Notes)</th>
+                    <th>@Html.DisplayNameFor(model => model.WLNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.TBPStatus)</th>*@
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderBy(r => r.LastName))
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrivateEmail)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PhoneNumbers)</td>
+                        @*<td>@Html.DisplayFor(modelItem => item.Ended)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hours)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Outlay)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.WLNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TBPStatus.TBPStatusName)</td>*@
+                        <td>
+                            @*<a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditTimbanksPost" asp-route-id="@item.Id">Ändra Värden</a>
+                            <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditTimBanksPostStatus" asp-route-id="@item.Id">Ändra Status</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer col-md-12">
+        <a class="btn btn-sm btn-success" asp-controller="Referee" asp-action="RefMain">Hockey Domare</a>
+    </div>
+</div>

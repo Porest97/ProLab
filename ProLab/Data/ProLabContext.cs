@@ -32,6 +32,8 @@ namespace ProLab.Data
         public DbSet<GameType> GameType { get; set; }
         public DbSet<HockeyGame> HockeyGame { get; set; }
         public DbSet<Series> Series { get; set; }
-        
+
+        public DbSet<Referee> Referee { get; set; }
+
     }
 }

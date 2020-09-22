@@ -93,9 +93,7 @@ namespace ProLab.Controllers.ApplicationControllers
 
         // POST: HockeyGames/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.        
         public async Task<IActionResult> Create([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,ApplicationUserId,ApplicationUserId1,ApplicationUserId2,ApplicationUserId3")] HockeyGame hockeyGame)
         {
             if (ModelState.IsValid)
