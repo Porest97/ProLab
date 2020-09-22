@@ -24,6 +24,7 @@ namespace ProLab.Controllers.AdministrationControllers
             this.roleManager = roleManager;
             this.userManager = userManager;
         }
+               
 
         [HttpGet]
         public async Task<IActionResult> ManageUserClaims(string userId)
@@ -283,7 +284,10 @@ namespace ProLab.Controllers.AdministrationControllers
                 StreetAddress = user.StreetAddress,
                 ZipCode = user.ZipCode,
                 City = user.City,
-                Country = user.Country,
+                Country = user.Country,               
+                PhoneNumber1 = user.PhoneNumber1,
+                PhoneNumber2 = user.PhoneNumber2,
+                Ssn = user.Ssn,
                 Claims = userClaims.Select(c => c.Value).ToList(),
                 Roles = userRoles
             };
@@ -292,6 +296,7 @@ namespace ProLab.Controllers.AdministrationControllers
         }
         //Edit User POST !
         [Authorize(Roles = "Admin")]
+        [HttpPost]
         [HttpPost]
         public async Task<IActionResult> EditUser(EditUserViewModel model)
         {
@@ -306,12 +311,17 @@ namespace ProLab.Controllers.AdministrationControllers
             {
                 user.Email = model.Email;
                 user.UserName = model.UserName;
+                user.City = model.City;
                 user.FirstName = model.FirstName;
-                user.LastName = model.LastName;
+                user.FirstName = model.LastName;
                 user.StreetAddress = model.StreetAddress;
                 user.ZipCode = model.ZipCode;
                 user.City = model.City;
                 user.Country = model.Country;
+                user.PhoneNumber1 = model.PhoneNumber1;
+                user.PhoneNumber2 = model.PhoneNumber2;
+                user.Ssn = model.Ssn;
+
                 var result = await userManager.UpdateAsync(user);
 
                 if (result.Succeeded)

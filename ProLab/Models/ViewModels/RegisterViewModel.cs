@@ -37,5 +37,16 @@ namespace ProLab.Models.ViewModels
         public string City { get; set; }
         [Display(Name = "Country")]
         public string Country { get; set; }
+
+        [Display(Name = "SSN")]
+        public string Ssn { get; set; }
+
+        [Display(Name = "Telefonnummer1")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber1 { get; set; }
+
+        [Display(Name = "Telefonnummer2")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber2 { get; set; }
     }
 }
