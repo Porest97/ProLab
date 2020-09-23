@@ -19,8 +19,9 @@ namespace ProLab.Controllers.ApplicationControllers
             _context = context;
         }
 
-        // GET: HockeyGames
-        public async Task<IActionResult> IndexHockeyGames(string searchString, string searchString1, string searchString2, string searchString3)
+        // GET: IndexHockeyGames
+        public async Task<IActionResult> IndexHockeyGames(string searchString, string searchString1,
+            string searchString2, string searchString3, string searchString4)
         {
             var hockeyGames = from h in _context.HockeyGame
                 .Include(h => h.Arena)
@@ -85,8 +86,6 @@ namespace ProLab.Controllers.ApplicationControllers
                 .Include(h => h.LD2)
                 .Include(h => h.Series)
                 .Where(s => s.GameCategory.GameCategoryName.Contains(searchString2));
-
-
             }
             if (!String.IsNullOrEmpty(searchString3))
             {
@@ -103,8 +102,127 @@ namespace ProLab.Controllers.ApplicationControllers
                .Include(h => h.LD2)
                .Include(h => h.Series)
                .Where(s => s.GameType.GameTypeName.Contains(searchString3));
+            }
 
+            if (!String.IsNullOrEmpty(searchString4))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.GameStatus.GameStatusName.Contains(searchString4));
+            }
+            return View(await hockeyGames.ToListAsync());
+        }
+                
+        // GET: IndexHockeyGamesFinal
+        public async Task<IActionResult> IndexHockeyGamesFinal(string searchString, string searchString1,
+            string searchString2, string searchString3, string searchString4)
+        {
+            var hockeyGames = from h in _context.HockeyGame
+                .Include(h => h.Arena)
+                .Include(h => h.AwayTeam)
+                .Include(h => h.GameCategory)
+                .Include(h => h.GameStatus)
+                .Include(h => h.GameType)
+                .Include(h => h.HD1)
+                .Include(h => h.HD2)
+                .Include(h => h.HomeTeam)
+                .Include(h => h.LD1)
+                .Include(h => h.LD2)
+                .Include(h => h.Series)
 
+                              select h;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                hockeyGames = hockeyGames
+                .Include(h => h.Arena)
+                .Include(h => h.AwayTeam)
+                .Include(h => h.GameCategory)
+                .Include(h => h.GameStatus)
+                .Include(h => h.GameType)
+                .Include(h => h.HD1)
+                .Include(h => h.HD2)
+                .Include(h => h.HomeTeam)
+                .Include(h => h.LD1)
+                .Include(h => h.LD2)
+                .Include(h => h.Series)
+                .Where(s => s.GameDateTime.ToString().Contains(searchString));
+
+            }
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.Arena.ArenaName.Contains(searchString1));
+
+            }
+            if (!String.IsNullOrEmpty(searchString2))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.GameCategory.GameCategoryName.Contains(searchString2));
+            }
+            if (!String.IsNullOrEmpty(searchString3))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.GameType.GameTypeName.Contains(searchString3));
+            }
+
+            if (!String.IsNullOrEmpty(searchString4))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.GameStatus.GameStatusName.Contains(searchString4));
             }
             return View(await hockeyGames.ToListAsync());
         }
