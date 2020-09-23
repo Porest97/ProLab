@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProLab.Data;
 using ProLab.Models.DataModels;
 
-
 namespace ProLab.Controllers.ApplicationControllers
 {
-    [Authorize(Roles = "Admin, SuperUser, User")]
     public class HockeyGamesController : Controller
     {
         private readonly ProLabContext _context;
@@ -22,15 +19,10 @@ namespace ProLab.Controllers.ApplicationControllers
             _context = context;
         }
 
-        public IActionResult Hockey ()
-        {
-            return View();
-        }
-
         // GET: HockeyGames
-        public async Task<IActionResult> IndexHockeyGames()
+        public async Task<IActionResult> IndexHockeyGames(string searchString, string searchString1, string searchString2, string searchString3)
         {
-            var proLabContext = _context.HockeyGame
+            var hockeyGames = from h in _context.HockeyGame
                 .Include(h => h.Arena)
                 .Include(h => h.AwayTeam)
                 .Include(h => h.GameCategory)
@@ -41,9 +33,83 @@ namespace ProLab.Controllers.ApplicationControllers
                 .Include(h => h.HomeTeam)
                 .Include(h => h.LD1)
                 .Include(h => h.LD2)
-                .Include(h => h.Series);
-            return View(await proLabContext.ToListAsync());
+                .Include(h => h.Series)
+
+                              select h;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                hockeyGames = hockeyGames
+                .Include(h => h.Arena)
+                .Include(h => h.AwayTeam)
+                .Include(h => h.GameCategory)
+                .Include(h => h.GameStatus)
+                .Include(h => h.GameType)
+                .Include(h => h.HD1)
+                .Include(h => h.HD2)
+                .Include(h => h.HomeTeam)
+                .Include(h => h.LD1)
+                .Include(h => h.LD2)
+                .Include(h => h.Series)
+                .Where(s => s.GameDateTime.ToString().Contains(searchString));
+
+            }
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                  hockeyGames = hockeyGames
+                 .Include(h => h.Arena)
+                 .Include(h => h.AwayTeam)
+                 .Include(h => h.GameCategory)
+                 .Include(h => h.GameStatus)
+                 .Include(h => h.GameType)
+                 .Include(h => h.HD1)
+                 .Include(h => h.HD2)
+                 .Include(h => h.HomeTeam)
+                 .Include(h => h.LD1)
+                 .Include(h => h.LD2)
+                 .Include(h => h.Series)
+                 .Where(s => s.Arena.ArenaName.Contains(searchString1));
+
+            }
+            if (!String.IsNullOrEmpty(searchString2))
+            {
+                 hockeyGames = hockeyGames
+                .Include(h => h.Arena)
+                .Include(h => h.AwayTeam)
+                .Include(h => h.GameCategory)
+                .Include(h => h.GameStatus)
+                .Include(h => h.GameType)
+                .Include(h => h.HD1)
+                .Include(h => h.HD2)
+                .Include(h => h.HomeTeam)
+                .Include(h => h.LD1)
+                .Include(h => h.LD2)
+                .Include(h => h.Series)
+                .Where(s => s.GameCategory.GameCategoryName.Contains(searchString2));
+
+
+            }
+            if (!String.IsNullOrEmpty(searchString3))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.GameType.GameTypeName.Contains(searchString3));
+
+
+            }
+            return View(await hockeyGames.ToListAsync());
         }
+
+
 
         // GET: HockeyGames/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -75,26 +141,28 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET: HockeyGames/Create
-        public IActionResult Create()
+        public IActionResult CreateHockeyGame()
         {
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName");
-            ViewData["ClubId1"] = new SelectList(_context.Set<Club>(), "Id", "ClubName");
-            ViewData["GameCategoryId"] = new SelectList(_context.Set<GameCategory>(), "Id", "GameCategoryName");
-            ViewData["GameStatusId"] = new SelectList(_context.Set<GameStatus>(), "Id", "GameStatusName");
-            ViewData["GameTypeId"] = new SelectList(_context.Set<GameType>(), "Id", "GameTypeName");
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName");
-            ViewData["ApplicationUserId1"] = new SelectList(_context.Users, "Id", "FullName");
-            ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName");
-            ViewData["ApplicationUserId2"] = new SelectList(_context.Users, "Id", "FullName");
-            ViewData["ApplicationUserId3"] = new SelectList(_context.Users, "Id", "FullName");
-            ViewData["SeriesId"] = new SelectList(_context.Set<Series>(), "Id", "SeriesName");
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName");
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName");
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName");
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName");
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName");
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName");
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName");
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName");
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName");
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName");
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName");
             return View();
         }
 
         // POST: HockeyGames/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.        
-        public async Task<IActionResult> Create([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,ApplicationUserId,ApplicationUserId1,ApplicationUserId2,ApplicationUserId3")] HockeyGame hockeyGame)
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3")] HockeyGame hockeyGame)
         {
             if (ModelState.IsValid)
             {
@@ -102,22 +170,22 @@ namespace ProLab.Controllers.ApplicationControllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexHockeyGames));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.Set<GameCategory>(), "Id", "GameCategoryName", hockeyGame.GameCategoryId);
-            ViewData["GameStatusId"] = new SelectList(_context.Set<GameStatus>(), "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.Set<GameType>(), "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId);
-            ViewData["ApplicationUserId1"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId1);
-            ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["ApplicationUserId2"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId2);
-            ViewData["ApplicationUserId3"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId3);
-            ViewData["SeriesId"] = new SelectList(_context.Set<Series>(), "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
             return View(hockeyGame);
         }
 
         // GET: HockeyGames/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> EditHockeyGame(int? id)
         {
             if (id == null)
             {
@@ -129,17 +197,17 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.Set<GameCategory>(), "Id", "GameCategoryName", hockeyGame.GameCategoryId);
-            ViewData["GameStatusId"] = new SelectList(_context.Set<GameStatus>(), "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.Set<GameType>(), "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId);
-            ViewData["ApplicationUserId1"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId1);
-            ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["ApplicationUserId2"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId2);
-            ViewData["ApplicationUserId3"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId3);
-            ViewData["SeriesId"] = new SelectList(_context.Set<Series>(), "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
             return View(hockeyGame);
         }
 
@@ -148,7 +216,9 @@ namespace ProLab.Controllers.ApplicationControllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,ApplicationUserId,ApplicationUserId1,ApplicationUserId2,ApplicationUserId3")] HockeyGame hockeyGame)
+        public async Task<IActionResult> EditHockeyGame(int id, [Bind("Id,GameDateTime,GameNumber,TSMNumber," +
+            "GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore," +
+            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3")] HockeyGame hockeyGame)
         {
             if (id != hockeyGame.Id)
             {
@@ -175,17 +245,17 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexHockeyGames));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Set<Arena>(), "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.Set<GameCategory>(), "Id", "GameCategoryName", hockeyGame.GameCategoryId);
-            ViewData["GameStatusId"] = new SelectList(_context.Set<GameStatus>(), "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.Set<GameType>(), "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId);
-            ViewData["ApplicationUserId1"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId1);
-            ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["ApplicationUserId2"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId2);
-            ViewData["ApplicationUserId3"] = new SelectList(_context.Users, "Id", "FullName", hockeyGame.ApplicationUserId3);
-            ViewData["SeriesId"] = new SelectList(_context.Set<Series>(), "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
             return View(hockeyGame);
         }
 

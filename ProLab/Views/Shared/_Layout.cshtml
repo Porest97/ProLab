@@ -53,7 +53,9 @@
                     </ul>
                     <ul class="navbar-nav flex-grow-1">
 
-
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="Admin">Admin</a>
+                        </li>*@
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
@@ -63,7 +65,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Referee" asp-action="RefMain">Domare</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="HockeyGames" asp-action="Hockey">Hockey</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hockey">Hockey</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Links">Links</a>
@@ -76,7 +78,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="SuperUser">Super User</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="HockeyGames" asp-action="Hockey">Hockey</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hockey">Hockey</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Links">Links</a>
@@ -88,7 +90,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="PlainUser">User</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="HockeyGames" asp-action="Hockey">Hockey</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Hockey">Hockey</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Links">Links</a>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProLab.Models;
@@ -19,11 +20,16 @@ namespace ProLab.Controllers.AdministrationControllers
         {
             _logger = logger;
         }
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
+        public IActionResult Hockey()
+        {
+            return View();
+        }
+
         public IActionResult Links()
         {
             return View();

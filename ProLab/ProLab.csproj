@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200923013552_RefereeToHockeyGame.cs" />
+    <Compile Remove="Migrations\20200923013552_RefereeToHockeyGame.Designer.cs" />
+    <Compile Remove="Migrations\20200923014123_RefereeToHockeyGame.cs" />
+    <Compile Remove="Migrations\20200923014123_RefereeToHockeyGame.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />

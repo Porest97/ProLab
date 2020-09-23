@@ -80,30 +80,32 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Score")]
         public string Result { get { return string.Format("{0} {1} {2}", HomeTeamScore, "-", AwayTeamScore); } }
 
+       
+
         // Game Ref props !
         [Display(Name = "HD")]
-        public string ApplicationUserId { get; set; }
+        public int? RefereeId { get; set; }
         [Display(Name = "HD")]
-        [ForeignKey("ApplicationUserId")]
-        public ApplicationUser HD1 { get; set; }
+        [ForeignKey("RefereeId")]
+        public Referee HD1 { get; set; }
 
         [Display(Name = "HD")]
-        public string ApplicationUserId1 { get; set; }
+        public int? RefereeId1 { get; set; }
         [Display(Name = "HD")]
-        [ForeignKey("ApplicationUserId1")]
-        public ApplicationUser HD2 { get; set; }
+        [ForeignKey("RefereeId1")]
+        public Referee HD2 { get; set; }
 
         [Display(Name = "LD")]
-        public string ApplicationUserId2 { get; set; }
+        public int? RefereeId2 { get; set; }
         [Display(Name = "LD")]
-        [ForeignKey("ApplicationUserId2")]
-        public ApplicationUser LD1 { get; set; }
+        [ForeignKey("RefereeId2")]
+        public Referee LD1 { get; set; }
 
         [Display(Name = "LD")]
-        public string ApplicationUserId3 { get; set; }
+        public int? RefereeId3 { get; set; }
         [Display(Name = "LD")]
-        [ForeignKey("ApplicationUserId3")]
-        public ApplicationUser LD2 { get; set; }
+        [ForeignKey("RefereeId3")]
+        public Referee LD2 { get; set; }
 
     }
 

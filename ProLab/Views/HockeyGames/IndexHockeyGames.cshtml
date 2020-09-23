@@ -1,15 +1,31 @@
 ﻿@model IEnumerable<HockeyGame>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "IndexHockeyGames";
 }
 <div class="card col-md-12 text-center">
     <div class="card-header col-md-12 text-center">
-        <h6>Hockey Games !</h6>
+        <h6>Hockeymatcher !</h6>
     </div>
     <div class="card-header col-md-12 text-center">
-        <a class="btn btn-sm btn-outline-success" asp-action="Create">Register new game</a>
-    </div>   
+        <a class="btn btn-sm btn-outline-success" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
+    </div>
+    <div class="card-header col-md-12 text-center">
+        <form asp-controller="HockeyGames" asp-action="IndexHockeyGames">
+            <div class="card-header">
+                Datum/Tid: <input type="text" name="SearchString">
+                Arena:<input type="text" name="SearchString1">
+                Ålder:<input type="text" name="SearchString2">
+            </div>
+            <div class="card-header col-md-12 text-center">
+                Typ av match (Singel/Cup e.t.c): <input type="text" name="SearchString3">               
+            </div>
+            <div class="card-header col-md-12 text-center">
+                <input type="submit" value="Sök" />
+            </div>
+
+        </form>
+    </div>
     <div class="card-body col-md-12 text-center">
         <table class="table table-striped">
             <thead class="col-md-12 text-center">
@@ -17,18 +33,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.GameDateTime)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GameNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GameCategory)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GameType)
-                    </th>
-                    @*<th>
-                        @Html.DisplayNameFor(model => model.Series)
-                    </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Arena)
                     </th>
@@ -39,20 +43,17 @@
                         @Html.DisplayNameFor(model => model.AwayTeam)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Result)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.HD1)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.HD2)
                     </th>
-                    @*<th>
+                    <th>
                         @Html.DisplayNameFor(model => model.LD1)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.LD2)
-                    </th>*@
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.GameStatus)
                     </th>
@@ -66,19 +67,6 @@
                         @Html.DisplayFor(modelItem => item.GameDateTime)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.GameNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GameType.GameTypeName)
-                    </td>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.Series.SeriesName)
-                    </td>*@
-                    <td>
                         @Html.DisplayFor(modelItem => item.Arena.ArenaName)
                     </td>
                     <td>
@@ -88,27 +76,24 @@
                         @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.HD1.FullName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.HD2.FullName)
                     </td>
-                    @*<td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.LD1.FullName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.LD2.FullName)
-                    </td>*@
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
                     </td>
                     <td>
-                        <a class="btn btn-sm btn-outline-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a class="btn btn-sm btn-outline-success" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="btn btn-sm btn-outline-success" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>
+                        <a class="btn btn-sm btn-outline-success" asp-action="Details" asp-route-id="@item.Id">Info</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Ta Bort</a>
                     </td>
                 </tr>
                 }

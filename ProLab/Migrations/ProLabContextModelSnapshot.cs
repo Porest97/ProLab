@@ -342,18 +342,6 @@ namespace ProLab.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ApplicationUserId1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ApplicationUserId2")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ApplicationUserId3")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int?>("ArenaId")
                         .HasColumnType("int");
 
@@ -384,6 +372,18 @@ namespace ProLab.Migrations
                     b.Property<int?>("HomeTeamScore")
                         .HasColumnType("int");
 
+                    b.Property<int?>("RefereeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RefereeId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RefereeId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RefereeId3")
+                        .HasColumnType("int");
+
                     b.Property<int?>("SeriesId")
                         .HasColumnType("int");
 
@@ -391,14 +391,6 @@ namespace ProLab.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("ApplicationUserId1");
-
-                    b.HasIndex("ApplicationUserId2");
-
-                    b.HasIndex("ApplicationUserId3");
 
                     b.HasIndex("ArenaId");
 
@@ -411,6 +403,14 @@ namespace ProLab.Migrations
                     b.HasIndex("GameStatusId");
 
                     b.HasIndex("GameTypeId");
+
+                    b.HasIndex("RefereeId");
+
+                    b.HasIndex("RefereeId1");
+
+                    b.HasIndex("RefereeId2");
+
+                    b.HasIndex("RefereeId3");
 
                     b.HasIndex("SeriesId");
 
@@ -532,26 +532,6 @@ namespace ProLab.Migrations
 
             modelBuilder.Entity("ProLab.Models.DataModels.HockeyGame", b =>
                 {
-                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "HD1")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "HD2")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId1")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "LD1")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId2")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "LD2")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId3")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("ProLab.Models.DataModels.Arena", "Arena")
                         .WithMany()
                         .HasForeignKey("ArenaId")
@@ -580,6 +560,26 @@ namespace ProLab.Migrations
                     b.HasOne("ProLab.Models.DataModels.GameType", "GameType")
                         .WithMany()
                         .HasForeignKey("GameTypeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Referee", "HD1")
+                        .WithMany()
+                        .HasForeignKey("RefereeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Referee", "HD2")
+                        .WithMany()
+                        .HasForeignKey("RefereeId1")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Referee", "LD1")
+                        .WithMany()
+                        .HasForeignKey("RefereeId2")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Referee", "LD2")
+                        .WithMany()
+                        .HasForeignKey("RefereeId3")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("ProLab.Models.DataModels.Series", "Series")
