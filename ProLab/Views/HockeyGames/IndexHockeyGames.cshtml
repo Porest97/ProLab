@@ -61,7 +61,8 @@
                 </tr>
             </thead>
             <tbody class="col-md-12">
-                @foreach (var item in Model) {
+                @foreach (var item in Model.OrderBy(h => h.GameDateTime))
+                {                
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.GameDateTime)
