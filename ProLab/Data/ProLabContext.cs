@@ -14,17 +14,6 @@ namespace ProLab.Data
         public ProLabContext(DbContextOptions<ProLabContext> options)
             : base(options)
         { }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
-            {
-                foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
-            }
-        }
-
         public DbSet<Club> Club { get; set; }
         public DbSet<Arena> Arena { get; set; }
         public DbSet<GameCategory> GameCategory { get; set; }
@@ -35,5 +24,19 @@ namespace ProLab.Data
 
         public DbSet<Referee> Referee { get; set; }
 
+        public DbSet<RefReceipt> RefReceipt { get; set; }
+        public DbSet<MDProtocol> MDProtocol { get; set; }
+
+        public DbSet<RefFees> RefFees { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+        }        
     }
 }

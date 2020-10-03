@@ -89,7 +89,8 @@ namespace ProLab.Controllers.ApplicationControllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterReferee([Bind("Id,FirstName,LastName,StreetAddress,ZipCode,Country,Ssn,PhoneNumber1,PhoneNumber2,PrivateEmail,ApplicationUserId")] Referee referee)
+        public async Task<IActionResult> RegisterReferee([Bind("Id,FirstName,LastName,StreetAddress,ZipCode,Country,Ssn" +
+            ",PhoneNumber1,PhoneNumber2,PrivateEmail,ApplicationUserId,SwishNumber,BankAccount,BankName")] Referee referee)
         {
             if (ModelState.IsValid)
             {
@@ -100,5 +101,66 @@ namespace ProLab.Controllers.ApplicationControllers
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", referee.ApplicationUserId);
             return View(referee);
         }
+
+        // GET: Referee/Edit/5
+        public async Task<IActionResult> EditReferee(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var referee = await _context.Referee.FindAsync(id);
+            if (referee == null)
+            {
+                return NotFound();
+            }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", referee.ApplicationUserId);
+            return View(referee);
+        }
+
+        // POST: RefEdit/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditReferee(int id, [Bind("Id,FirstName,LastName,StreetAddress,ZipCode,Country,Ssn" +
+            ",PhoneNumber1,PhoneNumber2,PrivateEmail,ApplicationUserId,SwishNumber,BankAccount,BankName")] Referee referee)
+        {
+            if (id != referee.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(referee);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!RefereeExists(referee.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(ListReferees));
+            }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", referee.ApplicationUserId);
+            return View(referee);
+        }
+
+        private bool RefereeExists(int id)
+        {
+            return _context.Referee.Any(e => e.Id == id);
+        }
+
+
     }
 }

@@ -70,8 +70,8 @@
                         <td>@Html.DisplayFor(modelItem => item.WLNumber)</td>
                         <td>@Html.DisplayFor(modelItem => item.TBPStatus.TBPStatusName)</td>*@
                         <td>
-                            @*<a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditTimbanksPost" asp-route-id="@item.Id">Ändra Värden</a>
-                            <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditTimBanksPostStatus" asp-route-id="@item.Id">Ändra Status</a>*@
+                            <a class="btn btn-sm btn-outline-success" asp-controller="Referee" asp-action="EditReferee" asp-route-id="@item.Id">Ändra</a>
+                            @*<a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditTimBanksPostStatus" asp-route-id="@item.Id">Ändra Status</a>*@
                         </td>
                     </tr>
                 }

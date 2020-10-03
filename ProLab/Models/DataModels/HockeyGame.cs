@@ -153,8 +153,17 @@ namespace ProLab.Models.DataModels
         public int Id { get; set; }
 
 
+        [Display(Name = "Number")]
+        public string SeriesNumber { get; set; }
+
         [Display(Name = "Series")]
         public string SeriesName { get; set; }
+
+        [Display(Name = "Game time")]
+        public string SeriesPlayTime { get; set; }
+
+
+
     }
 
     public class GameType

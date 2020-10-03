@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MDProtocol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card col-md-12">
+    <div class="card-header col-md-12">
+        <div class="col-md-6">
+            <h6>
+                <a href="default.asp"><img src="~/img/STHLMSIF.jpg" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+                STOCKHOLMS ISHOCKEYFÖRBUND
+            </h6>
+        </div>
+        <h6>Alla MED protokoll inför match !</h6>
+        <p>
+            <a class="btn btn-sm btn-outline-success" asp-controller="Health" asp-action="Create">Fyll i nytt</a>
+        </p>
+        <div class="card-header col-md-12">
+            <p>
+                Mediciniskt protokoll inför match
+
+                Vid matchdag ska domare senast kl. 09.00
+                fylla i ett formulär med frågor om hur de mår. Det formuläret ska skickas till
+                <a href="mailto:domare.covid@stockholmhockey.se">domare.covid@stockholmhockey.se</a>
+                Om någon av frågorna nedan besvaras med ett Ja eller om domaren har en förhöjd kroppstemperatur (jämfört med normalt)
+                ska domaren inte döma dagens match och direkt kontakta Alexandra Köhl per telefon och säga ifrån sig sin match.
+
+            </p>
+        </div>
+    </div>
+    <div class="card-body col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Referee)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OtherSymptoms)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Referee.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OtherSymptoms)
+                        </td>
+
+                        <td>
+                            <a class="btn btn-sm btn-outline-success" asp-controller="Health" asp-action="Edit" asp-route-id="@item.Id">Ändra</a>
+                            <a class="btn btn-sm btn-outline-success" asp-controller="Health" asp-action="DetailsPrint" asp-route-id="@item.Id">Skrivut</a>
+                            <a class="btn btn-sm btn-outline-danger" asp-controller="Health" asp-action="Delete" asp-route-id="@item.Id">Ta bort</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer col-md-12">
+        <div class="col-md-6">
+            <h6>
+                <a href="default.asp"><img src="~/img/STHLMSIF.jpg" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+                STOCKHOLMS ISHOCKEYFÖRBUND
+            </h6>
+        </div>
+    </div>
+</div>

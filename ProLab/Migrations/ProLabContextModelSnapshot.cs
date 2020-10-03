@@ -417,6 +417,234 @@ namespace ProLab.Migrations
                     b.ToTable("HockeyGame");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.MDProtocol", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BodyTemp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cough")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Diarrhea")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FamilySymtoms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Headache")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MuscleAches")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NasalCongestion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nausea")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtherSymptoms")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtherSymptomsDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RefereeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SoreThroat")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RefereeId");
+
+                    b.ToTable("MDProtocol");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.RefFees", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("HD")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LD")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("UDZ")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefFees");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.RefRecStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("RefRecStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefRecStatus");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.RefReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("AllowanceHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("AllowanceHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("AllowanceLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("AllowanceLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("DescriptionOthersHD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionOthersHD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionOthersLD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionOthersLD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("GameFeeHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFeeHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFeeLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFeeLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("HockeyGameId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("KmHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("KmHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("KmLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("KmLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LostErningsHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LostErningsHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LostErningsLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LostErningsLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("OtherHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("OtherHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("OtherLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("OtherLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("RefRecStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalCostHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalCostHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalCostHalfHockeyGame")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalCostHockeyGame")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalCostLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalCostLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelExpensesHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelExpensesHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelExpensesLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelExpensesLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelSalarySupplementHD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelSalarySupplementHD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelSalarySupplementLD1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelSalarySupplementLD2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HockeyGameId");
+
+                    b.HasIndex("RefRecStatusId");
+
+                    b.ToTable("RefReceipt");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.Referee", b =>
                 {
                     b.Property<int>("Id")
@@ -426,6 +654,12 @@ namespace ProLab.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BankAccount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -454,6 +688,9 @@ namespace ProLab.Migrations
                     b.Property<string>("StreetAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SwishNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -472,6 +709,12 @@ namespace ProLab.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("SeriesName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SeriesNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SeriesPlayTime")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -585,6 +828,27 @@ namespace ProLab.Migrations
                     b.HasOne("ProLab.Models.DataModels.Series", "Series")
                         .WithMany()
                         .HasForeignKey("SeriesId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.MDProtocol", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.Referee", "Referee")
+                        .WithMany()
+                        .HasForeignKey("RefereeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.RefReceipt", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.RefRecStatus", "RefRecStatus")
+                        .WithMany()
+                        .HasForeignKey("RefRecStatusId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

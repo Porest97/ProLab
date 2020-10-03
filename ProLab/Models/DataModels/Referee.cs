@@ -37,7 +37,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "SSN")]
         public string Ssn { get; set; }
 
-        [Display(Name = "Telefonnummer1")]
+        [Display(Name = "Swish")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber1 { get; set; }
 
@@ -56,5 +56,24 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Användare")]
         [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }
+
+        //CName = Contact Name with Phonenumbers attached !
+        public string CName { get { return string.Format("{0} {1} ", FullName, Ssn); } }
+
+        // Referee Accounts !
+        [Display(Name = "Swish #")]
+        [DataType(DataType.PhoneNumber)]
+        public string SwishNumber { get; set; }
+
+        [Display(Name = "Bank #")]
+        public string BankAccount { get; set; }
+
+        [Display(Name = "Bank")]
+        public string BankName { get; set; }
+
+        [Display(Name = "Swish# and Bank#")]
+        public string PaymentDetails { get { return string.Format("{0} {1} {2} {3}", "#", SwishNumber, "#", BankAccount); } }
+
+
     }
 }

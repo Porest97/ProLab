@@ -1,0 +1,93 @@
+﻿@model MDProtocol
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card">
+    <div class="card-header">
+        Medicinskt protokoll för @Html.DisplayFor(model => model.Referee.FullName) @Html.DisplayFor(model => model.Date)
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="RefereeId" class="control-label"></label>
+                        <select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select>
+                        <span asp-validation-for="RefereeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label"></label>
+                        <input asp-for="Date" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BodyTemp" class="control-label"></label>
+                        <input asp-for="BodyTemp" class="form-control" />
+                        <span asp-validation-for="BodyTemp" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SoreThroat" class="control-label"></label>
+                        <input asp-for="SoreThroat" class="form-control" />
+                        <span asp-validation-for="SoreThroat" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NasalCongestion" class="control-label"></label>
+                        <input asp-for="NasalCongestion" class="form-control" />
+                        <span asp-validation-for="NasalCongestion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cough" class="control-label"></label>
+                        <input asp-for="Cough" class="form-control" />
+                        <span asp-validation-for="Cough" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Headache" class="control-label"></label>
+                        <input asp-for="Headache" class="form-control" />
+                        <span asp-validation-for="Headache" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Nausea" class="control-label"></label>
+                        <input asp-for="Nausea" class="form-control" />
+                        <span asp-validation-for="Nausea" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Diarrhea" class="control-label"></label>
+                        <input asp-for="Diarrhea" class="form-control" />
+                        <span asp-validation-for="Diarrhea" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MuscleAches" class="control-label"></label>
+                        <input asp-for="MuscleAches" class="form-control" />
+                        <span asp-validation-for="MuscleAches" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OtherSymptoms" class="control-label"></label>
+                        <input asp-for="OtherSymptoms" class="form-control" />
+                        <span asp-validation-for="OtherSymptoms" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OtherSymptomsDescription" class="control-label"></label>
+                        <input asp-for="OtherSymptomsDescription" class="form-control" />
+                        <span asp-validation-for="OtherSymptomsDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FamilySymtoms" class="control-label"></label>
+                        <input asp-for="FamilySymtoms" class="form-control" />
+                        <span asp-validation-for="FamilySymtoms" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Spara" class="btn btn-sm btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-sm btn-outline-success" asp-controller="Health" asp-action="Index">Till MDProtokoll</a>
+        </div>
+    </div>
+</div>

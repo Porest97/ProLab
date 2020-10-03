@@ -1,0 +1,116 @@
+﻿@model MDProtocol
+
+@{
+    ViewData["Title"] = "DetailsPrint";
+}
+
+
+
+<div class="card col-md-8">
+    <div class="card-header col-md-12">
+        <div class="col-md-12">
+            <h6>
+                <a href="default.asp"><img src="~/img/STHLMSIF.jpg" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+                STOCKHOLMS ISHOCKEYFÖRBUND
+            </h6>
+        </div>
+
+        <div class="card-header col-md-12">
+            <h6>Mediciniskt protokoll inför match</h6>
+            <p>
+                Vid matchdag ska domare senast kl. 09.00
+                fylla i ett formulär med frågor om hur de mår. Det formuläret ska skickas till
+                <a href="mailto:domare.covid@stockholmhockey.se">domare.covid@stockholmhockey.se</a>
+                Om någon av frågorna nedan besvaras med ett Ja eller om domaren har en förhöjd kroppstemperatur (jämfört med normalt)
+                ska domaren inte döma dagens match och direkt kontakta Alexandra Köhl per telefon och säga ifrån sig sin match.
+            </p>
+        </div>
+    </div>
+    <div class="card-body col-md-12">
+        <dl class="row">
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.BodyTemp)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.BodyTemp)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.SoreThroat)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.SoreThroat)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.NasalCongestion)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.NasalCongestion)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Cough)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Cough)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Headache)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Headache)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Nausea)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Nausea)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Diarrhea)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Diarrhea)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.MuscleAches)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.MuscleAches)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.OtherSymptoms)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.OtherSymptoms)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.OtherSymptomsDescription)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.OtherSymptomsDescription)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.FamilySymtoms)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.FamilySymtoms)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Referee)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Referee.FullName)
+            </dd>
+            <dt class="col-sm-6">
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd class="col-sm-6">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+        </dl>
+        <p>* Avser ej träningsvärk eller tidigare skada</p>
+    </div>
+</div>
+<div class="card-footer col-md-8">
+
+    <a class="btn btn-sm btn-outline-success" asp-controller="Health" asp-action="Index">Till MDProtokoll</a>
+</div>

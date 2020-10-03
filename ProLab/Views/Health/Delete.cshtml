@@ -1,0 +1,101 @@
+﻿@model MDProtocol
+
+@{
+    ViewData["Title"] = "DeleteMDProtocol";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Medicinskt protokoll för @Html.DisplayFor(model => model.Referee.FullName) @Html.DisplayFor(model => model.Date)
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Referee)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Referee.FullName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BodyTemp)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BodyTemp)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SoreThroat)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SoreThroat)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NasalCongestion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NasalCongestion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cough)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cough)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Headache)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Headache)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nausea)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nausea)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Diarrhea)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Diarrhea)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MuscleAches)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MuscleAches)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OtherSymptoms)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.OtherSymptoms)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OtherSymptomsDescription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.OtherSymptomsDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FamilySymtoms)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FamilySymtoms)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Ta bort" class="btn btn-sm btn-danger" />
+            <a class="btn btn-sm btn-outline-success" asp-controller="Health" asp-action="Index">Till MDProtokoll</a>
+        </form>
+    </div>
+</div>

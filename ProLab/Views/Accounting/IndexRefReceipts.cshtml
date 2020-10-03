@@ -1,0 +1,68 @@
+﻿@model IEnumerable<RefReceipt>
+
+@{
+    ViewData["Title"] = "IndexRefReceipts";
+}
+
+<h6>Domarkvitton</h6>
+
+<p>
+    <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="CreateRefReceipt">Registrera nytt Domarkvitto</a>
+</p>
+<div class="card-header col-md-12 text-center">
+    <form asp-controller="Accounting" asp-action="IndexRefReceipts">
+        <div class="card-header">
+            TSM#: <input type="text" name="SearchString">
+            Datum Tid:<input type="text" name="SearchString1">
+            Arena :<input type="text" name="SearchString2">
+        </div>
+        <div class="card-header col-md-12 text-center">
+            Hemma: <input type="text" name="SearchString3">
+            Borta: <input type="text" name="SearchString4">
+            Status: <input type="text" name="SearchString5">
+        </div>
+        <div class="card-header col-md-12 text-center">
+            <input type="submit" value="Search" />
+        </div>
+
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame) -
+                @Html.DisplayNameFor(model => model.HockeyGame.TSMNumber) -
+                @Html.DisplayNameFor(model => model.HockeyGame.GameDateTime) -
+                @Html.DisplayNameFor(model => model.HockeyGame.Arena) -
+                @Html.DisplayNameFor(model => model.HockeyGame.HomeTeam.ClubName) -
+                @Html.DisplayNameFor(model => model.HockeyGame.AwayTeam.ClubName)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.RefRecStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame.TSMNumber) -
+                @Html.DisplayFor(modelItem => item.HockeyGame.GameDateTime) -
+                @Html.DisplayFor(modelItem => item.HockeyGame.Arena.ArenaName) -
+                @Html.DisplayFor(modelItem => item.HockeyGame.HomeTeam.ClubName) -
+                @Html.DisplayFor(modelItem => item.HockeyGame.AwayTeam.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefRecStatus.RefRecStatusName)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditRefReceipt" asp-route-id="@item.Id">Ändra</a>                
+                <a class="btn btn-sm btn-outline-danger" asp-controller="Accounting" asp-action="DeleteRefReceipt" asp-route-id="@item.Id">Ta bort</a>
+                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="RefReceipt" asp-route-id="@item.Id">Domarkvitto</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
