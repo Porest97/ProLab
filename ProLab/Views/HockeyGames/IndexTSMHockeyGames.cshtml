@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TSMHocekyGame>
+
+@{
+    ViewData["Title"] = "IndexTSMHockeyGames";
+}
+<div class="card col-md-12 text-center">
+    <div class="card-header col-md-12 text-center">
+        <h6>Sök bland TSM-Hockeymatcher !</h6>
+    </div>
+    <div class="card-header col-md-12 text-center">
+        <a class="btn btn-sm btn-outline-success" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGames">Till Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesFinal">Till spelade Hockeymatcher</a>
+    </div>
+    <div class="card-header col-md-12 text-center">
+        <form asp-controller="HockeyGames" asp-action="IndexTSMHockeyGames">
+            <div class="card-header">
+                Datum/Tid: <input type="text" name="SearchString">
+                Arena:<input type="text" name="SearchString1">
+                Hemma:<input type="text" name="SearchString2">
+            </div>
+            <div class="card-header col-md-12 text-center">
+                Borta: <input type="text" name="SearchString3">
+                Status: <input type="text" name="SearchString4" value="Scheduled">
+            </div>
+            <div class="card-header col-md-12 text-center">
+                <input type="submit" value="Sök" />
+            </div>
+
+        </form>
+    </div>
+    <div class="card-body col-md-12 text-center">
+        <table class="table table-striped">
+            <thead class="col-md-12 text-center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameDateTime) -
+                        @Html.DisplayNameFor(model => model.GameNumber) -
+                        @Html.DisplayNameFor(model => model.Arena) -
+                        @Html.DisplayNameFor(model => model.HomeTeam) -
+                        @Html.DisplayNameFor(model => model.AwayTeam) -
+                        @Html.DisplayNameFor(model => model.GameStatus)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="col-md-12 text-left">
+                @foreach (var item in Model.OrderBy(h => h.GameDateTime).Where(h=>h.GameStatusId == 1))
+                {                
+                <tr>
+                    <td>
+                        @Html.DisplayFor(Model => item.GameDateTime) -
+                        @Html.DisplayFor(model => item.GameNumber) -
+                        @Html.DisplayFor(model => item.Arena) -
+                        @Html.DisplayFor(model => item.HomeTeam) -
+                        @Html.DisplayFor(model => item.AwayTeam) -
+                        @Html.DisplayFor(model => item.GameStatus.GameStatusName)
+                    </td>                   
+                    <td>
+                        <a class="btn btn-sm btn-outline-success" asp-action="EditTSMHockeyGame" asp-route-id="@item.Id">Ändra</a>
+                        <a class="btn btn-sm btn-outline-success" asp-action="EditTSMHockeyGameStatus" asp-route-id="@item.Id">Ändra Status</a>
+                        @*<a class="btn btn-sm btn-outline-success" asp-action="Details" asp-route-id="@item.Id">Info</a>
+        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Ta Bort</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

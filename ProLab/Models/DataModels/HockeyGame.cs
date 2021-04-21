@@ -10,15 +10,31 @@ namespace ProLab.Models.DataModels
     public class HockeyGame
     {
 
-        public int Id { get; set; }        
+        public int Id { get; set; }
+
+        //HockeyGame Logning !
+        [Display(Name = "Skapad")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime? DateTimePosted { get; set; }
+
+        [Display(Name = "Ändrad")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        public DateTime? DateTimeChanged { get; set; }
+
+        public HockeyGame()
+        {
+            DateTimePosted = DateTime.Now;
+            DateTimeChanged = DateTime.Now;
+        }
+
 
         //Game DateTime Prop !
-        [Display(Name = "Date&Time")]
+        [Display(Name = "Datum & Tid")]
         [DisplayFormat(DataFormatString = "{0:ddd yyyy-MM-dd HH:mm}")]
         public DateTime GameDateTime { get; set; }
 
         // Game Identification Prop!
-        [Display(Name = "Game #")]
+        [Display(Name = "Match #")]
         public string GameNumber { get; set; }
 
         // Game TSM Idenfication Prop !
@@ -26,9 +42,9 @@ namespace ProLab.Models.DataModels
         public string TSMNumber { get; set; }
 
         // Game settings props !
-        [Display(Name = "Category")]
+        [Display(Name = "Kategori")]
         public int? GameCategoryId { get; set; }
-        [Display(Name = "Category")]
+        [Display(Name = "Kategori")]
         [ForeignKey("GameCategoryId")]
         public GameCategory GameCategory { get; set; }
 
@@ -38,15 +54,15 @@ namespace ProLab.Models.DataModels
         [ForeignKey("GameStatusId")]
         public GameStatus GameStatus { get; set; }
 
-        [Display(Name = "Game Type")]
+        [Display(Name = "Match Type")]
         public int? GameTypeId { get; set; }
-        [Display(Name = "GameType")]
+        [Display(Name = "Match Type")]
         [ForeignKey("GameTypeId")]
         public GameType GameType { get; set; }
 
-        [Display(Name = "Series")]
+        [Display(Name = "Serie")]
         public int? SeriesId { get; set; }
-        [Display(Name = "Series")]
+        [Display(Name = "Serie")]
         [ForeignKey("SeriesId")]
         public Series Series { get; set; }
 
@@ -58,29 +74,32 @@ namespace ProLab.Models.DataModels
         public Arena Arena { get; set; }
 
         // Game Teams Props !
-        [Display(Name = "Home")]
+        [Display(Name = "Hemma")]
         public int? ClubId { get; set; }
-        [Display(Name = "Home")]
+        [Display(Name = "Hemma")]
         [ForeignKey("ClubId")]
         public Club HomeTeam { get; set; }
 
-        [Display(Name = "Away")]
+        [Display(Name = "Borta")]
         public int? ClubId1 { get; set; }
-        [Display(Name = "Away")]
+        [Display(Name = "Borta")]
         [ForeignKey("ClubId1")]
         public Club AwayTeam { get; set; }
 
         // Game Result Props !
-        [Display(Name = "Score Home Team")]
+        [Display(Name = "Mål Hemma")]
         public int? HomeTeamScore { get; set; }
 
-        [Display(Name = "Score Away Team")]
+        [Display(Name = "Mål Borta")]
         public int? AwayTeamScore { get; set; }
 
-        [Display(Name = "Score")]
+        [Display(Name = "Resultat")]
         public string Result { get { return string.Format("{0} {1} {2}", HomeTeamScore, "-", AwayTeamScore); } }
 
-       
+        //[Display(Name = "Hemma - Borta")]
+        public string GameTeams { get { return string.Format("{0} {1} {2}", HomeTeam, "-", AwayTeam); } }
+
+
 
         // Game Ref props !
         [Display(Name = "HD")]
@@ -117,7 +136,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "#")]
         public string ClubNumber { get; set; }
 
-        [Display(Name = "Club")]
+        [Display(Name = "Klubb")]
         public string ClubName { get; set; }
     }
 
@@ -156,10 +175,10 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Number")]
         public string SeriesNumber { get; set; }
 
-        [Display(Name = "Series")]
+        [Display(Name = "Serie")]
         public string SeriesName { get; set; }
 
-        [Display(Name = "Game time")]
+        [Display(Name = "Speltid")]
         public string SeriesPlayTime { get; set; }
 
 
@@ -170,7 +189,7 @@ namespace ProLab.Models.DataModels
     {
         public int Id { get; set; }
 
-        [Display(Name = "Type")]
+        [Display(Name = "Typ")]
         public string GameTypeName { get; set; }
     }
 
@@ -186,7 +205,7 @@ namespace ProLab.Models.DataModels
     {
         public int Id { get; set; }
 
-        [Display(Name = "Category")]
+        [Display(Name = "Kategori")]
         public string GameCategoryName { get; set; }
     }
 }

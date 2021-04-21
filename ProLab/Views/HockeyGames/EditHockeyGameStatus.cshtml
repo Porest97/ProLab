@@ -1,0 +1,103 @@
+﻿@model HockeyGame
+
+@{
+    ViewData["Title"] = "EditHockeyGameStatus";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h6>
+            Ändra Hockeymatch: @Html.DisplayFor(model => model.GameNumber) -
+            @Html.DisplayFor(model => model.GameDateTime) ?          
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="EditHockeyGameStatus">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="DateTimePosted" />
+                    <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GameDateTime" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GameNumber" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="TSMNumber" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GameCategoryId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GameTypeId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="SeriesId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ArenaId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ClubId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ClubId1" />                   
+                    <div class="card-body">
+                        <div class="card-header">
+                            <div class="card-header">
+                                <h6>Ändra resultatet !</h6>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HomeTeamScore" class="control-label"></label>
+                                <input asp-for="HomeTeamScore" class="form-control" />
+                                <span asp-validation-for="HomeTeamScore" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AwayTeamScore" class="control-label"></label>
+                                <input asp-for="AwayTeamScore" class="form-control" />
+                                <span asp-validation-for="AwayTeamScore" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-header">
+                                <h6>Ändra domarna !</h6>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RefereeId" class="control-label"></label>
+                                <select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select>
+                                <span asp-validation-for="RefereeId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RefereeId1" class="control-label"></label>
+                                <select asp-for="RefereeId1" class="form-control" asp-items="ViewBag.RefereeId1"></select>
+                                <span asp-validation-for="RefereeId1" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RefereeId2" class="control-label"></label>
+                                <select asp-for="RefereeId2" class="form-control" asp-items="ViewBag.RefereeId2"></select>
+                                <span asp-validation-for="RefereeId2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RefereeId3" class="control-label"></label>
+                                <select asp-for="RefereeId3" class="form-control" asp-items="ViewBag.RefereeId3"></select>
+                                <span asp-validation-for="RefereeId3" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                            <div class="card-header">
+                                <h6>Ändra statusen !</h6>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="GameStatusId" class="control-label"></label>
+                                <select asp-for="GameStatusId" class="form-control" asp-items="ViewBag.GameStatusId"></select>
+                                <span asp-validation-for="GameStatusId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Spara" class="btn btn-sm btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGames">Till Hockeymatcher</a>
+    </div>
+</div>

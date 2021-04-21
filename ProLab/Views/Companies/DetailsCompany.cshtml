@@ -1,0 +1,76 @@
+﻿@model Company
+
+@{
+    ViewData["Title"] = "DetailsCompany";
+}
+<div class="card" style="width:50%;">
+    <div class="card-header">
+        <h6>
+            Info Företag: #@Html.DisplayFor(model => model.CompanyNumber)
+            - @Html.DisplayFor(model => model.CompanyName)
+        </h6>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CompanyNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CompanyNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CompanyName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StreetAddress)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.StreetAddress)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.City)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Country)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Country)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CompanyRole)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CompanyRole.CompanyRoleName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CompanyStatus)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CompanyStatus.CompanyStatusName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CompanyType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CompanyType.CompanyTypeName)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-sm btn-outline-success" asp-controller="Companies" asp-action="EditCompany" asp-route-id="@Model.Id">Ändra ?</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="Companies" asp-action="ListCompanies">Till Företagslistan ! !</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="Home" asp-action="NBS">Till NBS !</a>
+    </div>
+</div>

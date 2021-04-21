@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ProLab.Models.DataModels.ProjectPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectPostDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePlaned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeDone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HourPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCostEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MtrCostActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LabourCostActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCostActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectPostDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePlaned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeDone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HourPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeEstimate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCostEstimate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MtrCostActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LabourCostActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCostActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

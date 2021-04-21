@@ -19,7 +19,7 @@
         <div class="card-header col-md-12 text-center">
             Hemma: <input type="text" name="SearchString3">
             Borta: <input type="text" name="SearchString4">
-            Status: <input type="text" name="SearchString5">
+            Status: <input type="text" name="SearchString5" value="Skapat">
         </div>
         <div class="card-header col-md-12 text-center">
             <input type="submit" value="Search" />
@@ -31,9 +31,9 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.HockeyGame) -
-                @Html.DisplayNameFor(model => model.HockeyGame.TSMNumber) -
+                @Html.DisplayNameFor(model => model.HockeyGame) : 
                 @Html.DisplayNameFor(model => model.HockeyGame.GameDateTime) -
+                @Html.DisplayNameFor(model => model.HockeyGame.TSMNumber) -               
                 @Html.DisplayNameFor(model => model.HockeyGame.Arena) -
                 @Html.DisplayNameFor(model => model.HockeyGame.HomeTeam.ClubName) -
                 @Html.DisplayNameFor(model => model.HockeyGame.AwayTeam.ClubName)
@@ -45,11 +45,11 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.OrderByDescending(rr=>rr.HockeyGame.GameDateTime).ThenBy(rr=>rr.HockeyGame.Arena.ArenaName)) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.HockeyGame.TSMNumber) -
                 @Html.DisplayFor(modelItem => item.HockeyGame.GameDateTime) -
+                @Html.DisplayFor(modelItem => item.HockeyGame.TSMNumber) -
                 @Html.DisplayFor(modelItem => item.HockeyGame.Arena.ArenaName) -
                 @Html.DisplayFor(modelItem => item.HockeyGame.HomeTeam.ClubName) -
                 @Html.DisplayFor(modelItem => item.HockeyGame.AwayTeam.ClubName)
@@ -58,9 +58,11 @@
                 @Html.DisplayFor(modelItem => item.RefRecStatus.RefRecStatusName)
             </td>
             <td>
-                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditRefReceipt" asp-route-id="@item.Id">Ändra</a>                
+                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="EditRefReceipt" asp-route-id="@item.Id">Ändra</a>
                 <a class="btn btn-sm btn-outline-danger" asp-controller="Accounting" asp-action="DeleteRefReceipt" asp-route-id="@item.Id">Ta bort</a>
-                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="RefReceipt" asp-route-id="@item.Id">Domarkvitto</a>
+                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="RefReceipt" asp-route-id="@item.Id">2HD2LDkvitto</a>
+                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="TwoHDReceipt" asp-route-id="@item.Id">2HDkvitto</a>
+                <a class="btn btn-sm btn-outline-success" asp-controller="Accounting" asp-action="OneHDTwoLDReciept" asp-route-id="@item.Id">1HD2LDkvitto</a>
             </td>
         </tr>
 }

@@ -1,0 +1,30 @@
+﻿<div class="card card-columns">
+    <div class="card-header">
+        <h3>Hälsa</h3>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" asp-controller="Health" class="btn btn-sm btn-outline-success">Till Medicinskt Protokoll</a>
+        - Skicka, Spara, Ändra Medicinska protokoll
+    </div>   
+    <div class="card-footer">
+        <a asp-action="Index" asp-controller="ActivityPosts" class="btn btn-sm btn-outline-success">Till Hälsoaktiviteter</a>
+        - Logga, planera visa stats för Hälsoaktiviteter
+    </div>
+</div>
+<div class="card card-columns">
+    <div class="card-header">
+        <h3>Hälso Admin</h3>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" asp-controller="HealthActivities" class="btn btn-sm btn-outline-success">Till Aktiviterna</a>
+        - Administrera Aktiviteterna
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" asp-controller="ActivityPostStatuses" class="btn btn-sm btn-outline-success">Till Aktivitetposts statusar</a>
+        - Administrera Aktivitetposts statusar
+    </div>
+    @*<div class="card-footer">
+        <a asp-action="Index" asp-controller="TSMSeries" class="btn btn-sm btn-outline-success">Till TSMSerier</a>
+        - Administrera TSMSerier
+    </div>*@
+</div>

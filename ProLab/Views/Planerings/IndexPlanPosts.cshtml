@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PlanPost>
+
+@{
+    ViewData["Title"] = "IndexPlanPosts";
+}
+<div class="card col-md-12 text-center">
+    <div class="card-header col-md-12 text-center">
+        <h6>Arbete Hockeymatcher ja allt jag inte får någon ordning på i huvudet !</h6>
+    </div>
+    <div class="card-header col-md-12 text-center">
+        <a class="btn btn-sm btn-outline-success" asp-controller="Planerings" asp-action="CreatePlanPost">Lägg till Planeringspost</a>       
+    </div>
+    <div class="card-header col-md-12 text-center">
+        <form asp-controller="Planerings" asp-action="IndexPlanPosts">
+            <div class="card-header">
+                Förnamn:<input type="text" name="SearchString">
+                Efternamn:<input type="text" name="SearchString1">                
+            </div>
+            <div class="card-header col-md-12 text-center">
+                Planerat datum:<input type="text" name="SearchString2">
+                Slutdatum: <input type="text" name="SearchString3">
+            </div>
+            <div class="card-header col-md-12 text-center">
+                <input type="submit" value="Sök" />
+            </div>
+
+        </form>
+    </div>
+    <div class="card-body col-md-12 text-center">
+        <table class="table table-striped">
+            <thead class="col-md-12 text-center">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ApplicationUser)</th>
+                    <th>@Html.DisplayNameFor(model => model.PlanedDateTime)</th>                   
+                    <th>@Html.DisplayNameFor(model => model.Aktivitet)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="col-md-12">
+                @foreach (var item in Model.OrderBy(p => p.PlanedDateTime).Where(p=>p.AktivitetId < 4))
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ApplicationUser.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PlanedDateTime)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Aktivitet.AktivitetsBeskrivning)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-success" asp-controller="Planerings" asp-action="Edit" asp-route-id="@item.Id">Ändra</a>                        
+                        <a class="btn btn-sm btn-outline-success" asp-controller="Planerings" asp-action="Details" asp-route-id="@item.Id">Info</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-controller="Planerings" asp-action="Delete" asp-route-id="@item.Id">Del</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

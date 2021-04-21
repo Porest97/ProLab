@@ -1,0 +1,123 @@
+﻿@model RefReceipt
+@{
+    ViewData["Title"] = "2HDReceipt";
+}
+<div class="card">
+    <div class="card-header col-md-12">
+        <div class="col-md-12">
+            <h6>
+                <a href="default.asp"><img src="~/img/SIF_Logo.png" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+                SVENSKA ISHOCKEYFÖRBUNDET
+            </h6>
+        </div>
+        <div class="col-md12">
+            <h6>
+                Domarkvitto för match : @Html.DisplayFor(model => model.HockeyGame.TSMNumber) -
+                @Html.DisplayFor(model => model.HockeyGame.GameDateTime) -
+                @Html.DisplayFor(model => model.HockeyGame.Arena.ArenaName) -
+                @Html.DisplayFor(model => model.HockeyGame.HomeTeam.ClubName) -
+                @Html.DisplayFor(model => model.HockeyGame.AwayTeam.ClubName) -
+                @Html.DisplayFor(model => model.HockeyGame.GameCategory.GameCategoryName)
+            </h6>
+        </div>
+    </div>
+    <div class="card-header align-content-center col-md-12">
+        <div class="row col-sm-12 text-body border-dark table-bordered">
+            <div class="col-sm-6 border-dark">
+                <dl class="row border-dark">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.GameDateTime)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.GameDateTime)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.GameCategory.GameCategoryName)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.GameCategory.GameCategoryName)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.TSMNumber)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.TSMNumber)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.Arena)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.Arena.ArenaName)</dd>
+                </dl>
+            </div>
+            <div class="col-sm-6 border-dark">
+                <dl class="row border-dark">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HomeTeam)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HomeTeam.ClubName)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.AwayTeam)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.AwayTeam.ClubName)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.Result)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.Result)</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="row col-sm-12 border-dark table-bordered">
+            <div class="col-sm-6 border-dark border-right">
+                <dl class="row border-dark">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD1.CName)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD1.Address)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD1.Address)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD1.PrivateEmail)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD1.PrivateEmail)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD1.PaymentDetails)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD1.PaymentDetails)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.GameFeeHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.GameFeeHD1)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.AllowanceHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.AllowanceHD1)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.KmHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.KmHD1)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TravelExpensesHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TravelExpensesHD1)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.OtherHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.OtherHD1)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DescriptionOthersHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.DescriptionOthersHD1)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TotalCostHD1)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TotalCostHD1)</dd>
+                </dl>
+            </div>
+            <div class="col-sm-6 ">
+                <dl class="row">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD2.CName)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD2.Address)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD2.Address)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD2.PrivateEmail)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD2.PrivateEmail)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.HockeyGame.HD2.PaymentDetails)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.HockeyGame.HD2.PaymentDetails)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.GameFeeHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.GameFeeHD2)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.AllowanceHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.AllowanceHD2)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.KmHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.KmHD2)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TravelExpensesHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TravelExpensesHD2)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.OtherHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.OtherHD2)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.DescriptionOthersHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.DescriptionOthersHD2)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TotalCostHD2)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TotalCostHD2)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center col-md-12">
+        <div class="col-md-6">
+            <dl class="row col-sm-12 text-body border-dark table-bordered">
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TotalCostHockeyGame)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.TotalCostHockeyGame)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.RefRecStatus)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.RefRecStatus.RefRecStatusName)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TotalCostHalfHockeyGame)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.TotalCostHalfHockeyGame)</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="card-footer text-center col-md-12">
+
+        <a class="btn btn-sm btn-success" asp-controller="Accounting" asp-action="EditRefReceipt" asp-route-id="@Model.Id">Ändra</a>
+        <a class="btn btn-sm btn-success" asp-controller="Accounting" asp-action="IndexRefReceipts">Till Domarkvitton</a>
+    </div>
+</div>

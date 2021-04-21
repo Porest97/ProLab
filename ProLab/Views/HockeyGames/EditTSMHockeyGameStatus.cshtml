@@ -1,0 +1,57 @@
+﻿@model TSMHocekyGame
+
+@{
+    ViewData["Title"] = "EditTSMHockeyGame";
+}
+
+<div class="card col-md-6">
+    <div class="card-header">
+        <h6>Ändra Status på TSM-Hockeymatch: @Html.DisplayFor(model => model.GameNumber) 
+                                           - @Html.DisplayFor(model => model.GameDateTime) </h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="EditTSMHockeyGameStatus">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GameDateTime" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="GameNumber" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Round" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Arena" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="HomeTeam" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="AwayTeam" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Series" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="HD1" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="HD2" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="LD1" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="LD2" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Supervisor" />                   
+                    <div class="form-group">
+                        <label asp-for="GameStatusId" class="control-label"></label>
+                        <select asp-for="GameStatusId" class="form-control" asp-items="ViewBag.GameStatusId"></select>
+                        <span asp-validation-for="GameStatusId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Spara" class="btn btn-sm btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexTSMHockeyGames">Till TSM-Hockeymatcher</a>
+    </div>
+</div>

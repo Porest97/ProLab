@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CompanyRole>
+
+@{
+    ViewData["Title"] = "ListCompanyRoles";
+}
+<div class="card" style="width:50%;">
+    <div class="card-header">
+        <h6>Företags Roller</h6>
+        <a class="btn btn-sm btn-outline-success" asp-action="CreateCompanyRole">Skapa ny Roll</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="Home" asp-action="NBS">Till NBS !</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CompanyRoleName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyRoleName)
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-success" asp-action="EditCompanyRole" asp-route-id="@item.Id">Ändra</a>
+                        <a class="btn btn-sm btn-outline-success" asp-action="DetailsCompanyRole" asp-route-id="@item.Id">Info</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="DeleteCompanyRole" asp-route-id="@item.Id">Ta Bort</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+        <div class="card-footer"></div>
+    </div>
+</div>

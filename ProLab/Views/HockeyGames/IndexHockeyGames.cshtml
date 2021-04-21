@@ -8,8 +8,11 @@
         <h6>Hockeymatcher !</h6>
     </div>
     <div class="card-header col-md-12 text-center">
-        <a class="btn btn-sm btn-outline-success" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
         <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesFinal">Till spelade Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesHAHC">Till Haninge Anchors Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexTSMHockeyGames">Till TSM-Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesCorona">Till CoronaHockeyMatcher !</a>
     </div>
     <div class="card-header col-md-12 text-center">
         <form asp-controller="HockeyGames" asp-action="IndexHockeyGames">
@@ -29,35 +32,30 @@
         </form>
     </div>
     <div class="card-body col-md-12 text-center">
-        <table class="table table-striped">
+        <table class="table table-striped col-md-12 table-bordered">
             <thead class="col-md-12 text-center">
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.GameDateTime)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.GameNumber)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Arena)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HomeTeam)
+                        @Html.DisplayNameFor(model => model.GameCategory)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.HomeTeam) -
                         @Html.DisplayNameFor(model => model.AwayTeam)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.HD1)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.HD2)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LD1)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LD2)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.GameStatus)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateTimeChanged)
                     </th>
                     <th></th>
                 </tr>
@@ -70,33 +68,29 @@
                         @Html.DisplayFor(modelItem => item.GameDateTime)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.GameNumber)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Arena.ArenaName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.HomeTeam.ClubName)
+                        @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.HomeTeam.ClubName) -
                         @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HD1.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HD2.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LD1.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LD2.FullName)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.DateTimeChanged)
+                    </td>
+                    <td>
                         <a class="btn btn-sm btn-outline-success" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>
+                        <a class="btn btn-sm btn-outline-success" asp-action="EditHockeyGameStatus" asp-route-id="@item.Id">Ändra Status</a>
                         <a class="btn btn-sm btn-outline-success" asp-action="Details" asp-route-id="@item.Id">Info</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Ta Bort</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Del</a>
                     </td>
                 </tr>
                 }

@@ -14,6 +14,9 @@
                 <form asp-action="EditHockeyGame">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="DateTimePosted" />                    
+                    <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
                     <div class="form-group">
                         <label asp-for="GameDateTime" class="control-label"></label>
                         <input asp-for="GameDateTime" class="form-control" />

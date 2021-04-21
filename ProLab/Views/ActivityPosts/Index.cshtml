@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ProLab.Models.DataModels.ActivityPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeEnded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoursSpent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinutesSpent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondsSpent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HealthActivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityPostStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeEnded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursSpent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinutesSpent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondsSpent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HealthActivity.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityPostStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

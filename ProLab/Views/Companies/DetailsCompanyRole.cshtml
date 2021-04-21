@@ -1,0 +1,22 @@
+﻿@model CompanyRole
+
+@{
+    ViewData["Title"] = "DetailsCompanyRole";
+}
+
+<div>
+    <h4>CompanyRole</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CompanyRoleName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CompanyRoleName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-sm btn-outline-success" asp-action="EditCompanyRole" asp-route-id="@Model.Id">Ändra</a>
+    <a class="btn btn-sm btn-outline-success" asp-action="ListCompanyRoles">Till Företagsroller</a>
+</div>

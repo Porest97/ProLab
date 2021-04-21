@@ -71,7 +71,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Bank")]
         public string BankName { get; set; }
 
-        [Display(Name = "Swish# and Bank#")]
+        [Display(Name = "Swish# & Bank#")]
         public string PaymentDetails { get { return string.Format("{0} {1} {2} {3}", "#", SwishNumber, "#", BankAccount); } }
 
 

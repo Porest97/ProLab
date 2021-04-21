@@ -30,6 +30,20 @@ namespace ProLab.Controllers.AdministrationControllers
             return View();
         }
 
+        public IActionResult Health()
+        {
+            return View();
+        }
+
+        public IActionResult NBS()
+        {
+            return View();
+        }
+        public IActionResult Projects()
+        {
+            return View();
+        }
+
         public IActionResult Links()
         {
             return View();

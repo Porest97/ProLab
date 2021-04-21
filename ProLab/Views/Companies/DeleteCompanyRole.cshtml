@@ -1,0 +1,32 @@
+﻿@model CompanyRole
+
+@{
+    ViewData["Title"] = "DeleteCompanyRole";
+}
+
+<div class="card" style="width:50%;">
+    <div class="card-header">
+        <h6>
+            Vill du TA BORT Företagsroll: #@Html.DisplayFor(model => model.Id)
+            - @Html.DisplayFor(model => model.CompanyRoleName) ?
+        </h6>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CompanyRoleName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CompanyRoleName)
+            </dd>
+        </dl>
+        <form asp-action="DeleteCompanyRole">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+        </form>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-sm btn-outline-success" asp-controller="Companies" asp-action="ListCompanyRoles">Till Företagsroll listan ! !</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="Home" asp-action="NBS">Till NBS !</a>
+    </div>
+</div>

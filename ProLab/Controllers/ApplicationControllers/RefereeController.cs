@@ -89,7 +89,7 @@ namespace ProLab.Controllers.ApplicationControllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterReferee([Bind("Id,FirstName,LastName,StreetAddress,ZipCode,Country,Ssn" +
+        public async Task<IActionResult> RegisterReferee([Bind("Id,FirstName,LastName,StreetAddress,ZipCode,City,Country,Ssn" +
             ",PhoneNumber1,PhoneNumber2,PrivateEmail,ApplicationUserId,SwishNumber,BankAccount,BankName")] Referee referee)
         {
             if (ModelState.IsValid)
@@ -124,7 +124,7 @@ namespace ProLab.Controllers.ApplicationControllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditReferee(int id, [Bind("Id,FirstName,LastName,StreetAddress,ZipCode,Country,Ssn" +
+        public async Task<IActionResult> EditReferee(int id, [Bind("Id,FirstName,LastName,StreetAddress,ZipCode,City,Country,Ssn" +
             ",PhoneNumber1,PhoneNumber2,PrivateEmail,ApplicationUserId,SwishNumber,BankAccount,BankName")] Referee referee)
         {
             if (id != referee.Id)

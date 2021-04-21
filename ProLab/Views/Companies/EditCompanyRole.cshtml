@@ -1,0 +1,35 @@
+﻿@model CompanyRole
+
+@{
+    ViewData["Title"] = "EditCompanyRole";
+}
+<div class="card" style="width:50%;">
+    <div class="card-header">
+        <h6>
+            Ändra Företag: #@Html.DisplayFor(model => model.Id)
+            - @Html.DisplayFor(model => model.CompanyRoleName)
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="EditCompanyRole">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="CompanyRoleName" class="control-label"></label>
+                        <input asp-for="CompanyRoleName" class="form-control" />
+                        <span asp-validation-for="CompanyRoleName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-sm btn-outline-success" asp-controller="Companies" asp-action="ListCompanyRoles">Till Företagsroll listan ! !</a>
+        <a class="btn btn-sm btn-outline-success" asp-controller="Home" asp-action="NBS">Till NBS !</a>
+    </div>
+</div>
