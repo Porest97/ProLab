@@ -1,0 +1,401 @@
+﻿@model IEnumerable<ProLab.TheOneApp.Models.DataModels.Food>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnergyKcal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnergyKJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carbohydrates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Protein)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fibers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Water)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alcohol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monosaccharides)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disaccharides)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sucrose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WholeGrainsTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sugars)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSaturatedFattyAcids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FattyAcid40100)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LauricAcidC120)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MyristicAcidC140)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PalmiticAcidC160)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StearinAcid180)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArachidicAcidC200)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMonounsaturatedFattyAcids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PalmOleicAcidC161)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OleicAcidC181)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPolyunsaturatedFattyAcids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinoleAcidC182)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinolenicAcidC183)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArachidonicAcidC204)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EPAC205)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DPAC225)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DHAC226)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cholesterol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Retinol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BetaCarotene)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thiamine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Riboflavin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Niacin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NiacinEquivalents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminB6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminB12)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Folate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phosphorus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iodine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iron)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calcium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Potassium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magnesium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sodium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Selenium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WasteProcent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnergyKcal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnergyKJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carbohydrates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Protein)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fibers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alcohol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monosaccharides)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disaccharides)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sucrose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WholeGrainsTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sugars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSaturatedFattyAcids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FattyAcid40100)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LauricAcidC120)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MyristicAcidC140)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PalmiticAcidC160)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StearinAcid180)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArachidicAcidC200)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalMonounsaturatedFattyAcids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PalmOleicAcidC161)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OleicAcidC181)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPolyunsaturatedFattyAcids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinoleAcidC182)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinolenicAcidC183)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArachidonicAcidC204)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EPAC205)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DPAC225)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DHAC226)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cholesterol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Retinol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetaCarotene)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thiamine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Riboflavin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Niacin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NiacinEquivalents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminB6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminB12)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Folate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phosphorus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iodine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iron)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calcium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Potassium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Magnesium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sodium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Selenium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WasteProcent)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

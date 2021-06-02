@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProLab.ImageUpload.Models;
 using ProLab.Models.DataModels;
+using ProLab.TheOneApp.Models.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,12 @@ namespace ProLab.Data
 
         public DbSet<CleverServicePayments> CleverServicePayments { get; set; }
 
+        public DbSet<Food> Foods { get; set; }
+
+        public DbSet<FoodRating> FoodRatings { get; set; }
+
+        //public DbSet<RatingToFood> RatingsToFoods { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -71,6 +78,6 @@ namespace ProLab.Data
             }
         }
 
-        public DbSet<ProLab.Models.DataModels.Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

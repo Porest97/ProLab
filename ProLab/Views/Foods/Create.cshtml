@@ -1,0 +1,338 @@
+﻿@model ProLab.TheOneApp.Models.DataModels.Food
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Food</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateTimePosted" class="control-label"></label>
+                <input asp-for="DateTimePosted" class="form-control" />
+                <span asp-validation-for="DateTimePosted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeChanged" class="control-label"></label>
+                <input asp-for="DateTimeChanged" class="form-control" />
+                <span asp-validation-for="DateTimeChanged" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodName" class="control-label"></label>
+                <input asp-for="FoodName" class="form-control" />
+                <span asp-validation-for="FoodName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodNumber" class="control-label"></label>
+                <input asp-for="FoodNumber" class="form-control" />
+                <span asp-validation-for="FoodNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodDescription" class="control-label"></label>
+                <input asp-for="FoodDescription" class="form-control" />
+                <span asp-validation-for="FoodDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnergyKcal" class="control-label"></label>
+                <input asp-for="EnergyKcal" class="form-control" />
+                <span asp-validation-for="EnergyKcal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnergyKJ" class="control-label"></label>
+                <input asp-for="EnergyKJ" class="form-control" />
+                <span asp-validation-for="EnergyKJ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carbohydrates" class="control-label"></label>
+                <input asp-for="Carbohydrates" class="form-control" />
+                <span asp-validation-for="Carbohydrates" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fat" class="control-label"></label>
+                <input asp-for="Fat" class="form-control" />
+                <span asp-validation-for="Fat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Protein" class="control-label"></label>
+                <input asp-for="Protein" class="form-control" />
+                <span asp-validation-for="Protein" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fibers" class="control-label"></label>
+                <input asp-for="Fibers" class="form-control" />
+                <span asp-validation-for="Fibers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Water" class="control-label"></label>
+                <input asp-for="Water" class="form-control" />
+                <span asp-validation-for="Water" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alcohol" class="control-label"></label>
+                <input asp-for="Alcohol" class="form-control" />
+                <span asp-validation-for="Alcohol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ash" class="control-label"></label>
+                <input asp-for="Ash" class="form-control" />
+                <span asp-validation-for="Ash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Monosaccharides" class="control-label"></label>
+                <input asp-for="Monosaccharides" class="form-control" />
+                <span asp-validation-for="Monosaccharides" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Disaccharides" class="control-label"></label>
+                <input asp-for="Disaccharides" class="form-control" />
+                <span asp-validation-for="Disaccharides" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sucrose" class="control-label"></label>
+                <input asp-for="Sucrose" class="form-control" />
+                <span asp-validation-for="Sucrose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WholeGrainsTotal" class="control-label"></label>
+                <input asp-for="WholeGrainsTotal" class="form-control" />
+                <span asp-validation-for="WholeGrainsTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sugars" class="control-label"></label>
+                <input asp-for="Sugars" class="form-control" />
+                <span asp-validation-for="Sugars" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalSaturatedFattyAcids" class="control-label"></label>
+                <input asp-for="TotalSaturatedFattyAcids" class="form-control" />
+                <span asp-validation-for="TotalSaturatedFattyAcids" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FattyAcid40100" class="control-label"></label>
+                <input asp-for="FattyAcid40100" class="form-control" />
+                <span asp-validation-for="FattyAcid40100" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LauricAcidC120" class="control-label"></label>
+                <input asp-for="LauricAcidC120" class="form-control" />
+                <span asp-validation-for="LauricAcidC120" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MyristicAcidC140" class="control-label"></label>
+                <input asp-for="MyristicAcidC140" class="form-control" />
+                <span asp-validation-for="MyristicAcidC140" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PalmiticAcidC160" class="control-label"></label>
+                <input asp-for="PalmiticAcidC160" class="form-control" />
+                <span asp-validation-for="PalmiticAcidC160" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StearinAcid180" class="control-label"></label>
+                <input asp-for="StearinAcid180" class="form-control" />
+                <span asp-validation-for="StearinAcid180" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArachidicAcidC200" class="control-label"></label>
+                <input asp-for="ArachidicAcidC200" class="form-control" />
+                <span asp-validation-for="ArachidicAcidC200" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalMonounsaturatedFattyAcids" class="control-label"></label>
+                <input asp-for="TotalMonounsaturatedFattyAcids" class="form-control" />
+                <span asp-validation-for="TotalMonounsaturatedFattyAcids" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PalmOleicAcidC161" class="control-label"></label>
+                <input asp-for="PalmOleicAcidC161" class="form-control" />
+                <span asp-validation-for="PalmOleicAcidC161" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OleicAcidC181" class="control-label"></label>
+                <input asp-for="OleicAcidC181" class="form-control" />
+                <span asp-validation-for="OleicAcidC181" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPolyunsaturatedFattyAcids" class="control-label"></label>
+                <input asp-for="TotalPolyunsaturatedFattyAcids" class="form-control" />
+                <span asp-validation-for="TotalPolyunsaturatedFattyAcids" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinoleAcidC182" class="control-label"></label>
+                <input asp-for="LinoleAcidC182" class="form-control" />
+                <span asp-validation-for="LinoleAcidC182" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinolenicAcidC183" class="control-label"></label>
+                <input asp-for="LinolenicAcidC183" class="form-control" />
+                <span asp-validation-for="LinolenicAcidC183" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArachidonicAcidC204" class="control-label"></label>
+                <input asp-for="ArachidonicAcidC204" class="form-control" />
+                <span asp-validation-for="ArachidonicAcidC204" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EPAC205" class="control-label"></label>
+                <input asp-for="EPAC205" class="form-control" />
+                <span asp-validation-for="EPAC205" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DPAC225" class="control-label"></label>
+                <input asp-for="DPAC225" class="form-control" />
+                <span asp-validation-for="DPAC225" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DHAC226" class="control-label"></label>
+                <input asp-for="DHAC226" class="form-control" />
+                <span asp-validation-for="DHAC226" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cholesterol" class="control-label"></label>
+                <input asp-for="Cholesterol" class="form-control" />
+                <span asp-validation-for="Cholesterol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Retinol" class="control-label"></label>
+                <input asp-for="Retinol" class="form-control" />
+                <span asp-validation-for="Retinol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminA" class="control-label"></label>
+                <input asp-for="VitaminA" class="form-control" />
+                <span asp-validation-for="VitaminA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BetaCarotene" class="control-label"></label>
+                <input asp-for="BetaCarotene" class="form-control" />
+                <span asp-validation-for="BetaCarotene" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminD" class="control-label"></label>
+                <input asp-for="VitaminD" class="form-control" />
+                <span asp-validation-for="VitaminD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminE" class="control-label"></label>
+                <input asp-for="VitaminE" class="form-control" />
+                <span asp-validation-for="VitaminE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminK" class="control-label"></label>
+                <input asp-for="VitaminK" class="form-control" />
+                <span asp-validation-for="VitaminK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Thiamine" class="control-label"></label>
+                <input asp-for="Thiamine" class="form-control" />
+                <span asp-validation-for="Thiamine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Riboflavin" class="control-label"></label>
+                <input asp-for="Riboflavin" class="form-control" />
+                <span asp-validation-for="Riboflavin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminC" class="control-label"></label>
+                <input asp-for="VitaminC" class="form-control" />
+                <span asp-validation-for="VitaminC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Niacin" class="control-label"></label>
+                <input asp-for="Niacin" class="form-control" />
+                <span asp-validation-for="Niacin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NiacinEquivalents" class="control-label"></label>
+                <input asp-for="NiacinEquivalents" class="form-control" />
+                <span asp-validation-for="NiacinEquivalents" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminB6" class="control-label"></label>
+                <input asp-for="VitaminB6" class="form-control" />
+                <span asp-validation-for="VitaminB6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VitaminB12" class="control-label"></label>
+                <input asp-for="VitaminB12" class="form-control" />
+                <span asp-validation-for="VitaminB12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folate" class="control-label"></label>
+                <input asp-for="Folate" class="form-control" />
+                <span asp-validation-for="Folate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phosphorus" class="control-label"></label>
+                <input asp-for="Phosphorus" class="form-control" />
+                <span asp-validation-for="Phosphorus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iodine" class="control-label"></label>
+                <input asp-for="Iodine" class="form-control" />
+                <span asp-validation-for="Iodine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iron" class="control-label"></label>
+                <input asp-for="Iron" class="form-control" />
+                <span asp-validation-for="Iron" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calcium" class="control-label"></label>
+                <input asp-for="Calcium" class="form-control" />
+                <span asp-validation-for="Calcium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Potassium" class="control-label"></label>
+                <input asp-for="Potassium" class="form-control" />
+                <span asp-validation-for="Potassium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Magnesium" class="control-label"></label>
+                <input asp-for="Magnesium" class="form-control" />
+                <span asp-validation-for="Magnesium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sodium" class="control-label"></label>
+                <input asp-for="Sodium" class="form-control" />
+                <span asp-validation-for="Sodium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salt" class="control-label"></label>
+                <input asp-for="Salt" class="form-control" />
+                <span asp-validation-for="Salt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Selenium" class="control-label"></label>
+                <input asp-for="Selenium" class="form-control" />
+                <span asp-validation-for="Selenium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zink" class="control-label"></label>
+                <input asp-for="Zink" class="form-control" />
+                <span asp-validation-for="Zink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WasteProcent" class="control-label"></label>
+                <input asp-for="WasteProcent" class="form-control" />
+                <span asp-validation-for="WasteProcent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

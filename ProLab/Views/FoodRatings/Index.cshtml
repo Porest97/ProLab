@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProLab.TheOneApp.Models.DataModels.FoodRating>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodRatingNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodRatingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodRatingDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodRatingNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodRatingName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodRatingDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -338,7 +338,7 @@ namespace ProLab.Controllers.AdministrationControllers
             }
         }
         // Create Role GET !
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CreateRole()
         {
