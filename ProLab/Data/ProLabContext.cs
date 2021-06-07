@@ -79,5 +79,11 @@ namespace ProLab.Data
         }
 
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<UploadModel> Uploads { get; set; }
+
+        public DbSet<OfficialsGroup> OfficialsGroups { get; set; }
+       
+        
     }
 }

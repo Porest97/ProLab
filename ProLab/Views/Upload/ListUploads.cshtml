@@ -1,0 +1,44 @@
+﻿@model IEnumerable<UploadModel>
+
+@{
+    ViewData["Title"] = "ListUploads";
+}
+
+    <div class="badge">
+        <h4>Uploads</h4>
+
+        <p>
+            <a class="btn btn-sm btn-outline-success" asp-controller="Upload" asp-action="CreateUpload">Upload new Item !</a>
+        </p>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UploadName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UploadName)
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-success" asp-controller="Upload" asp-action="EditUpload" asp-route-id="@item.UploadId">Edit</a>
+                            <a class="btn btn-sm btn-success" asp-controller="Upload" asp-action="DetailsUpload" asp-route-id="@item.UploadId">Details</a>
+                            <a class="btn btn-sm btn-danger" asp-controller="Upload" asp-action="DeleteUpload" asp-route-id="@item.UploadId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

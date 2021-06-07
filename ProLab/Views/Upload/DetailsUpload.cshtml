@@ -1,0 +1,39 @@
+﻿@model UploadModel
+
+@{
+    ViewData["Title"] = "DetailsUpload";
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Details this Upload</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UploadName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UploadName)
+            </dd>
+            <dt class="col-sm-2">
+                Uploaded Item !
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@("~/Uploads/"+Model.UploadName)" asp-append-version="true" width="100%" height="100%" />
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-sm btn-outline-success" asp-action="EditUpload" asp-route-id="@Model.UploadId">Edit Upload</a>
+        <a class="btn btn-sm btn-outline-success" asp-action="ListUploads">Back to Uploads</a>
+    </div>
+</div>

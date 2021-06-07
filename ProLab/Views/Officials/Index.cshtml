@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ProLab.Models.DataModels.OfficialsGroup>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchClock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchProtocol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoothDoor1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoothDoor2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShotStatistics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscJockey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinesMan1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinesMan2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supervisor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speaker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchClock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchProtocol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoothDoor1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoothDoor2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShotStatistics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscJockey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinesMan1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinesMan2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supervisor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

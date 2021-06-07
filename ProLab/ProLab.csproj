@@ -48,6 +48,7 @@
 
   <ItemGroup>
     <Folder Include="TheOneApp\Data\" />
+    <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
 
   <ItemGroup>

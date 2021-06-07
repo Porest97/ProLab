@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProLab.Data;
 
 namespace ProLab.Migrations
 {
     [DbContext(typeof(ProLabContext))]
-    partial class ProLabContextModelSnapshot : ModelSnapshot
+    [Migration("20210603160702_OfficialsAdded")]
+    partial class OfficialsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1405,24 +1407,6 @@ namespace ProLab.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TSMSeries");
-                });
-
-            modelBuilder.Entity("ProLab.Models.DataModels.UploadModel", b =>
-                {
-                    b.Property<int>("UploadId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("UploadName")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("UploadId");
-
-                    b.ToTable("Uploads");
                 });
 
             modelBuilder.Entity("ProLab.TheOneApp.Models.DataModels.Food", b =>
