@@ -203,7 +203,7 @@ namespace ProLab.Controllers.AdministrationControllers
 
         //Delete Role !
         [HttpPost]
-        [Authorize(Policy = "DeleteRolePolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteRole(string id)
         {
             var role = await roleManager.FindByIdAsync(id);
@@ -296,8 +296,7 @@ namespace ProLab.Controllers.AdministrationControllers
         }
         //Edit User POST !
         [Authorize(Roles = "Admin")]
-        [HttpPost]
-        [HttpPost]
+        [HttpPost]        
         public async Task<IActionResult> EditUser(EditUserViewModel model)
         {
             var user = await userManager.FindByIdAsync(model.Id);
@@ -347,7 +346,7 @@ namespace ProLab.Controllers.AdministrationControllers
         // Create Role POST !
 
         [HttpPost]
-        [Authorize(Policy = "CreateRolePolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
         {
             if (ModelState.IsValid)
@@ -374,6 +373,7 @@ namespace ProLab.Controllers.AdministrationControllers
         // List Roles GET !
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult ListRoles()
         {
             var roles = roleManager.Roles;
@@ -384,6 +384,7 @@ namespace ProLab.Controllers.AdministrationControllers
         // Role ID is passed from the URL to the action
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditRole(string id)
         {
             // Find the role by Role ID
@@ -419,7 +420,7 @@ namespace ProLab.Controllers.AdministrationControllers
         // This action responds to HttpPost and receives EditRoleViewModel
 
         [HttpPost]
-        [Authorize(Policy = "EditRolePolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
             var role = await roleManager.FindByIdAsync(model.Id);

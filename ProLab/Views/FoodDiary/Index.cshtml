@@ -1,0 +1,167 @@
+﻿@model IEnumerable<ProLab.Models.DataModels.FoodDiaryPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaturatedFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolyunsaturatedFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonounsaturatedFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransFat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cholesterol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sodium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Potassium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carbohydrates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fibers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sugar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Protein)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VitaminC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calcium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iron)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaturatedFat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolyunsaturatedFat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonounsaturatedFat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransFat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cholesterol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sodium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Potassium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carbohydrates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fibers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sugar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Protein)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VitaminC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calcium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iron)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

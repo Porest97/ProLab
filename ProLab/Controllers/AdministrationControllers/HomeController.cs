@@ -25,30 +25,49 @@ namespace ProLab.Controllers.AdministrationControllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Hockey()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Health()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult NBS()
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Projects()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Links()
         {
             return View();
-        }       
+        }
+        [Authorize(Roles = "Peter")]
+        public IActionResult Peter()
+        {
+            return View();
+        }        
 
+        [Authorize(Roles = "SuperUser")]
+        public IActionResult SuperUser()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public IActionResult FitnessLinks()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();
