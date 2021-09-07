@@ -1,5 +1,8 @@
-﻿@{
-    ViewData["Title"] = "@User.Identity.Name Home";
+﻿@model ApplicationUser
+
+@{
+
+    ViewData["Title"] = "User: " + User.Identity.Name;
 }
 
 <div class="card card-columns text-center">

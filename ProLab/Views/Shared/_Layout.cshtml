@@ -82,23 +82,31 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Links">Links</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TheOneApp" asp-action="Home">TOA</a>
-                            </li>
+                            @*<li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="TheOneApp" asp-action="Home">TOA</a>
+            </li>*@
 
                         }
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("SuperUser"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SuperUser">Min sida</a>
-                            </li>                            
+                            </li>
+
                         }
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Peter"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Peter">Min sida</a>
                             </li>
-                            
+
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Anchors"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Anchors">Min sida</a>
+                            </li>
+
                         }
                     </ul>
 

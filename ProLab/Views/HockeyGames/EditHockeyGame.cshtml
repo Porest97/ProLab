@@ -15,7 +15,7 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="DateTimePosted" />                    
+                    <input type="hidden" asp-for="DateTimePosted" />
                     <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
                     <div class="form-group">
                         <label asp-for="GameDateTime" class="control-label"></label>
@@ -31,6 +31,11 @@
                         <label asp-for="TSMNumber" class="control-label"></label>
                         <input asp-for="TSMNumber" class="form-control" />
                         <span asp-validation-for="TSMNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Notes" class="control-label"></label>
+                        <input asp-for="Notes" class="form-control" />
+                        <span asp-validation-for="Notes" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="GameCategoryId" class="control-label"></label>

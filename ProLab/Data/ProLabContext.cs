@@ -63,18 +63,14 @@ namespace ProLab.Data
         public DbSet<CleverServicePayments> CleverServicePayments { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
-<<<<<<< HEAD
-        public DbSet<FoodDiaryPost> FoodDiaryPosts { get; set; }
-
-        public DbSet<UploadModel> Uploads { get; set; }
-=======
         public DbSet<Food> Foods { get; set; }
 
         public DbSet<FoodRating> FoodRatings { get; set; }
 
+        public DbSet<FoodDiaryPost> FoodDiaryPosts { get; set; }
+
         //public DbSet<RatingToFood> RatingsToFoods { get; set; }
 
->>>>>>> 737a8936d14b6b15f2ecf3acf7cdcc5224a1c820
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -85,15 +81,12 @@ namespace ProLab.Data
             }
         }
 
-<<<<<<< HEAD
-=======
-        public DbSet<Employee> Employees { get; set; }
+        //public DbSet<Employee> Employees { get; set; }
 
         public DbSet<UploadModel> Uploads { get; set; }
 
         public DbSet<OfficialsGroup> OfficialsGroups { get; set; }
        
->>>>>>> 737a8936d14b6b15f2ecf3acf7cdcc5224a1c820
         
     }
 }

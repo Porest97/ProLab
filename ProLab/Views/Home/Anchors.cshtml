@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Anchors User: " + User.Identity.Name;
+}
+<div class="card card-columns text-center">
+    <div class="card-header">
+        <h3> Anchors User: @User.Identity.Name Hemsida !</h3>        
+        <img src="~/img/special_haningeanchorshc.jpg">       
+    </div>
+    <div class="card-footer">
+        <a asp-action="AnchorsLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till Anchors Länkar</a>
+        - Anchors länkar !
+    </div>
+    <div class="card-footer">
+        <a asp-action="FitnessLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till Fitness Länkar</a>
+        - Fitness Länkar !
+    </div>
+</div>

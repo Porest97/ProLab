@@ -14,13 +14,14 @@ namespace ProLab.Models.DataModels
         [Key]
         public int UploadId { get; set; }
         [Column(TypeName = "nvarchar(50)")]
+        [DisplayName("Titel")]
         public string Title { get; set; }
         [Column(TypeName = "nvarchar(100)")]
-        [DisplayName("Item Name")]
+        [DisplayName("Fil Namn")]
         public string UploadName { get; set; }
 
         [NotMapped]
-        [DisplayName("Upload File")]
+        [DisplayName("Ladda upp bild ")]
         public IFormFile UploadFile { get; set; }
     }
 }

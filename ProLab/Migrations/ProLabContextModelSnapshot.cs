@@ -16,7 +16,7 @@ namespace ProLab.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -766,6 +766,9 @@ namespace ProLab.Migrations
                     b.Property<int?>("HomeTeamScore")
                         .HasColumnType("int");
 
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("RefereeId")
                         .HasColumnType("int");
 
@@ -1508,8 +1511,6 @@ namespace ProLab.Migrations
                     b.ToTable("Uploads");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("ProLab.TheOneApp.Models.DataModels.Food", b =>
                 {
                     b.Property<int>("Id")
@@ -1735,7 +1736,6 @@ namespace ProLab.Migrations
                     b.ToTable("FoodRatings");
                 });
 
->>>>>>> 737a8936d14b6b15f2ecf3acf7cdcc5224a1c820
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)

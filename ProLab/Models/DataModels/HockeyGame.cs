@@ -125,7 +125,8 @@ namespace ProLab.Models.DataModels
         [Display(Name = "LD")]
         [ForeignKey("RefereeId3")]
         public Referee LD2 { get; set; }
-
+        [Display(Name = "Besk.")]
+        public string Notes { get; set; }
     }
 
     public class Club
@@ -165,6 +166,8 @@ namespace ProLab.Models.DataModels
 
         [Display(Name = "Address")]
         public string Address { get { return string.Format("{0} {1} {2}", StreetAddress, ZipCode, City); } }
+
+        
     }
 
     public class Series

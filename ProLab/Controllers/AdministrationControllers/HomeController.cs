@@ -66,6 +66,16 @@ namespace ProLab.Controllers.AdministrationControllers
         {
             return View();
         }
+        [Authorize(Roles = "Anchors")]
+        public IActionResult Anchors()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Anchors")]
+        public IActionResult AnchorsLinks()
+        {
+            return View();
+        }
 
         [AllowAnonymous]
         public IActionResult Privacy()

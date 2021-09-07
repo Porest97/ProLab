@@ -10,15 +10,15 @@ using ProLab.Data;
 namespace ProLab.Migrations
 {
     [DbContext(typeof(ProLabContext))]
-    [Migration("20210607154315_UploadsAdded")]
-    partial class UploadsAdded
+    [Migration("20210805105944_NotesAddedInHockeyGames")]
+    partial class NotesAddedInHockeyGames
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -579,6 +579,89 @@ namespace ProLab.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.FoodDiaryPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<decimal>("Calcium")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Calories")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Carbohydrates")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Cholesterol")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimeChanged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Fat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Fibers")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Iron")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Meal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("MonounsaturatedFat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PolyunsaturatedFat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Potassium")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Protein")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SaturatedFat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Sodium")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Sugar")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TransFat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("VitaminA")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("VitaminC")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("FoodDiaryPosts");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.GameCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -684,6 +767,9 @@ namespace ProLab.Migrations
 
                     b.Property<int?>("HomeTeamScore")
                         .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RefereeId")
                         .HasColumnType("int");
@@ -1781,6 +1867,16 @@ namespace ProLab.Migrations
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.Employee", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.FoodDiaryPost", b =>
                 {
                     b.HasOne("ProLab.Models.DataModels.ApplicationUser", "User")
                         .WithMany()

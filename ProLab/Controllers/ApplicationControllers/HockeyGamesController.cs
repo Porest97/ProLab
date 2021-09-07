@@ -19,9 +19,97 @@ namespace ProLab.Controllers.ApplicationControllers
             _context = context;
         }
 
+        public async Task<IActionResult> ListGamesRef(string searchString, string searchString1, 
+            string searchString2, string searchString3)
+        {
+            var hockeyGames = from h in _context.HockeyGame
+                .Include(h => h.Arena)
+                .Include(h => h.AwayTeam)
+                .Include(h => h.GameCategory)
+                .Include(h => h.GameStatus)
+                .Include(h => h.GameType)
+                .Include(h => h.HD1)
+                .Include(h => h.HD2)
+                .Include(h => h.HomeTeam)
+                .Include(h => h.LD1)
+                .Include(h => h.LD2)
+                .Include(h => h.Series)
+
+                              select h;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                hockeyGames = hockeyGames
+                .Include(h => h.Arena)
+                .Include(h => h.AwayTeam)
+                .Include(h => h.GameCategory)
+                .Include(h => h.GameStatus)
+                .Include(h => h.GameType)
+                .Include(h => h.HD1)
+                .Include(h => h.HD2)
+                .Include(h => h.HomeTeam)
+                .Include(h => h.LD1)
+                .Include(h => h.LD2)
+                .Include(h => h.Series)
+                .Where(s => s.GameDateTime.ToString().Contains(searchString));
+
+            }
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.Arena.ArenaName.Contains(searchString1));
+
+            }
+            if (!String.IsNullOrEmpty(searchString2))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.Notes.Contains(searchString2));
+
+            }
+            if (!String.IsNullOrEmpty(searchString3))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.GameStatus.GameStatusName.Contains(searchString3));
+
+            }
+            return View(await hockeyGames.ToListAsync());
+        }
+
         // GET: IndexHockeyGames
         public async Task<IActionResult> IndexHockeyGames(string searchString, string searchString1,
-            string searchString2, string searchString3, string searchString4)
+            string searchString2, string searchString3, string searchString4, string searchString5)
         {
             var hockeyGames = from h in _context.HockeyGame
                 .Include(h => h.Arena)
@@ -119,6 +207,22 @@ namespace ProLab.Controllers.ApplicationControllers
                .Include(h => h.LD2)
                .Include(h => h.Series)
                .Where(s => s.GameStatus.GameStatusName.Contains(searchString4));
+            }
+            if (!String.IsNullOrEmpty(searchString5))
+            {
+                hockeyGames = hockeyGames
+               .Include(h => h.Arena)
+               .Include(h => h.AwayTeam)
+               .Include(h => h.GameCategory)
+               .Include(h => h.GameStatus)
+               .Include(h => h.GameType)
+               .Include(h => h.HD1)
+               .Include(h => h.HD2)
+               .Include(h => h.HomeTeam)
+               .Include(h => h.LD1)
+               .Include(h => h.LD2)
+               .Include(h => h.Series)
+               .Where(s => s.Notes.Contains(searchString5));
             }
             return View(await hockeyGames.ToListAsync());
         }
@@ -489,7 +593,8 @@ namespace ProLab.Controllers.ApplicationControllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateHockeyGame([Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,GameNumber,TSMNumber,GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3")] HockeyGame hockeyGame)
+        public async Task<IActionResult> CreateHockeyGame([Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,GameNumber,TSMNumber,GameCategoryId," +
+            "GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore,AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3,Notes")] HockeyGame hockeyGame)
         {
             if (ModelState.IsValid)
             {
@@ -545,7 +650,7 @@ namespace ProLab.Controllers.ApplicationControllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHockeyGame(int id, [Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,GameNumber,TSMNumber," +
             "GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore," +
-            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3")] HockeyGame hockeyGame)
+            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3,Notes")] HockeyGame hockeyGame)
         {
             if (id != hockeyGame.Id)
             {
@@ -621,7 +726,7 @@ namespace ProLab.Controllers.ApplicationControllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHockeyGameParam(int id, [Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,GameNumber,TSMNumber," +
             "GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore," +
-            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3")] HockeyGame hockeyGame)
+            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3,Notes")] HockeyGame hockeyGame)
         {
             if (id != hockeyGame.Id)
             {
@@ -696,7 +801,7 @@ namespace ProLab.Controllers.ApplicationControllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHockeyGameStatus(int id, [Bind("Id,GameDateTime,GameNumber,TSMNumber," +
             "GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore," +
-            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3")] HockeyGame hockeyGame)
+            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3,Notes")] HockeyGame hockeyGame)
         {
             if (id != hockeyGame.Id)
             {

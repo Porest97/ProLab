@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-                <form asp-action="EditHockeyGameParam">                    
+                <form asp-action="EditHockeyGameParam">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -24,6 +24,8 @@
                     <input type="hidden" asp-for="GameNumber" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="TSMNumber" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Notes" />
                     <div class="form-group">
                         <label asp-for="GameCategoryId" class="control-label"></label>
                         <select asp-for="GameCategoryId" class="form-control" asp-items="ViewBag.GameCategoryId"></select>
