@@ -17,8 +17,16 @@ namespace ProLab.Models.DataModels
         [ForeignKey("RefereeId")]
         public Referee Referee { get; set; }
 
+
         [Display(Name = "Datum & Tidpunkt")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
+
+        public MDProtocol()
+        {
+            Date = DateTime.Now;
+        }      
+        
 
         [Display(Name = "Kroppstemperatur")]
         public string BodyTemp { get; set; }

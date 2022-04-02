@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,7 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET:  ListReferees - search
+        [Authorize(Roles = "Admin, Daif")]
         public async Task<IActionResult> ListReferees
         (string searchString, string searchString1, string searchString2, string searchString3, string searchString4, string searchString5)
         {
@@ -81,6 +83,7 @@ namespace ProLab.Controllers.ApplicationControllers
 
 
         // GET: Referees/Register
+        [Authorize(Roles = "Admin")]
         public IActionResult RegisterReferee()
         {
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName");
@@ -103,6 +106,7 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET: Referee/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditReferee(int? id)
         {
             if (id == null)
@@ -151,6 +155,26 @@ namespace ProLab.Controllers.ApplicationControllers
                     }
                 }
                 return RedirectToAction(nameof(ListReferees));
+            }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", referee.ApplicationUserId);
+            return View(referee);
+        }
+
+        // GET: DetailsRef/Id
+        [AllowAnonymous]
+        public async Task<IActionResult> DetailsRef(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var referee = await _context.Referee
+                .Include(r => r.ApplicationUser)                
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (referee == null)
+            {
+                return NotFound();
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "FullName", referee.ApplicationUserId);
             return View(referee);

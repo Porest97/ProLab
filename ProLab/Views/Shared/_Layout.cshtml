@@ -108,6 +108,27 @@
                             </li>
 
                         }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Daif"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Daif">Min sida</a>
+                            </li>
+
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Referee"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Referee">REF</a>
+                            </li>
+
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Regus"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Regus">My Page</a>
+                            </li>
+
+                        }
                     </ul>
 
 

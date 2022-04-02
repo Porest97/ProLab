@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Regus User: " + User.Identity.Name;
+}
+<div class="card card-columns text-center">
+    <div class="card-header">
+        <h3> Regus User: @User.Identity.Name Home page !</h3>
+        <img src="~/img/regus-logo.png">
+    </div>
+    <div class="card-footer">
+        <a asp-action="RegusLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">To Regus links</a>
+        - Regus Links !
+    </div>
+    <div class="card-footer">
+        <a asp-action="FitnessLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">To Fitness Links</a>
+        - Fitness Links !
+    </div>
+</div>

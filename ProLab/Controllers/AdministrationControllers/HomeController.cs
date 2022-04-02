@@ -61,6 +61,31 @@ namespace ProLab.Controllers.AdministrationControllers
         {
             return View();
         }
+        [Authorize(Roles = "Daif")]
+        public IActionResult Daif()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Referee")]
+        public IActionResult Referee()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Referee, Daif")]
+        public IActionResult SIFLinks()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Regus")]
+        public IActionResult RegusLinks()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Regus")]
+        public IActionResult Regus()
+        {
+            return View();
+        }
         [AllowAnonymous]
         public IActionResult FitnessLinks()
         {
@@ -71,7 +96,7 @@ namespace ProLab.Controllers.AdministrationControllers
         {
             return View();
         }
-        [Authorize(Roles = "Anchors")]
+        [Authorize(Roles = "Anchors, Daif")]
         public IActionResult AnchorsLinks()
         {
             return View();

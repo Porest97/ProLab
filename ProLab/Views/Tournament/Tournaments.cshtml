@@ -1,16 +1,12 @@
 ﻿<div class="card card-columns">
     <div class="card-header">
-        <h3>Hockey</h3>
-    </div>
+        <h3>Turneringar</h3>
+    </div>    
     <div class="card-footer">
-        <a asp-action="IndexHockeyGames" asp-controller="HockeyGames" class="btn btn-sm btn-outline-success">Till Hockeymatcher</a>
-        - Administrera Hockeymatcher
-    </div>
-    <div class="card-footer">
-        <a asp-action="Index" asp-controller="Tournaments" class="btn btn-sm btn-outline-success">Till Turneringar</a>
+        <a asp-action="ListGamesRef" asp-controller="Tournament" class="btn btn-sm btn-outline-success">Till Turneringsmatcher</a>
         - Administrera Turneringar
     </div>
-    <div class="card-footer">
+    @*<div class="card-footer">
         <a asp-action="Index" asp-controller="Health" class="btn btn-sm btn-outline-success">Till Medicinskt Protokoll</a>
         - Skicka, Spara, Ändra Medicinska protokoll
     </div>
@@ -34,5 +30,5 @@
     <div class="card-footer">
         <a asp-action="ListUploads" asp-controller="Upload" class="btn btn-sm btn-outline-success">Till Uppladdade objekt</a>
         - Administrera Uppladdade Objekt
-    </div>
+    </div>*@
 </div>

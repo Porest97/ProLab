@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProLab.Data;
 
 namespace ProLab.Migrations
 {
     [DbContext(typeof(ProLabContext))]
-    partial class ProLabContextModelSnapshot : ModelSnapshot
+    [Migration("20211012210356_GamesAdded")]
+    partial class GamesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1395,30 +1397,6 @@ namespace ProLab.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Series");
-                });
-
-            modelBuilder.Entity("ProLab.Models.DataModels.StatsPorest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("EventDay")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EventDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("HockeyDay")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("WorkoutHours")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StatsPorest");
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.TSMGame", b =>

@@ -379,6 +379,34 @@ namespace ProLab.Controllers.ApplicationControllers
             return View(refReceipt);
         }
 
+        // GET: OneHDTwoLDReciept
+
+        public async Task<IActionResult> VetsReceipt(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var refReceipt = await _context.RefReceipt
+                .Include(r => r.HockeyGame)
+                .Include(r => r.HockeyGame.Arena)
+                .Include(r => r.HockeyGame.AwayTeam)
+                .Include(r => r.HockeyGame.HomeTeam)
+                .Include(r => r.HockeyGame.HD1)
+                .Include(r => r.HockeyGame.HD2)
+                .Include(r => r.HockeyGame.LD1)
+                .Include(r => r.HockeyGame.LD2)
+                .Include(r => r.HockeyGame.GameCategory)
+                .Include(r => r.RefRecStatus)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (refReceipt == null)
+            {
+                return NotFound();
+            }
+
+            return View(refReceipt);
+        }
 
 
 

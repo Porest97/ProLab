@@ -1,0 +1,88 @@
+﻿@model ProLab.Models.DataModels.Game
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Game</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateTimePosted" class="control-label"></label>
+                <input asp-for="DateTimePosted" class="form-control" />
+                <span asp-validation-for="DateTimePosted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeChanged" class="control-label"></label>
+                <input asp-for="DateTimeChanged" class="form-control" />
+                <span asp-validation-for="DateTimeChanged" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameDateTime" class="control-label"></label>
+                <input asp-for="GameDateTime" class="form-control" />
+                <span asp-validation-for="GameDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TSMNumber" class="control-label"></label>
+                <input asp-for="TSMNumber" class="form-control" />
+                <span asp-validation-for="TSMNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Round" class="control-label"></label>
+                <input asp-for="Round" class="form-control" />
+                <span asp-validation-for="Round" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeam" class="control-label"></label>
+                <input asp-for="HomeTeam" class="form-control" />
+                <span asp-validation-for="HomeTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeam" class="control-label"></label>
+                <input asp-for="AwayTeam" class="form-control" />
+                <span asp-validation-for="AwayTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Arena" class="control-label"></label>
+                <input asp-for="Arena" class="form-control" />
+                <span asp-validation-for="Arena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Series" class="control-label"></label>
+                <input asp-for="Series" class="form-control" />
+                <span asp-validation-for="Series" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result" class="control-label"></label>
+                <input asp-for="Result" class="form-control" />
+                <span asp-validation-for="Result" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Audience" class="control-label"></label>
+                <input asp-for="Audience" class="form-control" />
+                <span asp-validation-for="Audience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Information" class="control-label"></label>
+                <input asp-for="Information" class="form-control" />
+                <span asp-validation-for="Information" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

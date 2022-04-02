@@ -29,7 +29,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Resa(Km)")]
         public decimal KmHD1 { get; set; } 
 
-        [Display(Name = "Res.ers.")]
+        [Display(Name = "Resa(kr)")]
         public decimal TravelExpensesHD1 { get; set; }
         [Display(Name = "Arb.Ers")]
         public decimal LostErningsHD1 { get; set; }
@@ -51,7 +51,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Resa(Km)")]
         public decimal KmHD2 { get; set; }
 
-        [Display(Name = "Res.ers.")]
+        [Display(Name = "Resa(kr)")]
         public decimal TravelExpensesHD2 { get; set; }
         [Display(Name = "Arb.Ers")]
         public decimal LostErningsHD2 { get; set; }
@@ -74,7 +74,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Resa(Km)")]
         public decimal KmLD1 { get; set; }
 
-        [Display(Name = "Res.ers.")]
+        [Display(Name = "Resa(kr)")]
         public decimal TravelExpensesLD1 { get; set; }
         [Display(Name = "Arb.Ers")]
         public decimal LostErningsLD1 { get; set; }
@@ -96,7 +96,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Resa(Km)")]
         public decimal KmLD2 { get; set; }
 
-        [Display(Name = "Res.ers.")]
+        [Display(Name = "Resa(kr)")]
         public decimal TravelExpensesLD2 { get; set; }
         [Display(Name = "Arb.Ers")]
         public decimal LostErningsLD2 { get; set; }

@@ -86,6 +86,12 @@ namespace ProLab.Data
         public DbSet<UploadModel> Uploads { get; set; }
 
         public DbSet<OfficialsGroup> OfficialsGroups { get; set; }
+
+        public DbSet<ProLab.Models.DataModels.Game> Games { get; set; }
+
+        public DbSet<ProLab.Models.DataModels.StatsPorest> StatsPorest { get; set; }
+
+        public DbSet<ProLab.Models.DataModels.Tournament> Tournament { get; set; }
        
         
     }

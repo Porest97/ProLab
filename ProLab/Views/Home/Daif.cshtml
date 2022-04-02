@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "DAIF User: " + User.Identity.Name;
+}
+<div class="card card-columns text-center">
+    <div class="card-header">
+        <h3> DAIF User: @User.Identity.Name Home !</h3>
+        <img src="~/img/SIF-Logga.png">
+    </div>
+    <div class="card-footer">
+        <a asp-action="AnchorsLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till HA HC Länkar</a>
+        - Haninge Anchors Länkar !
+    </div>
+    <div class="card-footer">
+        <a asp-action="SIFLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till SIF Länkar</a>
+        - SIF rellaterade Länkar !
+    </div>
+    <div class="card-footer">
+        <a asp-action="FitnessLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till Fitness Länkar</a>
+        - Fitness Länkar !
+    </div>
+    <div class="card-footer">
+        <a asp-action="RefMain" asp-controller="Referee" class="btn btn-sm btn-outline-success">Till Domarlistan</a>
+        - Domarlistan !
+    </div>
+</div>

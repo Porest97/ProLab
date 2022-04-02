@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Anchors User: " + User.Identity.Name;
+}
+<div class="card card-columns text-center">
+    <div class="card-header">
+        <h3> Referee User: @User.Identity.Name Home !</h3>
+        <img src="~/img/SIF-Logga.png">
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" asp-controller="Health" class="btn btn-sm btn-outline-success">Till MD Protokol</a>
+        - Medicinskt protokol !
+    </div>
+    <div class="card-footer">
+        <a asp-action="SIFLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till SIF Länkar</a>
+        - SIF rellaterade Länkar !
+    </div>
+    <div class="card-footer">
+        <a asp-action="FitnessLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till Fitness Länkar</a>
+        - Fitness Länkar !
+    </div>
+</div>
