@@ -1,14 +1,16 @@
 ﻿@model ImageModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details image";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>ImageModel</h4>
-    <hr />
+
+<div class="card">
+    <div class="card-header">
+    <h6>Image @Html.DisplayFor(model => model.ImageId) - @Html.DisplayFor(model => model.Title)</h6>
+    </div>
+    <div class="card-header">
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
@@ -23,21 +25,15 @@
             @Html.DisplayFor(model => model.ImageName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.HockeyGame)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.HockeyGame.TSMNumber)
-        </dd>
-        <dt class="col-sm-2">
             Uploaded Image
         </dt>
         <dd class="col-sm-10">
             <img src="@("~/Image/"+Model.ImageName)" asp-append-version="true" width="100%" height="100%" />
         </dd>
     </dl>
-</div>
-<div>
-    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@Model.ImageId">Ta bort</a>
-    <a class="btn btn-sm btn-outline-success" asp-action="Edit" asp-route-id="@Model.ImageId">Ändra</a>
-    <a class="btn btn-sm btn-outline-success" asp-action="IndexSearch">Till Blider</a>
-</div>
+    </div>
+    <div class="card-footer">
+    <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@Model.ImageId">Edit</a>
+    <a class="btn btn-sm btn-success" asp-action="Index">Back to Images</a>
+    </div>
+    </div>

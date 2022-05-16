@@ -1,0 +1,142 @@
+﻿@model TeamRoster
+
+@{
+    ViewData["Title"] = "CreateTeamRoster";
+}
+
+<h1>Create</h1>
+
+<h4>TeamRoster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateTeamRoster">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-for="DateTimePosted" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimePosted)</div>
+            <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
+            <div class="form-group">
+                <label asp-for="ClubId" class="control-label"></label>
+                <select asp-for="ClubId" class ="form-control" asp-items="ViewBag.ClubId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamName" class="control-label"></label>
+                <input asp-for="TeamName" class="form-control" />
+                <span asp-validation-for="TeamName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeadCoach" class="control-label"></label>
+                <input asp-for="HeadCoach" class="form-control" />
+                <span asp-validation-for="HeadCoach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssCoach" class="control-label"></label>
+                <input asp-for="AssCoach" class="form-control" />
+                <span asp-validation-for="AssCoach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamLeader" class="control-label"></label>
+                <input asp-for="TeamLeader" class="form-control" />
+                <span asp-validation-for="TeamLeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId" class="control-label"></label>
+                <select asp-for="HockeyPlayerId" class ="form-control" asp-items="ViewBag.HockeyPlayerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId1" class="control-label"></label>
+                <select asp-for="HockeyPlayerId1" class ="form-control" asp-items="ViewBag.HockeyPlayerId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId2" class="control-label"></label>
+                <select asp-for="HockeyPlayerId2" class ="form-control" asp-items="ViewBag.HockeyPlayerId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId3" class="control-label"></label>
+                <select asp-for="HockeyPlayerId3" class ="form-control" asp-items="ViewBag.HockeyPlayerId3"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId4" class="control-label"></label>
+                <select asp-for="HockeyPlayerId4" class ="form-control" asp-items="ViewBag.HockeyPlayerId4"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId5" class="control-label"></label>
+                <select asp-for="HockeyPlayerId5" class ="form-control" asp-items="ViewBag.HockeyPlayerId5"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId6" class="control-label"></label>
+                <select asp-for="HockeyPlayerId6" class ="form-control" asp-items="ViewBag.HockeyPlayerId6"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId7" class="control-label"></label>
+                <select asp-for="HockeyPlayerId7" class ="form-control" asp-items="ViewBag.HockeyPlayerId7"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId8" class="control-label"></label>
+                <select asp-for="HockeyPlayerId8" class ="form-control" asp-items="ViewBag.HockeyPlayerId8"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId9" class="control-label"></label>
+                <select asp-for="HockeyPlayerId9" class ="form-control" asp-items="ViewBag.HockeyPlayerId9"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId10" class="control-label"></label>
+                <select asp-for="HockeyPlayerId10" class ="form-control" asp-items="ViewBag.HockeyPlayerId10"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId11" class="control-label"></label>
+                <select asp-for="HockeyPlayerId11" class ="form-control" asp-items="ViewBag.HockeyPlayerId11"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId12" class="control-label"></label>
+                <select asp-for="HockeyPlayerId12" class ="form-control" asp-items="ViewBag.HockeyPlayerId12"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId13" class="control-label"></label>
+                <select asp-for="HockeyPlayerId13" class ="form-control" asp-items="ViewBag.HockeyPlayerId13"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId14" class="control-label"></label>
+                <select asp-for="HockeyPlayerId14" class ="form-control" asp-items="ViewBag.HockeyPlayerId14"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId15" class="control-label"></label>
+                <select asp-for="HockeyPlayerId15" class ="form-control" asp-items="ViewBag.HockeyPlayerId15"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId16" class="control-label"></label>
+                <select asp-for="HockeyPlayerId16" class ="form-control" asp-items="ViewBag.HockeyPlayerId16"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId17" class="control-label"></label>
+                <select asp-for="HockeyPlayerId17" class ="form-control" asp-items="ViewBag.HockeyPlayerId17"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId18" class="control-label"></label>
+                <select asp-for="HockeyPlayerId18" class ="form-control" asp-items="ViewBag.HockeyPlayerId18"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId19" class="control-label"></label>
+                <select asp-for="HockeyPlayerId19" class ="form-control" asp-items="ViewBag.HockeyPlayerId19"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId20" class="control-label"></label>
+                <select asp-for="HockeyPlayerId20" class ="form-control" asp-items="ViewBag.HockeyPlayerId20"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyPlayerId21" class="control-label"></label>
+                <select asp-for="HockeyPlayerId21" class ="form-control" asp-items="ViewBag.HockeyPlayerId21"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="IndexTeamRosters">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

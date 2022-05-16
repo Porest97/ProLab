@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProLab", "ProLab\ProLab.csproj", "{CCD7D057-FFA1-4DC0-8B46-41FA39F48368}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProLab", "ProLab\ProLab.csproj", "{CCD7D057-FFA1-4DC0-8B46-41FA39F48368}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "People", "..\People\People.csproj", "{8C1704B6-C0AA-4120-9326-1EFDAD95373F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAIF2020", "..\DAIF2020\DAIF2020.csproj", "{55254DC2-9193-49A9-9017-FF1DF7C21F82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAIF2021", "..\DAIF2021\DAIF2021.csproj", "{610B980F-6A2B-4ABB-87E9-7499F3159320}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBS", "..\..\..\..\..\..\NBS\NBS.csproj", "{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{CCD7D057-FFA1-4DC0-8B46-41FA39F48368}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCD7D057-FFA1-4DC0-8B46-41FA39F48368}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCD7D057-FFA1-4DC0-8B46-41FA39F48368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C1704B6-C0AA-4120-9326-1EFDAD95373F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C1704B6-C0AA-4120-9326-1EFDAD95373F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C1704B6-C0AA-4120-9326-1EFDAD95373F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C1704B6-C0AA-4120-9326-1EFDAD95373F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55254DC2-9193-49A9-9017-FF1DF7C21F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55254DC2-9193-49A9-9017-FF1DF7C21F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55254DC2-9193-49A9-9017-FF1DF7C21F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55254DC2-9193-49A9-9017-FF1DF7C21F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -31,7 +31,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Name")]
         public string FullName { get { return string.Format("{0} {1} ", FirstName, LastName); } }
 
-        [Display(Name = "Address")]
+        [Display(Name = "Adress")]
         public string Address { get { return string.Format("{0} {1} {2}", StreetAddress, ZipCode, City); } }
 
         [Display(Name = "SSN")]
@@ -58,6 +58,7 @@ namespace ProLab.Models.DataModels
         public ApplicationUser ApplicationUser { get; set; }
 
         //CName = Contact Name with Phonenumbers attached !
+        [Display(Name = "Namn & P-NR")]
         public string CName { get { return string.Format("{0} {1} ", FullName, Ssn); } }
 
         // Referee Accounts !

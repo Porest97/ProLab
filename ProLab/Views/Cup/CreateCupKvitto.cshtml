@@ -1,0 +1,252 @@
+﻿@model ProLab.Models.DataModels.CupKvitto
+
+@{
+    ViewData["Title"] = "CreateCupKvitto";
+}
+<div class="card">
+    <div class=card-header>
+<h6>Registrera CupKvitto</h6>
+</div>
+<div class=card-body>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCupKvitto">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-for="DateTimePosted" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimePosted)</div>
+            <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
+            <div asp-for="RefRecStatus" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.RefRecStatusId)</div>
+            <div class="form-group">
+                <label asp-for="TournamentId" class="control-label"></label>
+                <select asp-for="TournamentId" class ="form-control" asp-items="ViewBag.TournamentId"></select>
+            </div>            
+            <div class="form-group">
+                <label asp-for="RefereeId" class="control-label"></label>
+                <select asp-for="RefereeId" class ="form-control" asp-items="ViewBag.RefereeId"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RefRecStatusId" class="control-label"></label>
+                <select asp-for="RefRecStatusId" class ="form-control" asp-items="ViewBag.RefRecStatusId"></select>
+            </div>
+
+            Domar Ersättningar ----------------------------X
+            <div class="form-group">
+                <label asp-for="Allowance" class="control-label"></label>
+                <input asp-for="Allowance" class="form-control" value="0" />
+                <span asp-validation-for="Allowance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Km" class="control-label"></label>
+                <input asp-for="Km" class="form-control" value="0" />
+                <span asp-validation-for="Km" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelExpenses" class="control-label"></label>
+                <input asp-for="TravelExpenses" class="form-control" value="0" />
+                <span asp-validation-for="TravelExpenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LostErnings" class="control-label"></label>
+                <input asp-for="LostErnings" class="form-control" value="0" />
+                <span asp-validation-for="LostErnings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelSalarySupplement" class="control-label"></label>
+                <input asp-for="TravelSalarySupplement" class="form-control" value="0" />
+                <span asp-validation-for="TravelSalarySupplement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LateGameStart" class="control-label"></label>
+                <input asp-for="LateGameStart" class="form-control" value="0" />
+                <span asp-validation-for="LateGameStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCost" class="control-label"></label>
+                <input asp-for="TotalCost" class="form-control" value="0" />
+                <span asp-validation-for="TotalCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalFee" class="control-label"></label>
+                <input asp-for="TotalFee" class="form-control" value="0" />
+                <span asp-validation-for="TotalFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" value="Noteringar" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            
+            Game 1 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId" class="control-label"></label>
+                <select asp-for="HockeyGameId" class ="form-control" asp-items="ViewBag.HockeyGameId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee1" class="control-label"></label>
+                <input asp-for="GameFee1" class="form-control" value="0" />
+                <span asp-validation-for="GameFee1" class="text-danger"></span>
+            </div>
+            Game 2 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId1" class="control-label"></label>
+                <select asp-for="HockeyGameId1" class ="form-control" asp-items="ViewBag.HockeyGameId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee2" class="control-label"></label>
+                <input asp-for="GameFee2" class="form-control" value="0" />
+                <span asp-validation-for="GameFee2" class="text-danger"></span>
+            </div>
+            Game 3 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId2" class="control-label"></label>
+                <select asp-for="HockeyGameId2" class ="form-control" asp-items="ViewBag.HockeyGameId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee3" class="control-label"></label>
+                <input asp-for="GameFee3" class="form-control" value="0" />
+                <span asp-validation-for="GameFee3" class="text-danger"></span>
+            </div>
+            Game 4 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId3" class="control-label"></label>
+                <select asp-for="HockeyGameId3" class ="form-control" asp-items="ViewBag.HockeyGameId3"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee4" class="control-label"></label>
+                <input asp-for="GameFee4" class="form-control" value="0" />
+                <span asp-validation-for="GameFee4" class="text-danger"></span>
+            </div>
+            Game 5 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId4" class="control-label"></label>
+                <select asp-for="HockeyGameId4" class ="form-control" asp-items="ViewBag.HockeyGameId4"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee5" class="control-label"></label>
+                <input asp-for="GameFee5" class="form-control" value="0" />
+                <span asp-validation-for="GameFee5" class="text-danger"></span>
+            </div>
+
+            Game 6 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId5" class="control-label"></label>
+                <select asp-for="HockeyGameId5" class ="form-control" asp-items="ViewBag.HockeyGameId5"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee6" class="control-label"></label>
+                <input asp-for="GameFee6" class="form-control" value="0" />
+                <span asp-validation-for="GameFee6" class="text-danger"></span>
+            </div>
+
+            Game 7 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId6" class="control-label"></label>
+                <select asp-for="HockeyGameId6" class ="form-control" asp-items="ViewBag.HockeyGameId6"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee7" class="control-label"></label>
+                <input asp-for="GameFee7" class="form-control" value="0" />
+                <span asp-validation-for="GameFee7" class="text-danger"></span>
+            </div>
+
+            Game 8 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId7" class="control-label"></label>
+                <select asp-for="HockeyGameId7" class ="form-control" asp-items="ViewBag.HockeyGameId7"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee8" class="control-label"></label>
+                <input asp-for="GameFee8" class="form-control" value="0" />
+                <span asp-validation-for="GameFee8" class="text-danger"></span>
+            </div>
+
+            Game 9 -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId8" class="control-label"></label>
+                <select asp-for="HockeyGameId8" class ="form-control" asp-items="ViewBag.HockeyGameId8"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameFee9" class="control-label"></label>
+                <input asp-for="GameFee9" class="form-control" value="0" />
+                <span asp-validation-for="GameFee9" class="text-danger"></span>
+            </div>
+            Game 10 ----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId9" class="control-label"></label>
+                <select asp-for="HockeyGameId9" class ="form-control" asp-items="ViewBag.HockeyGameId9"></select>
+            </div>
+             <div class="form-group">
+                <label asp-for="GameFee9" class="control-label"></label>
+                <input asp-for="GameFee9" class="form-control" value="0" />
+                <span asp-validation-for="GameFee10" class="text-danger"></span>
+            </div>
+             Game 11 ----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId10" class="control-label"></label>
+                <select asp-for="HockeyGameId10" class ="form-control" asp-items="ViewBag.HockeyGameId10"></select>
+            </div>
+             <div class="form-group">
+                <label asp-for="GameFee11" class="control-label"></label>
+                <input asp-for="GameFee11" class="form-control" value="0" />
+                <span asp-validation-for="GameFee11" class="text-danger"></span>
+            </div>
+            Game 12 ----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId11" class="control-label"></label>
+                <select asp-for="HockeyGameId11" class ="form-control" asp-items="ViewBag.HockeyGameId11"></select>
+            </div>
+             <div class="form-group">
+                <label asp-for="GameFee12" class="control-label"></label>
+                <input asp-for="GameFee12" class="form-control" value="0" />
+                <span asp-validation-for="GameFee12" class="text-danger"></span>
+            </div>
+            Game 13 ----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId12" class="control-label"></label>
+                <select asp-for="HockeyGameId12" class ="form-control" asp-items="ViewBag.HockeyGameId12"></select>
+            </div>
+             <div class="form-group">
+                <label asp-for="GameFee13" class="control-label"></label>
+                <input asp-for="GameFee13" class="form-control" value="0" />
+                <span asp-validation-for="GameFee13" class="text-danger"></span>
+            </div>
+             Game 14 ----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId13" class="control-label"></label>
+                <select asp-for="HockeyGameId13" class ="form-control" asp-items="ViewBag.HockeyGameId13"></select>
+            </div>
+             <div class="form-group">
+                <label asp-for="GameFee14" class="control-label"></label>
+                <input asp-for="GameFee14" class="form-control" value="0" />
+                <span asp-validation-for="GameFee14" class="text-danger"></span>
+            </div>
+             Game 15 ----------------------------------------X
+            <div class="form-group">
+                <label asp-for="HockeyGameId14" class="control-label"></label>
+                <select asp-for="HockeyGameId14" class ="form-control" asp-items="ViewBag.HockeyGameId14"></select>
+            </div>
+             <div class="form-group">
+                <label asp-for="GameFee15" class="control-label"></label>
+                <input asp-for="GameFee15" class="form-control" value="0" />
+                <span asp-validation-for="GameFee15" class="text-danger"></span>
+            </div>
+           
+            Notes -----------------------------------------X
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <input type="submit" value="Registrera" class="btn btn-sm btn-primary" />
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class=card-footer>
+   <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="ListCupKvitton">Till Cupkvitton</a>
+</div>
+</div>

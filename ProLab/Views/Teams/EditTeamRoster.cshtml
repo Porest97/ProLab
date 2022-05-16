@@ -1,0 +1,200 @@
+﻿@model TeamRoster
+
+@{
+    ViewData["Title"] = "EditTeamRoster";
+}
+
+<h1>Edit</h1>
+
+<h4>TeamRoster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditTeamRoster">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div asp-for="DateTimePosted" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimePosted)</div>
+            <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
+            
+             <div class="form-group">
+                <label asp-for="TeamName" class="control-label"></label>
+                <input asp-for="TeamName" class="form-control" />
+                <span asp-validation-for="TeamName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubId" class="control-label"></label>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
+                <span asp-validation-for="ClubId" class="text-danger"></span>
+            </div>
+            <h6>X- Team Staf -X</h6>
+            <div class="form-group">
+                <label asp-for="HeadCoach" class="control-label"></label>
+                <input asp-for="HeadCoach" class="form-control" />
+                <span asp-validation-for="HeadCoach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssCoach" class="control-label"></label>
+                <input asp-for="AssCoach" class="form-control" />
+                <span asp-validation-for="AssCoach" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamLeader" class="control-label"></label>
+                <input asp-for="TeamLeader" class="form-control" />
+                <span asp-validation-for="TeamLeader" class="text-danger"></span>
+            </div>
+            <h6>X---Goalies---X</h6>
+            <div class="form-group">
+                <h6>First GK</h6>
+                @*<label asp-for="HockeyPlayerId" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId" class="form-control" asp-items="ViewBag.HockeyPlayerId"></select>
+                <span asp-validation-for="HockeyPlayerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>Second GK</h6>
+                @*<label asp-for="HockeyPlayerId1" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId1" class="form-control" asp-items="ViewBag.HockeyPlayerId1"></select>
+                <span asp-validation-for="HockeyPlayerId1" class="text-danger"></span>
+            </div>
+            <h6>X--1:st Line--X</h6>
+            <div class="form-group">
+                <h6>RD1</h6>
+                @*<label asp-for="HockeyPlayerId2" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId2" class="form-control" asp-items="ViewBag.HockeyPlayerId2"></select>
+                <span asp-validation-for="HockeyPlayerId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>LD1</h6>
+                @*<label asp-for="HockeyPlayerId3" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId3" class="form-control" asp-items="ViewBag.HockeyPlayerId3"></select>
+                <span asp-validation-for="HockeyPlayerId3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>RW1</h6>
+                @*<label asp-for="HockeyPlayerId4" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId4" class="form-control" asp-items="ViewBag.HockeyPlayerId4"></select>
+                <span asp-validation-for="HockeyPlayerId4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>LW1</h6>
+                @*<label asp-for="HockeyPlayerId5" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId5" class="form-control" asp-items="ViewBag.HockeyPlayerId5"></select>
+                <span asp-validation-for="HockeyPlayerId5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>CE1</h6>
+                @*<label asp-for="HockeyPlayerId6" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId6" class="form-control" asp-items="ViewBag.HockeyPlayerId6"></select>
+                <span asp-validation-for="HockeyPlayerId6" class="text-danger"></span>
+            </div>
+            @*_________*@
+            <h6>X--2:and Line--X</h6>
+            <div class="form-group">
+                <h6>RD2</h6>
+                @*<label asp-for="HockeyPlayerId7" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId7" class="form-control" asp-items="ViewBag.HockeyPlayerId7"></select>
+                <span asp-validation-for="HockeyPlayerId7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>LD2</h6>
+                @*<label asp-for="HockeyPlayerId8" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId8" class="form-control" asp-items="ViewBag.HockeyPlayerId8"></select>
+                <span asp-validation-for="HockeyPlayerId8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>RW2</h6>
+                @*<label asp-for="HockeyPlayerId9" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId9" class="form-control" asp-items="ViewBag.HockeyPlayerId9"></select>
+                <span asp-validation-for="HockeyPlayerId9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>LW2</h6>
+                @*<label asp-for="HockeyPlayerId10" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId10" class="form-control" asp-items="ViewBag.HockeyPlayerId10"></select>
+                <span asp-validation-for="HockeyPlayerId10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>CE2</h6>
+                @*<label asp-for="HockeyPlayerId11" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId11" class="form-control" asp-items="ViewBag.HockeyPlayerId11"></select>
+                <span asp-validation-for="HockeyPlayerId11" class="text-danger"></span>
+            </div>
+            @*_________*@
+            <h6>X--3:rd Line--X</h6>
+            <div class="form-group">
+                <h6>RD3</h6>
+                @*<label asp-for="HockeyPlayerId12" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId12" class="form-control" asp-items="ViewBag.HockeyPlayerId12"></select>
+                <span asp-validation-for="HockeyPlayerId12" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <h6>LD3</h6>
+                @*<label asp-for="HockeyPlayerId13" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId13" class="form-control" asp-items="ViewBag.HockeyPlayerId13"></select>
+                <span asp-validation-for="HockeyPlayerId13" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>RW3</h6>
+                @*<label asp-for="HockeyPlayerId14" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId14" class="form-control" asp-items="ViewBag.HockeyPlayerId14"></select>
+                <span asp-validation-for="HockeyPlayerId14" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>LW3</h6>
+                @*<label asp-for="HockeyPlayerId15" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId15" class="form-control" asp-items="ViewBag.HockeyPlayerId15"></select>
+                <span asp-validation-for="HockeyPlayerId15" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>CE3</h6>
+                @*<label asp-for="HockeyPlayerId16" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId16" class="form-control" asp-items="ViewBag.HockeyPlayerId16"></select>
+                <span asp-validation-for="HockeyPlayerId16" class="text-danger"></span>
+            </div>
+            @*_________*@
+            <h6>X--4:th Line--X</h6>
+            <div class="form-group">
+                <h6>RD4</h6>
+                @*<label asp-for="HockeyPlayerId17" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId17" class="form-control" asp-items="ViewBag.HockeyPlayerId17"></select>
+                <span asp-validation-for="HockeyPlayerId17" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <h6>LD4</h6>
+                @*<label asp-for="HockeyPlayerId18" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId18" class="form-control" asp-items="ViewBag.HockeyPlayerId18"></select>
+                <span asp-validation-for="HockeyPlayerId18" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>RW4</h6>
+                @*<label asp-for="HockeyPlayerId19" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId19" class="form-control" asp-items="ViewBag.HockeyPlayerId19"></select>
+                <span asp-validation-for="HockeyPlayerId19" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>LW4</h6>
+                @*<label asp-for="HockeyPlayerId20" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId20" class="form-control" asp-items="ViewBag.HockeyPlayerId20"></select>
+                <span asp-validation-for="HockeyPlayerId20" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h6>CE4</h6>
+                @*<label asp-for="HockeyPlayerId21" class="control-label"></label>*@
+                <select asp-for="HockeyPlayerId21" class="form-control" asp-items="ViewBag.HockeyPlayerId21"></select>
+                <span asp-validation-for="HockeyPlayerId21" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn tbn-sm btn-success" asp-action="IndexTeamRosters">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -414,8 +414,8 @@ namespace ProLab.Controllers.ApplicationControllers
         // GET: RefRec/Create
         public IActionResult CreateRefReceipt()
         {
-            ViewData["HockeyGameId"] = new SelectList(_context.HockeyGame, "Id", "GameNumber");
-            ViewData["RefRecStatusId"] = new SelectList(_context.Set<RefRecStatus>(), "Id", "RefRecStatusName");
+            ViewData["HockeyGameId"] = new SelectList(_context.HockeyGame, "Id", "GameNumber").OrderBy(t=>t.Text);
+            ViewData["RefRecStatusId"] = new SelectList(_context.Set<RefRecStatus>(), "Id", "RefRecStatusName").OrderBy(t => t.Text);
             return View();
         }
 
@@ -479,8 +479,8 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["HockeyGameId"] = new SelectList(_context.HockeyGame, "Id", "GameNumber", refReceipt.HockeyGameId);
-            ViewData["RefRecStatusId"] = new SelectList(_context.Set<RefRecStatus>(), "Id", "RefRecStatusName", refReceipt.RefRecStatusId);
+            ViewData["HockeyGameId"] = new SelectList(_context.HockeyGame, "Id", "GameNumber", refReceipt.HockeyGameId).OrderBy(t => t.Text);
+            ViewData["RefRecStatusId"] = new SelectList(_context.Set<RefRecStatus>(), "Id", "RefRecStatusName", refReceipt.RefRecStatusId).OrderBy(t => t.Text);
             return View(refReceipt);
         }
 
@@ -546,8 +546,8 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexRefReceipts));
             }
-            ViewData["HockeyGameId"] = new SelectList(_context.HockeyGame, "Id", "GameNumber", refReceipt.HockeyGameId);
-            ViewData["RefRecStatusId"] = new SelectList(_context.Set<RefRecStatus>(), "Id", "RefRecStatusName", refReceipt.RefRecStatusId);
+            ViewData["HockeyGameId"] = new SelectList(_context.HockeyGame, "Id", "GameNumber", refReceipt.HockeyGameId).OrderBy(t => t.Text);
+            ViewData["RefRecStatusId"] = new SelectList(_context.Set<RefRecStatus>(), "Id", "RefRecStatusName", refReceipt.RefRecStatusId).OrderBy(t => t.Text);
             return View(refReceipt);
         }
 

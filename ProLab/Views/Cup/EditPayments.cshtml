@@ -1,0 +1,101 @@
+﻿@model ProLab.Models.DataModels.CupKvitto
+
+@{
+    ViewData["Title"] = "EditPayments";
+}
+
+<div class="card col-md-6">
+    <div class="card-header">
+        <h6>Ändra arvoden, resersättning e.t.c. för kvitto @Html.DisplayFor(model => model.Id) - @Html.DisplayFor(model => model.Tournament.TournamentName) - Domare: @Html.DisplayFor(model => model.Referee.FullName) ?</h6>
+    </div>
+    <div class="card-body">
+<div class="row">
+    <div class="col-md-4">
+       <form asp-action="EditPayments">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateTimePosted" />            
+            <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
+            <input type="hidden" asp-for="TournamentId" /> 
+            <input type="hidden" asp-for="RefereeId" />
+            <input type="hidden" asp-for="HockeyGameId" /> 
+            <input type="hidden" asp-for="HockeyGameId1" /> 			
+            <input type="hidden" asp-for="HockeyGameId2" /> 
+			<input type="hidden" asp-for="HockeyGameId3" /> 
+			<input type="hidden" asp-for="HockeyGameId4" /> 
+			<input type="hidden" asp-for="HockeyGameId5" /> 
+			<input type="hidden" asp-for="HockeyGameId6" /> 
+			<input type="hidden" asp-for="HockeyGameId7" /> 
+			<input type="hidden" asp-for="HockeyGameId8" /> 
+			<input type="hidden" asp-for="HockeyGameId9" />
+            <input type="hidden" asp-for="HockeyGameId10" />
+            <input type="hidden" asp-for="HockeyGameId11" />
+            <input type="hidden" asp-for="HockeyGameId12" />
+            <input type="hidden" asp-for="HockeyGameId13" />
+            <input type="hidden" asp-for="HockeyGameId14" />
+		    <input type="hidden" asp-for="Notes" />
+			<div asp-for="TotalFee" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.TotalFee)</div>
+            <div asp-for="TotalCost" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.TotalCost)</div>
+            <div asp-for="TravelExpences" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.TravelExpenses)</div>
+		     <input type="hidden" asp-for="GameFee1" />
+			 <input type="hidden" asp-for="GameFee2" />
+			 <input type="hidden" asp-for="GameFee3" />
+			 <input type="hidden" asp-for="GameFee4" />
+			 <input type="hidden" asp-for="GameFee5" />
+			 <input type="hidden" asp-for="GameFee6" />
+			 <input type="hidden" asp-for="GameFee7" />
+			 <input type="hidden" asp-for="GameFee8" />
+			 <input type="hidden" asp-for="GameFee9" />
+			 <input type="hidden" asp-for="GameFee10" />
+             <input type="hidden" asp-for="GameFee11" />
+             <input type="hidden" asp-for="GameFee12" />
+             <input type="hidden" asp-for="GameFee13" />
+             <input type="hidden" asp-for="GameFee14" />
+             <input type="hidden" asp-for="GameFee15" />
+             <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefRecStatusId" class="control-label"></label>
+                <select asp-for="RefRecStatusId" class="form-control" asp-items="ViewBag.RefRecStatusId"></select>
+                <span asp-validation-for="RefRecStatusId" class="text-danger"></span>
+            </div>           
+            <div class="form-group">
+                <label asp-for="Allowance" class="control-label"></label>
+                <input asp-for="Allowance" class="form-control" />
+                <span asp-validation-for="Allowance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Km" class="control-label"></label>
+                <input asp-for="Km" class="form-control" />
+                <span asp-validation-for="Km" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <label asp-for="LostErnings" class="control-label"></label>
+                <input asp-for="LostErnings" class="form-control" />
+                <span asp-validation-for="LostErnings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelSalarySupplement" class="control-label"></label>
+                <input asp-for="TravelSalarySupplement" class="form-control" />
+                <span asp-validation-for="TravelSalarySupplement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LateGameStart" class="control-label"></label>
+                <input asp-for="LateGameStart" class="form-control" />
+                <span asp-validation-for="LateGameStart" class="text-danger"></span>
+            </div>       
+            
+            
+            <div class="form-group">
+                <input type="submit" value="Spara" class="btn btn-sm btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div class="card-footer text-center"></div>
+<a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="ListCupKvitton">Till Cupkvitton</a>
+</div>

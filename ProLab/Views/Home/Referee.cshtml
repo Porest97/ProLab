@@ -1,14 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Anchors User: " + User.Identity.Name;
+    ViewData["Title"] = "Referee User: " + User.Identity.Name;
 }
 <div class="card card-columns text-center">
     <div class="card-header">
         <h3> Referee User: @User.Identity.Name Home !</h3>
-        <img src="~/img/SIF-Logga.png">
+        <img src="~/img/PROLAB.jpg">
     </div>
+
     <div class="card-footer">
-        <a asp-action="Index" asp-controller="Health" class="btn btn-sm btn-outline-success">Till MD Protokol</a>
-        - Medicinskt protokol !
+        <a asp-action="Cups" asp-controller="Home" class="btn btn-sm btn-outline-success">Till Cupper</a>
+        - Lista Cupper !
+         <a asp-action="ListUploads" asp-controller="Upload" class="btn btn-sm btn-outline-success">Till Bilder</a>
+        - Lista och ladda up bilder !
     </div>
     <div class="card-footer">
         <a asp-action="SIFLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till SIF Länkar</a>
@@ -18,4 +21,17 @@
         <a asp-action="FitnessLinks" asp-controller="Home" class="btn btn-sm btn-outline-success">Till Fitness Länkar</a>
         - Fitness Länkar !
     </div>
+
+    <div class="card">
+    <div class="card-header"><h4><b>Regelböcker</b></h4></div>
+    <div class="card-body">
+        <ul style="list-style-type:square;">
+            <li><a href="https://www.swehockey.se/globalassets/bohuslan-dals-ishockeyforbund/bestammelser/seriebestammelser/spelregler-for-barn--och-ungdomsishockey-2021-2022/spelregler-for-barn--och-ungdomsishockey-2021-2022.pdf" target="_blank">SIF - Officiella Ungdoms regler</a></li>
+            <li><a href="https://pdf.mediahandler.se/pdf/Spelregler_for_Ishockey_Senior_och_Junior_2021-2022/" target="_blank">SIF - Officiella SIF regler 2021-2022</a></li> 
+            <li><a href="https://blob.iihf.com/iihf-media/iihfmvc/media/downloads/rule%20book/2021_22_iihf_rulebook_v1_1.pdf" target="_blank">IIHF - Officiella IIHF regler 2021-2022</a></li> 
+            <li><a href="http://www.euroha.eu/en/rules/" target="_blank">EUROHA - Officiella EUROHA regler</a></li> 
+        </ul>
+    </div>
+    <div class="card-footer"></div>
+</div>
 </div>

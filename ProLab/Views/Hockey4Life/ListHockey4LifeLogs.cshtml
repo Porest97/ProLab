@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Hockey4LifeLog>
+
+@{
+    ViewData["Title"] = "List Hockey4Life logs";
+}
+<div class="card col-md-12 text-center font-weight-bold">
+    <div class="card-header col-md-12 text-center font-weight-bolder">      
+    <h6>Hockey4Life Loggar !</h6>
+    <h6>Hours: @Model.Sum(h => h.Hours)</h6>
+    <h6>Games: @Model.Sum(h => h.NumberOfGames)</h6>
+    </div>
+</div>
+     <div class="card-header col-md-12 text-center font-weight-bold" style="font-size:xx-small">
+        <form asp-controller="Hockey4Life" asp-action="ListHockey4LifeLogs">
+            <div class="card-header">
+                Användare: <input type="text" name="SearchString">
+                Datum:<input type="text" name="SearchString1">
+                Domare:<input type="text" name="SearchString2">                
+                <input class="btn-primary" type="submit" value="Sök" />
+            </div>
+       </form>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayInLife)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfGames)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ref)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Game1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game10)
+            </th>*@
+            <th>Tools</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderBy(h=>h.Date)) {
+        <tr>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Events)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayInLife)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfGames)
+            </td>
+           <td>
+                @Html.DisplayFor(modelItem => item.Ref.FullName)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Game1.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game2.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game3.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game4.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game5.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game6.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game7.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game8.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game9.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game10.Id)
+            </td>*@
+            <td>
+                <a class="btn btn-sm btn-success" asp-action="EditHockey4LifeLog" asp-route-id="@item.Id">Ändra</a>
+                <a class="btn btn-sm btn-success" asp-action="DetailsHockey4LifeLog" asp-route-id="@item.Id">Info</a>
+               @* <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

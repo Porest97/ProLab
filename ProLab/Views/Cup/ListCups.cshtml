@@ -1,0 +1,68 @@
+﻿@model CupViewModel;
+@{
+    ViewData["Title"] = "Lista Cupper";
+}
+ <div class="badge">
+        <h6>Cupper</h6>
+        @*<a class="btn btn-sm btn-success" asp-controller="People" asp-action="Create">Create new person</a>
+        <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="People">Back to People</a>*@
+        </div>
+        <div class="badge">
+            <form class="alert-info" asp-controller="Cup" asp-action="ListCups">
+                <p>
+                    Name: <input type="text" name="SearchString">
+                    <input type="submit" value="Search" />
+                </p>
+            </form>
+        </div>
+
+        <table class="table table-responsive-sm table-striped badge">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cups[0].TournamentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cups[0].StartDateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cups[0].EndDateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cups[0].TournamentCategory)
+                    </th>
+
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Cups.OrderBy(c => c.StartDateTime))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TournamentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TournamentCategory.TournamentCategoryName)
+                        </td>
+
+                        <td>
+                           @* <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-sm btn-success" asp-controller="People" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-sm btn-danger" asp-controller="People" asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @*<h3>Work notes !</h3>
+        <textarea id="TextArea1" rows="20" cols="150"></textarea>*@
+
+   

@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Stockholm Cup 2022";
+}
+
+<div class="card">
+    <div class="card-header text-center col-12">
+        <h6>Stockholm Cup 2022</h6>
+    </div>
+    <div class="card-body text-center col-12">     
+        <a href="default.asp"><img src="~/Image/StockholmCup_Logo.jpg" alt="HTML tutorial" style="width:242px;height:242px;"></a>
+        <p class="span">
+            Solna Hockey would like to welcome you to the Annual Stockholm International Hockey Tournament in Stockholm.
+            The tournament has been created to allow teams from all over the world to come to Stockholm and compete at the Solna’s three Hockey rinks in a tradition of good sportsmanship and great competition. 
+            The tournament games will be played on April 21th, 22nd and 23rd, 2022 in Solna.
+            The rink is ideally located for a tournament not far from hotels and the Mall of Scandinavia with 250 shops.
+            Solna is located between Stockholm and Arlanda airport with very good public transportation. 
+            Solna is 8 km from the Stockholm city center with many tourist attractions.</p>
+    </div>
+    <div class="card-footer center col-12">
+        <div class="card-footer">
+        <a asp-action="ListGamesRef" asp-controller="SthlCup" class="btn btn-sm btn-outline-success">Spelschemat</a>
+        - Matcher
+    </div>    
+    </div>
+    <div class="card">
+    <div class="card-header"><h4><b>Rule Book</b></h4></div>
+    <div class="card-body">
+        <ul style="list-style-type:square;">            
+            <li><a href="http://www.euroha.eu/en/rules/" target="_blank">EUROHA - Official EUROHA rules</a></li> 
+            <li><a href="~/docs/Stockholmcup_Rules.pdf" target="_blank">Stockholmcup 2022 - Official trounament rules</a></li> 
+        </ul>
+    </div>
+    <div class="card-footer"></div>
+</div>
+</div>

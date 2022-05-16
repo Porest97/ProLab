@@ -48,7 +48,7 @@ namespace ProLab.Controllers.ApplicationControllers
         // GET: Tournaments/Create
         public IActionResult Create()
         {
-            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "Id");
+            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "TournamentCategoryName").OrderBy(t=>t.Text);
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace ProLab.Controllers.ApplicationControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateTimePosted,DateTimeChanged,StartDateTime,EndDateTime,TournamentCategoryId")] Tournament tournament)
+        public async Task<IActionResult> Create([Bind("Id,DateTimePosted,DateTimeChanged,StartDateTime,EndDateTime,TournamentCategoryId,TournamentName")] Tournament tournament)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace ProLab.Controllers.ApplicationControllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "Id", tournament.TournamentCategoryId);
+            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "TournamentCategoryName", tournament.TournamentCategoryId);
             return View(tournament);
         }
 
@@ -82,7 +82,7 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "Id", tournament.TournamentCategoryId);
+            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "TournamentCategoryName", tournament.TournamentCategoryId);
             return View(tournament);
         }
 
@@ -91,7 +91,7 @@ namespace ProLab.Controllers.ApplicationControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTimePosted,DateTimeChanged,StartDateTime,EndDateTime,TournamentCategoryId")] Tournament tournament)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTimePosted,DateTimeChanged,StartDateTime,EndDateTime,TournamentCategoryId,TournamentName")] Tournament tournament)
         {
             if (id != tournament.Id)
             {
@@ -118,7 +118,7 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "Id", tournament.TournamentCategoryId);
+            ViewData["TournamentCategoryId"] = new SelectList(_context.Set<TournamentCategory>(), "Id", "TournamentCategoryName", tournament.TournamentCategoryId);
             return View(tournament);
         }
 

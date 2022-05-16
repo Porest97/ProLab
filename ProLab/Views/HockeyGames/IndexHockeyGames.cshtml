@@ -3,98 +3,102 @@
 @{
     ViewData["Title"] = "IndexHockeyGames";
 }
-<div class="card col-md-12 text-center">
-    <div class="card-header col-md-12 text-center">
+<div class="card col-md-12 text-center font-weight-bold">
+    <div class="card-header col-md-12 text-center font-weight-bolder">
         <h6>Hockeymatcher !</h6>
     </div>
-    <div class="card-header col-md-12 text-center">
-        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
-        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesFinal">Till spelade Hockeymatcher</a>
-        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesHAHC">Till Haninge Anchors Hockeymatcher</a>
-        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexTSMHockeyGames">Till TSM-Hockeymatcher</a>
-        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="IndexHockeyGamesCorona">Till CoronaHockeyMatcher !</a>
-        <a class="btn btn-sm btn-outline-success" asp-controller="HockeyGames" asp-action="ListGamesRef">Lista Matcher och Domare !</a>
+    <div class="card-header col-md-12 text-center font-weight-bolder" style="font-size:xx-small">
+        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexHockeyGamesFinal">Till spelade Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexHockeyGamesHAHC">Till Haninge Anchors Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexTSMHockeyGames">Till TSM-Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexHockeyGamesCorona">Till CoronaHockeyMatcher !</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="ListGamesRef">Lista Matcher och Domare !</a>
     </div>
-    <div class="card-header col-md-12 text-center">
+    <div class="card-header col-md-12 text-center font-weight-bold" style="font-size:xx-small">
         <form asp-controller="HockeyGames" asp-action="IndexHockeyGames">
             <div class="card-header">
                 Datum/Tid: <input type="text" name="SearchString">
                 Arena:<input type="text" name="SearchString1">
                 Ålder:<input type="text" name="SearchString2">
-            </div>
-            <div class="card-header col-md-12 text-center">
                 Match typ: <input type="text" name="SearchString3">
                 Status: <input type="text" name="SearchString4" value="Scheduled">
                 Besk.: <input type="text" name="SearchString5">
             </div>
-            <div class="card-header col-md-12 text-center">
+           @* <div class="card-header col-md-12 text-center" style="font-size:xx-small">
+               
+            </div>*@
+            <div class="card-header col-md-12 text-center" style="font-size:xx-small">
                 <input type="submit" value="Sök" />
             </div>
 
         </form>
     </div>
     <div class="card-body col-md-12 text-center">
-        <table class="table table-striped col-md-12 table-bordered">
-            <thead class="col-md-12 text-center">
+        <table class="table table-striped col-md-12 table-bordered" style="font-size:xx-small">
+            <thead class="col-md-12 text-center font-weight-bold">
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.GameDateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Arena)                        
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.HomeTeam) -
+                        @Html.DisplayNameFor(model => model.AwayTeam)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.GameNumber) -
                         @Html.DisplayNameFor(model => model.Notes)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Arena)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.GameCategory)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.HomeTeam) -
-                        @Html.DisplayNameFor(model => model.AwayTeam)
-                    </th>
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.GameStatus)
                     </th>
-                    <th>
+                    @*<th>
                         @Html.DisplayNameFor(model => model.DateTimeChanged)
+                    </th>*@
+                    <th>
+                        Verktyg
                     </th>
-                    <th></th>
                 </tr>
             </thead>
-            <tbody class="col-md-12">
-                @foreach (var item in Model.OrderBy(h => h.GameDateTime).Where(h=>h.GameStatusId == 1))
+            <tbody class="col-md-12 text-center font-weight-bold">
+                @foreach (var item in Model.OrderBy(h => h.GameDateTime).ThenBy(h=>h.ArenaId).Where(h=>h.GameStatusId == 1))
                 {                
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.GameDateTime)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.GameNumber) -
-                        @Html.DisplayFor(model => item.Notes)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Arena.ArenaName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+                        @Html.DisplayFor(modelItem => item.Arena.ArenaName)                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.HomeTeam.ClubName) -
                         @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.GameNumber) -
+                        @Html.DisplayFor(model => item.Notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameCategory.GameCategoryName)
+                    </td>
+                    
+                    <td>
                         @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.DateTimeChanged)
-                    </td>
+                    </td>*@
                     <td>
-                        <a class="btn btn-sm btn-outline-success" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>
-                        <a class="btn btn-sm btn-outline-success" asp-action="EditHockeyGameStatus" asp-route-id="@item.Id">Ändra Lag/REF/Status</a>
-                        <a class="btn btn-sm btn-outline-success" asp-action="Details" asp-route-id="@item.Id">Info</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Del</a>
+                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>
+                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGameStatus" asp-route-id="@item.Id">Lag/REF/Status</a>
+                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="Details" asp-route-id="@item.Id">Info</a>
+                        <a class="btn btn-sm btn-outline-danger font-weight-bolder" style="font-size:xx-small" asp-action="Delete" asp-route-id="@item.Id">Del</a>
                     </td>
                 </tr>
                 }

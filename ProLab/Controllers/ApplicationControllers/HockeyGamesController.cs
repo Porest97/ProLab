@@ -574,17 +574,17 @@ namespace ProLab.Controllers.ApplicationControllers
         // GET: HockeyGames/Create
         public IActionResult CreateHockeyGame()
         {
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName");
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName");
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName");
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName").OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName").OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName").OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName");
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName");
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName");
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName");
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName");
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName");
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName");
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName");
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName").OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName").OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName").OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName").OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName").OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName").OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName").OrderBy(t => t.Text);
             return View();
         }
 
@@ -602,17 +602,17 @@ namespace ProLab.Controllers.ApplicationControllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexHockeyGames));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
@@ -629,17 +629,17 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
@@ -677,17 +677,17 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexHockeyGames));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
@@ -705,17 +705,17 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
@@ -753,17 +753,17 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexHockeyGames));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
@@ -780,17 +780,17 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
             ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
@@ -828,21 +828,98 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexHockeyGames));
             }
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId);
-            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1);
-            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId);
-            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId);
-            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId);
-            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId);
-            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1);
-            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId);
-            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2);
-            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3);
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId).OrderBy(t => t.Text);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
             return View(hockeyGame);
         }
 
+        //------------------------>RefApointment---->>>>>
 
+        // GET: EditHockeyGameStatus
+        public async Task<IActionResult> EditHockeyGameRefs(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var hockeyGame = await _context.HockeyGame.FindAsync(id);
+            if (hockeyGame == null)
+            {
+                return NotFound();
+            }
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId).OrderBy(t => t.Text);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
+            return View(hockeyGame);
+        }
+
+        // POST: EditHockeyGameParam
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditHockeyGameRefs(int id, [Bind("Id,GameDateTime,GameNumber,TSMNumber," +
+            "GameCategoryId,GameStatusId,GameTypeId,SeriesId,ArenaId,ClubId,ClubId1,HomeTeamScore," +
+            "AwayTeamScore,RefereeId,RefereeId1,RefereeId2,RefereeId3,Notes")] HockeyGame hockeyGame)
+        {
+            if (id != hockeyGame.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(hockeyGame);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!HockeyGameExists(hockeyGame.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(ListGamesRef));
+            }
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", hockeyGame.ArenaId).OrderBy(t => t.Text);
+            ViewData["ClubId1"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId1).OrderBy(t => t.Text);
+            ViewData["GameCategoryId"] = new SelectList(_context.GameCategory, "Id", "GameCategoryName", hockeyGame.GameCategoryId).OrderBy(t => t.Text);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", hockeyGame.GameStatusId).OrderBy(t => t.Text);
+            ViewData["GameTypeId"] = new SelectList(_context.GameType, "Id", "GameTypeName", hockeyGame.GameTypeId).OrderBy(t => t.Text);
+            ViewData["RefereeId"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId).OrderBy(t => t.Text);
+            ViewData["RefereeId1"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId1).OrderBy(t => t.Text);
+            ViewData["ClubId"] = new SelectList(_context.Club, "Id", "ClubName", hockeyGame.ClubId).OrderBy(t => t.Text);
+            ViewData["RefereeId2"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId2).OrderBy(t => t.Text);
+            ViewData["RefereeId3"] = new SelectList(_context.Referee, "Id", "FullName", hockeyGame.RefereeId3).OrderBy(t => t.Text);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", hockeyGame.SeriesId).OrderBy(t => t.Text);
+            return View(hockeyGame);
+        }
+
+        //------------------------>RefApointment---->>>>>
 
         // GET: HockeyGames/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -943,7 +1020,7 @@ namespace ProLab.Controllers.ApplicationControllers
                 return NotFound();
             }
            
-            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId);           
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId).OrderBy(t=>t.Text);           
             return View(tSMHockeyGame);
         }
 
@@ -980,7 +1057,7 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexTSMHockeyGames));
             }
-            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId).OrderBy(t => t.Text);
             return View(tSMHockeyGame);
         }
 
@@ -998,7 +1075,7 @@ namespace ProLab.Controllers.ApplicationControllers
                 return NotFound();
             }
 
-            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId).OrderBy(t => t.Text);
             return View(tSMHockeyGame);
         }
 
@@ -1035,7 +1112,7 @@ namespace ProLab.Controllers.ApplicationControllers
                 }
                 return RedirectToAction(nameof(IndexTSMHockeyGames));
             }
-            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", tSMHockeyGame.GameStatusId).OrderBy(t => t.Text);
             return View(tSMHockeyGame);
         }
 

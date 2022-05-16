@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProLab.Data;
@@ -23,13 +24,14 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET: Uploads
-
+        [AllowAnonymous]
         public async Task<IActionResult> ListUploads()
         {
             return View(await _context.Uploads.ToListAsync());
         }
 
         // GET: Upload/Details/Id
+        [AllowAnonymous]
         public async Task<IActionResult> DetailsUpload(int? id)
         {
             if (id == null)
@@ -48,6 +50,7 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET: Upload/Create
+        [AllowAnonymous]
         public IActionResult CreateUpload()
         {
             return View();
@@ -56,6 +59,7 @@ namespace ProLab.Controllers.ApplicationControllers
         // POST: Image/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateUpload([Bind("UploadId,Title,UploadFile")] UploadModel uploadModel)
@@ -81,6 +85,7 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET: Upload/Edit/Id
+        [AllowAnonymous]
         public async Task<IActionResult> EditUpload(int? id)
         {
             if (id == null)
@@ -99,6 +104,7 @@ namespace ProLab.Controllers.ApplicationControllers
         // POST: Upload/Edit/Id
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUpload(int id, [Bind("UploadId,Title,UploadName")] UploadModel uploadModel)
@@ -132,6 +138,7 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // GET: Image/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUpload(int? id)
         {
             if (id == null)
@@ -150,6 +157,7 @@ namespace ProLab.Controllers.ApplicationControllers
         }
 
         // POST: Upload/Delete/Id
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteUpload")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

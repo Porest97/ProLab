@@ -1,0 +1,120 @@
+﻿@model IEnumerable<ProLab.Models.DataModels.CupKvitto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="CreateCupKvitto">Registrera nytt Cupkvitto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament.StartDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament.EndDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.HockeyGame1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HockeyGame10)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Tournament.TournamentName)               
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Tournament.StartDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tournament.EndDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee.FullName)
+            </td>
+         @*   <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame1.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame2.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame3.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame4.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame5.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame6.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame7.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame9.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HockeyGame10.Id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.RefRecStatusName)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditCupKvitto" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditPayments" asp-route-id="@item.Id">Ändra ersättningar</a>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="CupKvitto" asp-route-id="@item.Id">Kvitto</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Cup" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

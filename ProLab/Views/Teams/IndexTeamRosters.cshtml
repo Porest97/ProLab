@@ -1,0 +1,198 @@
+﻿@model IEnumerable<TeamRoster>
+
+@{
+    ViewData["Title"] = "IndexTeamRosters";
+}
+
+<h6>Team rosters</h6>
+
+<p>
+    <a class="btn btn-sm btn-success" asp-action="CreateTeamRoster">Create New Team Roster</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimePosted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeChanged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeadCoach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssCoach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamLeader)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Player1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player12)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player13)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player14)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player15)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player16)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player17)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player18)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player19)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player20)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player21)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player22)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimePosted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeChanged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeadCoach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssCoach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamLeader)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Player1.FullName) - @Html.DisplayFor(modelItem => item.Player1.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player2.FullName) - @Html.DisplayFor(modelItem => item.Player2.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player3.FullName) - @Html.DisplayFor(modelItem => item.Player3.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player4.FullName) - @Html.DisplayFor(modelItem => item.Player4.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player5.FullName) - @Html.DisplayFor(modelItem => item.Player5.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player6.FullName) - @Html.DisplayFor(modelItem => item.Player6.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player7.FullName) - @Html.DisplayFor(modelItem => item.Player7.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player8.FullName) - @Html.DisplayFor(modelItem => item.Player8.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player9.FullName) - @Html.DisplayFor(modelItem => item.Player9.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player10.FullName) - @Html.DisplayFor(modelItem => item.Player10.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player11.FullName) - @Html.DisplayFor(modelItem => item.Player11.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player12.FullName) - @Html.DisplayFor(modelItem => item.Player12.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player13.FullName) - @Html.DisplayFor(modelItem => item.Player13.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player14.FullName) - @Html.DisplayFor(modelItem => item.Player14.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player15.FullName) - @Html.DisplayFor(modelItem => item.Player15.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player16.FullName) - @Html.DisplayFor(modelItem => item.Player16.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player17.FullName) - @Html.DisplayFor(modelItem => item.Player17.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player18.FullName) - @Html.DisplayFor(modelItem => item.Player18.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player19.FullName) - @Html.DisplayFor(modelItem => item.Player19.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player20.FullName) - @Html.DisplayFor(modelItem => item.Player20.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player21.FullName) - @Html.DisplayFor(modelItem => item.Player21.PlayerType.PlayerTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player22.FullName) - @Html.DisplayFor(modelItem => item.Player22.PlayerType.PlayerTypeName)
+            </td>*@
+            <td>
+                <a class="btn btn-sm btn-success" asp-action="EditTeamRoster" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-action="DetailsTeamRoster" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-sm btn-success" asp-action="DetailPlayers" asp-route-id="@item.Id">Roster Raw</a>
+                <a class="btn btn-sm btn-danger" asp-action="DeleteTeamRoster" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

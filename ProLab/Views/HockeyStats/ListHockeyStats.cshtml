@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HockeyStats>
+
+@{
+    ViewData["Title"] = "ListHockeyStats";
+}
+<div class="card col-md-12 text-center font-weight-bold">
+    <div class="card-header col-md-12 text-center font-weight-bolder" style="font-size:x-small">
+        <h6 style="font-size:x-small">Hockey stats !</h6>
+         <h6 style="font-size:x-small">Matcher som jag dömt och spelat !</h6>
+            <h6 style="font-size:x-small">Antal Matcher: @Model.Count(hs => hs.IsMatch)</h6>            
+    </div>    
+    <div class="card-header col-md-12 text-center font-weight-bold" style="font-size:xx-small">
+        <form asp-controller="HockeyStats" asp-action="ListHockeyStats">
+            <div class="card-header">
+                Datum/Tid: <input type="text" name="SearchString">
+                Arena:<input type="text" name="SearchString1">
+                Serie:<input type="text" name="SearchString2">
+               
+            </div>
+           
+            <div class="card-header col-md-12 text-center" style="font-size:xx-small">
+                <input type="submit" value="Sök" />
+            </div>
+
+        </form>
+    </div>
+    <div class="card-body col-md-12 text-center">
+        <table class="table table-striped col-md-12 table-bordered" style="font-size:xx-small">
+            <thead class="col-md-12 text-center font-weight-bold">
+                <tr>
+                    <th>Datum & Tid</th>
+                    <th>Arena</th>
+                    <th>Hemma - Borta</th>
+                    <th>Matchnummer</th>
+                    <th>Serie</th>
+                    <th>Domare</th>                    
+                    <th>Verktyg</th>
+                </tr>
+            </thead>
+            <tbody class="col-md-12 text-center font-weight-bold">
+                @foreach (var item in Model.OrderBy(h => h.GameDateTime).ThenBy(h=>h.Arena))
+                {                
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.GameDateTime)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Arena)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HomeTeam) -
+                        @Html.DisplayFor(modelItem => item.AwayTeam)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MatchNumber) -
+                        @Html.DisplayFor(model => item.Notes)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Series)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HD1) 
+                        @Html.DisplayFor(modelItem => item.HD2) 
+                        @Html.DisplayFor(modelItem => item.LD1) 
+                        @Html.DisplayFor(modelItem => item.LD2) 
+                    </td>                   
+                    <td>
+                        @*<a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>
+                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGameStatus" asp-route-id="@item.Id">Lag/REF/Status</a>
+                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="Details" asp-route-id="@item.Id">Info</a>
+                        <a class="btn btn-sm btn-outline-danger font-weight-bolder" style="font-size:xx-small" asp-action="Delete" asp-route-id="@item.Id">Del</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

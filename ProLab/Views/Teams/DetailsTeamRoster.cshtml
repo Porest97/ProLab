@@ -1,0 +1,70 @@
+﻿@model TeamRoster
+
+@{
+    ViewData["Title"] = "DetailsTeamRoster";
+}
+
+<div class="card col-sm-8">
+    <div class="card-header">
+    <div class="col-sm-12 font-weight-bold">Team roster for: @Html.DisplayFor(model => model.TeamName)</div>
+    </div>
+    <div class="card-header col-sm-12">      
+        <div class="list-group col-sm-6 font-weight-bold">
+            <div class="col-sm-12 font-weight-bold"><h6>Team staff</h6></div>            
+            <div class="col-sm-12 font-weight-bold">Head coach: @Html.DisplayFor(model => model.HeadCoach)</div>
+            <div class="col-sm-12 font-weight-bold">Assitant coach: @Html.DisplayFor(model => model.AssCoach)</div>
+            <div class="col-sm-12 font-weight-bold">Team leader: @Html.DisplayFor(model => model.TeamLeader)</div>
+        </div>
+    </div>
+    <div class="card-body col-sm-12 border-bottom border-top border-left border-right">          
+        <div class="list-group col-sm-6 font-weight-bold">
+            <div class="col-sm-12 font-weight-bold"><h6>Goalies</h6></div>            
+            <div class="col-sm-12 font-weight-bold">First GK: @Html.DisplayFor(model => model.Player1.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">Second GK: @Html.DisplayFor(model => model.Player2.FullName)</div>            
+        </div>    
+    </div>
+    <div class="card-body col-sm-12 border-bottom border-top border-left border-right">      
+        <div class="list-group col-sm-6 font-weight-bold">
+            <div class="col-sm-12 font-weight-bold"><h6>1:st line</h6></div>            
+            <div class="col-sm-12 font-weight-bold">RD1: @Html.DisplayFor(model => model.Player3.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LD1: @Html.DisplayFor(model => model.Player4.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">RW1: @Html.DisplayFor(model => model.Player5.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LW1: @Html.DisplayFor(model => model.Player6.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">CE1: @Html.DisplayFor(model => model.Player7.FullName)</div>
+        </div>
+    </div>
+    <div class="card-body col-sm-12 border-bottom border-top border-left border-right"> 
+        <div class="list-group col-sm-6 font-weight-bold">
+            <div class="col-sm-12 font-weight-bold"><h6>2:an line</h6></div>            
+            <div class="col-sm-12 font-weight-bold">RD2: @Html.DisplayFor(model => model.Player8.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LD2: @Html.DisplayFor(model => model.Player9.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">RW2: @Html.DisplayFor(model => model.Player10.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LW2: @Html.DisplayFor(model => model.Player11.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">CE2: @Html.DisplayFor(model => model.Player12.FullName)</div>
+        </div>
+    </div>
+    <div class="card-body col-sm-12 border-bottom border-top border-left border-right">      
+        <div class="list-group col-sm-6 font-weight-bold">
+            <div class="col-sm-12 font-weight-bold"><h6>3:rd line</h6></div>            
+            <div class="col-sm-12 font-weight-bold">RD3: @Html.DisplayFor(model => model.Player13.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LD3: @Html.DisplayFor(model => model.Player14.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">RW3: @Html.DisplayFor(model => model.Player15.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LW3: @Html.DisplayFor(model => model.Player16.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">CE3: @Html.DisplayFor(model => model.Player17.FullName)</div>
+        </div>
+    </div>
+    <div class="card-body col-sm-12 border-bottom border-top border-left border-right"> 
+        <div class="list-group col-sm-6 font-weight-bold">
+            <div class="col-sm-12 font-weight-bold"><h6>4:th line</h6></div>            
+            <div class="col-sm-12 font-weight-bold">RD4: @Html.DisplayFor(model => model.Player18.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LD4: @Html.DisplayFor(model => model.Player19.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">RW4: @Html.DisplayFor(model => model.Player20.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">LW4: @Html.DisplayFor(model => model.Player21.FullName)</div>
+            <div class="col-sm-12 font-weight-bold">CE4: @Html.DisplayFor(model => model.Player22.FullName)</div>
+        </div>
+     </div>  
+<div class="card-footer">
+    <a class="btn btn-sm btn-success" asp-action="EditTeamRoster" asp-route-id="@Model.Id">EditTeamRoster</a>
+    <a class="btn btn-sm btn-success" asp-action="IndexTeamRosters">Back to List</a>
+</div>
+</div>

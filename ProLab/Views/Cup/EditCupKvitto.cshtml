@@ -1,0 +1,113 @@
+﻿@model CupKvitto
+
+@{
+    ViewData["Title"] = "EditCupKvitto";
+}
+<div class="card">
+
+    
+        <h6>Ändra Kvitto #@Html.DisplayFor(ck=>ck.Id)</h6>
+    
+    <div class="card-body">        
+    <div class="col-12 text-center">
+        <form asp-action="EditCupKvitto">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            
+            <div asp-for="DateTimePosted" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimePosted)</div>
+            <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>            
+            <div class="card-header col-md-12">
+            <div class="row">
+            <div class="col-sm-2 form-group"><label asp-for="TournamentId" class="control-label"></label><select asp-for="TournamentId" class="form-control" asp-items="ViewBag.TournamentId"></select></div>
+            <div class="col-sm-2 form-group"><label asp-for="RefereeId" class="control-label"></label><select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select></div>
+            <div class="col-sm-2 form-group"><label asp-for="RefRecStatusId" class="control-label"></label><select asp-for="RefRecStatusId" class="form-control" asp-items="ViewBag.RefRecStatusId"></select>
+            
+            </div>
+            </div>
+            <div class="row">            
+            <div class="form-group"><label asp-for="Description" class="control-label"></label><input asp-for="Description" class="form-control" /></div>
+            <div class="form-group"><label asp-for="Notes" class="control-label"></label><input asp-for="Notes" class="form-control" /></div>            
+            </div>
+            <div class="form-group"><input type="submit" value="Spara" class="btn btn-primary" />
+            </div>
+           
+            </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId" class="control-label"></label><select asp-for="HockeyGameId" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+             <div class="form-group"><label asp-for="GameFee1" class="control-label"></label><input asp-for="GameFee1" class="form-control" /></div>
+        </div>
+            <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId1" class="control-label"></label><select asp-for="HockeyGameId1" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee2" class="control-label"></label><input asp-for="GameFee2" class="form-control" />                
+            </div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId2" class="control-label"></label><select asp-for="HockeyGameId2" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee3" class="control-label"></label><input asp-for="GameFee3" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId3" class="control-label"></label><select asp-for="HockeyGameId3" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee4" class="control-label"></label><input asp-for="GameFee4" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId4" class="control-label"></label><select asp-for="HockeyGameId4" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee5" class="control-label"></label><input asp-for="GameFee5" class="form-control" /></div>
+        </div>
+         <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId5" class="control-label"></label><select asp-for="HockeyGameId5" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee6" class="control-label"></label><input asp-for="GameFee6" class="form-control" /></div>
+        </div>
+         <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId6" class="control-label"></label><select asp-for="HockeyGameId6" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee7" class="control-label"></label><input asp-for="GameFee7" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId7" class="control-label"></label><select asp-for="HockeyGameId7" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee8" class="control-label"></label><input asp-for="GameFee8" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId8" class="control-label"></label><select asp-for="HockeyGameId8" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee9" class="control-label"></label><input asp-for="GameFee9" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId9" class="control-label"></label><select asp-for="HockeyGameId9" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee10" class="control-label"></label><input asp-for="GameFee10" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId10" class="control-label"></label><select asp-for="HockeyGameId10" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee11" class="control-label"></label><input asp-for="GameFee11" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId11" class="control-label"></label><select asp-for="HockeyGameId11" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee12" class="control-label"></label><input asp-for="GameFee12" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId12" class="control-label"></label><select asp-for="HockeyGameId12" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee13" class="control-label"></label><input asp-for="GameFee13" class="form-control" /></div>
+        </div>
+         <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId13" class="control-label"></label><select asp-for="HockeyGameId13" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee14" class="control-label"></label><input asp-for="GameFee14" class="form-control" /></div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group"><label asp-for="HockeyGameId14" class="control-label"></label><select asp-for="HockeyGameId14" class="form-control" asp-items="ViewBag.HockeyGameId"></select></div>
+            <div class="form-group"><label asp-for="GameFee15" class="control-label"></label><input asp-for="GameFee15" class="form-control" /></div>
+        </div>
+            <div class="form-group"><label asp-for="TotalFee" class="control-label"></label><input asp-for="TotalFee" class="form-control" /></div>
+            <div class="form-group"><label asp-for="Allowance" class="control-label"></label><input asp-for="Allowance" class="form-control" /></div>
+            <div class="form-group"><label asp-for="Km" class="control-label"></label><input asp-for="Km" class="form-control" /></div>
+            <div class="form-group"><label asp-for="TravelExpenses" class="control-label"></label><input asp-for="TravelExpenses" class="form-control" /></div>
+            <div class="form-group"><label asp-for="LostErnings" class="control-label"></label><input asp-for="LostErnings" class="form-control" /></div>
+            <div class="form-group"><label asp-for="TravelSalarySupplement" class="control-label"></label><input asp-for="TravelSalarySupplement" class="form-control" /></div>
+            <div class="form-group"><label asp-for="LateGameStart" class="control-label"></label><input asp-for="LateGameStart" class="form-control" /></div>
+            <div class="form-group"><label asp-for="Description" class="control-label"></label><input asp-for="Description" class="form-control" /></div>
+            <div class="form-group"><label asp-for="TotalCost" class="control-label"></label><input asp-for="TotalCost" class="form-control"/></div>
+
+            <div class="form-group"><input type="submit" value="Save" class="btn btn-primary" /></div>
+        </form>
+    </div>
+</div>
+    </div>
+    <div class="Card-footer">
+        <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="ListCupKvitton">Till Cupkvitton</a>
+</div>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ProLab.Hockey4Life.Models.DataModels;
 using ProLab.ImageUpload.Models;
 using ProLab.Models.DataModels;
 using ProLab.TheOneApp.Models.DataModels;
@@ -35,6 +36,8 @@ namespace ProLab.Data
 
 
         public DbSet<HockeyGame> HockeyGame { get; set; }
+
+        public DbSet<Hockey4LifeLog> Hockey4LifeLogs { get; set; }
 
         public DbSet<TSMHocekyGame> TSMHockeyGame { get; set; }
 
@@ -92,7 +95,19 @@ namespace ProLab.Data
         public DbSet<ProLab.Models.DataModels.StatsPorest> StatsPorest { get; set; }
 
         public DbSet<ProLab.Models.DataModels.Tournament> Tournament { get; set; }
-       
-        
+
+        public DbSet<ProLab.Models.DataModels.CupKvitto> CupKvitto { get; set; }
+
+        public DbSet<TeamRoster> TeamRosters { get; set; }
+
+        public DbSet<ProLab.Models.DataModels.HockeyPlayer> HockeyPlayer { get; set; }        
+
+        public DbSet<ProLab.Models.DataModels.BillingPost> BillingPosts { get; set; }
+
+        public DbSet<ProLab.Models.DataModels.BPStatus> BPStatus { get; set; }
+
+        public DbSet<ProLab.Models.DataModels.HockeyStats> HockeyStats { get; set; }
+
+
     }
 }

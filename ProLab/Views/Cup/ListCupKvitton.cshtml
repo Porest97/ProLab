@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CupKvitto>
+
+@{
+    ViewData["Title"] = "Cup Kvitton";
+}
+
+<h6>Cup Kvitton</h6>
+
+<p>
+    <a class="btn btn-sm btn-outline-success" asp-controller="Cup" asp-action="CreateCupKvitto">Registrera nytt Cupkvitto</a>
+    <a class="btn btn-sm btn-outline-success" asp-controller="Cup" asp-action="CupUtbetalningsLista">Cup utbetalningslista</a>
+</p>
+<div class="card-header col-md-12 text-center">
+    <form asp-controller="Cup" asp-action="ListCupKvitton">
+        <div class="card-header">
+            Domare : Förnamn : <input type="text" name="SearchString">
+            Efternamn :<input type="text" name="SearchString1">
+            
+        </div>
+        <div class="card-header col-md-12 text-center">
+            Cup namn :<input type="text" name="SearchString2">          
+
+        </div>
+        <div class="card-header col-md-12 text-center">
+            <input type="submit" value="Search" />
+        </div>
+
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament.TournamentName) : 
+                @Html.DisplayNameFor(model => model.Tournament.StartDateTime) -
+                @Html.DisplayNameFor(model => model.Tournament.EndDateTime) -               
+                @Html.DisplayNameFor(model => model.Referee.FullName) -
+                @Html.DisplayNameFor(model => model.Description)
+                
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderByDescending(ck=>ck.Tournament.StartDateTime)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tournament.TournamentName) -
+                @Html.DisplayFor(modelItem => item.Tournament.StartDateTime) -
+                @Html.DisplayFor(modelItem => item.Tournament.EndDateTime) -
+                @Html.DisplayFor(modelItem => item.Referee.FullName) - 
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.RefRecStatusName)
+            </td>
+            <td>
+               <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditCupKvitto" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditPayments" asp-route-id="@item.Id">Ändra ersättningar</a>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="CupKvitto" asp-route-id="@item.Id">Kvitto</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Cup" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,316 @@
+﻿@model CupKvitto
+@{
+    ViewData["Title"] = "Cupkvitto";
+}
+<div class="card">
+    <div class="card-header col-md-12 font-weight-bolder">
+        <div class="col-md-12">
+            <h6>
+                <a href="default.asp"><img src="~/img/SIF_Logo.png" alt="HTML tutorial" style="width:42px;height:42px;"></a>
+                SVENSKA ISHOCKEYFÖRBUNDET
+            </h6>
+        </div>
+        <div class="col-md-12 font-weight-bold">
+            <h6>
+                Domarkvitto för Cup : @Html.DisplayFor(model => model.Tournament.TournamentName)
+                - @Html.DisplayFor(model => model.Tournament.StartDateTime)
+                - @Html.DisplayFor(model => model.Tournament.EndDateTime)               
+            </h6>
+        </div>
+    </div>
+    <div class="card-header align-content-center col-md-12">        
+        <div class="row col-sm-12 border-dark table-bordered">
+            <div class="col-sm-12 border-dark">
+                <dl class="row border-dark font-weight-bold" style="font-size:xx-small">
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Referee.CName)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Referee.CName)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Referee.Address)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Referee.Address)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Referee.PrivateEmail)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Referee.PrivateEmail)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Referee.PaymentDetails)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Referee.PaymentDetails)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TotalFee)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TotalFee)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Allowance)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Allowance)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Km)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Km)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TravelExpenses)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TravelExpenses)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LostErnings)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.LostErnings)</dd>
+                     <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LateGameStart)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.LateGameStart)</dd>
+
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TravelSalarySupplement)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TravelSalarySupplement)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TotalCost)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.TotalCost)</dd>
+                    <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Description)</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+                </dl>
+                
+            </div>
+            <div class="col-sm-12 text-center">
+                <div class="col-sm-12 row text-center font-weight-bold" style="font-size:xx-small">
+                <div class="col-sm-10 text-center border-bottom border-left border-right border-top">
+                <h6>Match</h6>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                <h6>Arvode</h6>
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame1.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame1.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame1.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame1.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame1.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame1.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame1.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee1)
+                </div>
+                </div>
+               
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame2.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame2.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame2.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame2.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame2.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame2.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame2.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee2)
+                </div>
+                </div>
+                
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame3.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame3.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame3.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame3.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame3.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame3.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame3.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee3)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame4.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame4.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame4.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame4.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame4.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame4.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame4.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee4)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame5.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame5.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame5.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame5.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame5.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame5.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame5.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee5)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame6.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame6.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame6.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame6.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame6.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame6.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame6.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee6)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame7.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame7.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame7.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame7.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame7.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame7.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame7.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee7)
+                </div>
+                </div>
+
+                 <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame8.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame8.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame8.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame8.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame8.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame8.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame8.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee8)
+                </div>
+                </div>
+
+                 <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame9.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame9.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame9.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame9.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame9.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame9.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame9.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee9)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame10.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame10.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame10.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame10.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame10.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame10.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame10.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee10)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame11.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame11.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame11.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame11.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame11.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame11.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame11.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee11)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame12.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame12.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame12.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame12.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame12.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame12.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame12.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee12)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame13.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame13.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame13.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame13.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame13.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame13.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame13.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee13)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame14.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame14.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame14.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame14.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame14.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame14.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame14.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee14)
+                </div>
+                </div>
+
+                 <div class="col-sm-12 row text-center font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 text-centerborder-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayFor(model => model.HockeyGame15.GameDateTime) - 
+                    @Html.DisplayFor(model => model.HockeyGame15.GameNumber) - 
+                    @Html.DisplayFor(model => model.HockeyGame15.Arena.ArenaName) - 
+                    @Html.DisplayFor(model => model.HockeyGame15.HomeTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame15.AwayTeam.ClubName) - 
+                    @Html.DisplayFor(model => model.HockeyGame15.HD1.FullName) - 
+                    @Html.DisplayFor(model => model.HockeyGame15.HD2.FullName)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.GameFee15)
+                </div>
+                </div>
+
+                <div class="col-sm-12 row text-right font-weight-bold"style="font-size:xx-small">
+                <div class="col-sm-10 align-content-end border-bottom border-left border-right border-top">
+                <div class="row">@Html.DisplayNameFor(model => model.TotalFee)</div>
+                </div>
+                <div class="col-sm-2 text-center border-bottom border-left border-right border-top">
+                @Html.DisplayFor(model => model.TotalFee)
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center col-md-12 font-weight-bold" style="font-size:xx-small">
+        <div>
+                    <div class="card-columns">
+                        <div class="card-header font-weight-bold"> Datum:_____________________</div>
+                        <div class="card-header font-weight-bold"> Signatur:__________________</div>
+                    </div>
+                </div>       
+    </div>
+   
+    <div class="card-footer text-center col-md-12">
+
+        <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditCupKvitto" asp-route-id="@Model.Id">Ändra</a>
+        <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="ListCupKvitton">Till Cupkvitton</a>
+    </div>
+</div>

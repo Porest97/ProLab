@@ -1,0 +1,115 @@
+﻿@model IEnumerable<HockeyGame>
+
+@{
+    ViewData["Title"] = "ListGamesRef";
+}
+<div class="card col-md-12 text-center">
+    <div class="card-header col-md-12 text-center font-weight-bold " style="font-size:xx-small">
+        <h6>Matcher och domare !</h6>
+    </div>
+    @*<div class="card-header col-md-12 text-center font-weight-bold " style="font-size:xx-small">
+        <a class="btn btn-sm btn-outline-success font-weight-bold" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="CreateHockeyGame">Skapa ny Hockeymatch</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bold" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexHockeyGamesFinal">Till spelade Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bold" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexHockeyGamesHAHC">Till Haninge Anchors Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bold" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexTSMHockeyGames">Till TSM-Hockeymatcher</a>
+        <a class="btn btn-sm btn-outline-success font-weight-bold" style="font-size:xx-small" asp-controller="HockeyGames" asp-action="IndexHockeyGamesCorona">Till CoronaHockeyMatcher !</a>
+    </div>*@
+    <div class="card-header col-md-12 text-center font-weight-bold " style="font-size:xx-small">
+        <form asp-controller="SthlCup" asp-action="ListGamesRef">
+            <div class="card-header">
+                Datum/Tid: <input type="text" name="SearchString">
+                HD1 Förnamn:<input type="text" name="SearchString1">
+                HD2 Förnamn: <input type="text" name="SearchString2">
+                Status: <input type="text" name="SearchString3">
+            </div>            
+            <div class="card-header col-md-12 text-center">
+                <input type="submit" value="Sök" />
+            </div>
+        </form>
+    </div>
+    <div class="card-body col-md-12 text-center">
+        <table class="table table-striped col-md-12 table-bordered font-weight-bold" style="font-size:xx-small">
+            <thead class="col-md-12 text-center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameDateTime)
+                    </th>
+                    
+                    <th>
+                        @Html.DisplayNameFor(model => model.Arena)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameCategory) -
+                        @Html.DisplayNameFor(model => model.Notes)
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HomeTeam) -
+                        @Html.DisplayNameFor(model => model.AwayTeam)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HD1)                     
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HD2)                      
+                        
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Result)
+                    </th>                   
+                    <th>
+                        @Html.DisplayNameFor(model => model.GameStatus)
+                    </th>
+                    <th>
+                        Verktyg
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="col-md-12">
+                @foreach (var item in Model.OrderBy(h => h.GameDateTime).Where(h => h.GameTypeId > 3).Where(h=>h.GameTypeId < 5))
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameDateTime)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arena.ArenaName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameNumber) -
+                        @Html.DisplayFor(model => item.Notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HomeTeam.ClubName) -
+                        @Html.DisplayFor(modelItem => item.AwayTeam.ClubName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HD1.FullName)                       
+                    </td>
+                     <td>                        
+                        @Html.DisplayFor(modelItem => item.HD2.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GameStatus.GameStatusName)
+                    </td>
+            
+                    <td>
+                        @*<a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>*@
+                        <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-action="EditRefGame" asp-route-id="@item.Id">Tillsätt</a>
+                        @*<a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-action="Details" asp-route-id="@item.Id">Info</a>
+                        <a class="btn btn-sm btn-outline-danger font-weight-bold " style="font-size:xx-small" asp-action="Delete" asp-route-id="@item.Id">Del</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+<div class="card-footer">
+<a class="btn btn-sm btn-outline-success" asp-controller="Home" asp-action="Cups">Till Cupper</a>
+<a class="btn btn-sm btn-outline-success" asp-controller="SthlCup" asp-action="StockholmCup2022">Till Stockholm Cup 2022</a>
+</div>
+</div>

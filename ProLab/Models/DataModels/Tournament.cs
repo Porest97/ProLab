@@ -40,6 +40,8 @@ namespace ProLab.Models.DataModels
         [ForeignKey("TournamentCategoryId")]
         public TournamentCategory TournamentCategory { get; set; }
 
+        [Display(Name = "Name")]
+        public string TournamentName { get; set; }
 
     }
 

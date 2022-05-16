@@ -1,0 +1,104 @@
+﻿@model ProLab.Models.DataModels.CupKvitto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CupKvitto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="DateTimePosted" class="control-label"></label>
+                <input asp-for="DateTimePosted" class="form-control" />
+                <span asp-validation-for="DateTimePosted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeChanged" class="control-label"></label>
+                <input asp-for="DateTimeChanged" class="form-control" />
+                <span asp-validation-for="DateTimeChanged" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TournamentId" class="control-label"></label>
+                <select asp-for="TournamentId" class="form-control" asp-items="ViewBag.TournamentId"></select>
+                <span asp-validation-for="TournamentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefereeId" class="control-label"></label>
+                <select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select>
+                <span asp-validation-for="RefereeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId" class="control-label"></label>
+                <select asp-for="HockeyGameId" class="form-control" asp-items="ViewBag.HockeyGameId"></select>
+                <span asp-validation-for="HockeyGameId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId1" class="control-label"></label>
+                <select asp-for="HockeyGameId1" class="form-control" asp-items="ViewBag.HockeyGameId1"></select>
+                <span asp-validation-for="HockeyGameId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId2" class="control-label"></label>
+                <select asp-for="HockeyGameId2" class="form-control" asp-items="ViewBag.HockeyGameId2"></select>
+                <span asp-validation-for="HockeyGameId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId3" class="control-label"></label>
+                <select asp-for="HockeyGameId3" class="form-control" asp-items="ViewBag.HockeyGameId3"></select>
+                <span asp-validation-for="HockeyGameId3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId4" class="control-label"></label>
+                <select asp-for="HockeyGameId4" class="form-control" asp-items="ViewBag.HockeyGameId4"></select>
+                <span asp-validation-for="HockeyGameId4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId5" class="control-label"></label>
+                <select asp-for="HockeyGameId5" class="form-control" asp-items="ViewBag.HockeyGameId5"></select>
+                <span asp-validation-for="HockeyGameId5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId6" class="control-label"></label>
+                <select asp-for="HockeyGameId6" class="form-control" asp-items="ViewBag.HockeyGameId6"></select>
+                <span asp-validation-for="HockeyGameId6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId8" class="control-label"></label>
+                <select asp-for="HockeyGameId8" class="form-control" asp-items="ViewBag.HockeyGameId8"></select>
+                <span asp-validation-for="HockeyGameId8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyGameId9" class="control-label"></label>
+                <select asp-for="HockeyGameId9" class="form-control" asp-items="ViewBag.HockeyGameId9"></select>
+                <span asp-validation-for="HockeyGameId9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefRecStatusId" class="control-label"></label>
+                <select asp-for="RefRecStatusId" class="form-control" asp-items="ViewBag.RefRecStatusId"></select>
+                <span asp-validation-for="RefRecStatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="ListCupKvitton">Till Cupkvitton</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

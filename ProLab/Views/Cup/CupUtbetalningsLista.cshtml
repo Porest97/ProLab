@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CupKvitto>
+
+@{
+    ViewData["Title"] = "Cup Utbetalningslista";
+}
+<div class="card">
+    <div class="card-header">
+        <h6>Utbetalningslista för Cup</h6>
+    <a class="btn btn-sm btn-outline-success" asp-controller="Cup" asp-action="CreateCupKvitto">Registrera nytt Cupkvitto</a>
+    </div>
+     <h6>Totala Arvoden: @Model.Sum(t => t.TotalFee)</h6>
+     <h6>Totalt Belopp: @Model.Sum(t => t.TotalCost)</h6>
+<div class="card-header col-md-12 text-center">    
+    <form asp-controller="Cup" asp-action="CupUtbetalningsLista">
+        @*<div class="card-header">
+            Domare : Förnamn : <input type="text" name="SearchString">
+            Efternamn :<input type="text" name="SearchString1">            
+        </div>*@
+        <div class="card-header col-md-12 text-center">
+            Cup namn :<input type="text" name="SearchString2">          
+
+        </div>
+        <div class="card-header col-md-12 text-center">
+            <input type="submit" value="Sök" />
+        </div>
+
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament.TournamentName)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.Referee.FullName)
+            </th>
+            <th> 
+                @Html.DisplayNameFor(model => model.TotalFee) +               
+                @Html.DisplayNameFor(model => model.Allowance) +
+                @Html.DisplayNameFor(model => model.TravelExpenses) + 
+                @Html.DisplayNameFor(model => model.LateGameStart)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+             </th> 
+             <th>
+                 @Html.DisplayNameFor(model => model.Referee.PaymentDetails)
+               </th> 
+                       
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderByDescending(ck=>ck.Tournament.StartDateTime).Where(ck=>ck.RefRecStatusId < 4)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tournament.TournamentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee.FullName)
+            </td>
+            <td>                                 
+                @Html.DisplayFor(modelItem => item.TotalFee) + 
+                @Html.DisplayFor(modelItem => item.Allowance) + 
+                @Html.DisplayFor(modelItem => item.TravelExpenses) +  
+                @Html.DisplayFor(modelItem => item.LateGameStart)
+             </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Referee.PaymentDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.RefRecStatusName)
+            </td>
+            <td>
+               <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditCupKvitto" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="EditPayments" asp-route-id="@item.Id">Ändra ersättningar</a>
+                <a class="btn btn-sm btn-success" asp-controller="Cup" asp-action="CupKvitto" asp-route-id="@item.Id">Kvitto</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Cup" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>        
+}
+</tbody>
+</table>
+<div class="card-footer">
+
+</div>
+</div>

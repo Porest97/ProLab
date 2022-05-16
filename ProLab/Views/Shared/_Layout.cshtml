@@ -41,7 +41,7 @@
                         }
                         else
                         {
-
+                            
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
@@ -74,17 +74,17 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NBS">NBS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Projects">Projekt</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Projects">Proj.</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Accounting" asp-action="Accounting">Accounting</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Accounting" asp-action="Accounting">Acc.</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Links">Links</a>
                             </li>
-                            @*<li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="TheOneApp" asp-action="Home">TOA</a>
-            </li>*@
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Cups">Cups</a>
+                            </li>
 
                         }
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("SuperUser"))
@@ -118,7 +118,22 @@
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Referee"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Referee">REF</a>
+                                <div class="badge">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Referee">
+                                <img src="~/image/97orest203159992.jpg" alt="HTML tutorial" style="width:42px;height:42px;"> - REF</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                            <div class="badge">                                
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SthlCup" asp-action="StockholmCup2022">
+                                <img src="~/image/StockholmCup_Logo.jpg" alt="HTML tutorial" style="width:42px;height:42px;"> - Stockholm Cup 2022</a>
+                            </div>
+                            </li>                            
+                            <li class="nav-item">
+                                <div class="badge">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Cups">
+                                <img src="~/image/97orest203159992.jpg" alt="HTML tutorial" style="width:42px;height:42px;"> - Cups</a>
+                                </div>
                             </li>
 
                         }
@@ -144,7 +159,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - PRO LAB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - PRO LAB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

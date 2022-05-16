@@ -1,0 +1,116 @@
+﻿@model ProLab.Hockey4Life.Models.DataModels.Hockey4LifeLog
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Hockey4LifeLog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateTimePosted" class="control-label"></label>
+                <input asp-for="DateTimePosted" class="form-control" />
+                <span asp-validation-for="DateTimePosted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTimeChanged" class="control-label"></label>
+                <input asp-for="DateTimeChanged" class="form-control" />
+                <span asp-validation-for="DateTimeChanged" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationUserId" class="control-label"></label>
+                <select asp-for="ApplicationUserId" class ="form-control" asp-items="ViewBag.ApplicationUserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Events" class="control-label"></label>
+                <input asp-for="Events" class="form-control" />
+                <span asp-validation-for="Events" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HockeyDay" class="control-label"></label>
+                <input asp-for="HockeyDay" class="form-control" />
+                <span asp-validation-for="HockeyDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DayInLife" class="control-label"></label>
+                <input asp-for="DayInLife" class="form-control" />
+                <span asp-validation-for="DayInLife" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hours" class="control-label"></label>
+                <input asp-for="Hours" class="form-control" />
+                <span asp-validation-for="Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfGames" class="control-label"></label>
+                <input asp-for="NumberOfGames" class="form-control" />
+                <span asp-validation-for="NumberOfGames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefereeId" class="control-label"></label>
+                <select asp-for="RefereeId" class ="form-control" asp-items="ViewBag.RefereeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId" class="control-label"></label>
+                <select asp-for="GameId" class ="form-control" asp-items="ViewBag.GameId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId1" class="control-label"></label>
+                <select asp-for="GameId1" class ="form-control" asp-items="ViewBag.GameId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId2" class="control-label"></label>
+                <select asp-for="GameId2" class ="form-control" asp-items="ViewBag.GameId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId3" class="control-label"></label>
+                <select asp-for="GameId3" class ="form-control" asp-items="ViewBag.GameId3"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId4" class="control-label"></label>
+                <select asp-for="GameId4" class ="form-control" asp-items="ViewBag.GameId4"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId5" class="control-label"></label>
+                <select asp-for="GameId5" class ="form-control" asp-items="ViewBag.GameId5"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId6" class="control-label"></label>
+                <select asp-for="GameId6" class ="form-control" asp-items="ViewBag.GameId6"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId7" class="control-label"></label>
+                <select asp-for="GameId7" class ="form-control" asp-items="ViewBag.GameId7"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId8" class="control-label"></label>
+                <select asp-for="GameId8" class ="form-control" asp-items="ViewBag.GameId8"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GameId9" class="control-label"></label>
+                <select asp-for="GameId9" class ="form-control" asp-items="ViewBag.GameId9"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

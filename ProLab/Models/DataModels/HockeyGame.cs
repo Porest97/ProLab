@@ -31,7 +31,7 @@ namespace ProLab.Models.DataModels
         //Game DateTime Prop !
         [Display(Name = "Datum & Tid")]
         [DisplayFormat(DataFormatString = "{0:ddd yyyy-MM-dd HH:mm}")]
-        public DateTime GameDateTime { get; set; }
+        public DateTime? GameDateTime { get; set; }
 
         // Game Identification Prop!
         [Display(Name = "Match #")]

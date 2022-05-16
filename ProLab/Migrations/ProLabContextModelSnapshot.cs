@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProLab.Data;
 
+#nullable disable
+
 namespace ProLab.Migrations
 {
     [DbContext(typeof(ProLabContext))]
@@ -15,9 +17,10 @@ namespace ProLab.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.11")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -43,15 +46,16 @@ namespace ProLab.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles");
+                    b.ToTable("AspNetRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -67,15 +71,16 @@ namespace ProLab.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -91,7 +96,7 @@ namespace ProLab.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -113,7 +118,7 @@ namespace ProLab.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -128,7 +133,7 @@ namespace ProLab.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -147,15 +152,113 @@ namespace ProLab.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("ProLab.Hockey4Life.Models.DataModels.Hockey4LifeLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimeChanged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DayInLife")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Events")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId5")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId6")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId7")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId8")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId9")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HockeyDay")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Hours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("NumberOfGames")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RefereeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("GameId");
+
+                    b.HasIndex("GameId1");
+
+                    b.HasIndex("GameId2");
+
+                    b.HasIndex("GameId3");
+
+                    b.HasIndex("GameId4");
+
+                    b.HasIndex("GameId5");
+
+                    b.HasIndex("GameId6");
+
+                    b.HasIndex("GameId7");
+
+                    b.HasIndex("GameId8");
+
+                    b.HasIndex("GameId9");
+
+                    b.HasIndex("RefereeId");
+
+                    b.ToTable("Hockey4LifeLogs");
                 });
 
             modelBuilder.Entity("ProLab.ImageUpload.Models.ImageModel", b =>
                 {
                     b.Property<int>("ImageId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageId"), 1L, 1);
 
                     b.Property<int?>("HockeyGameId")
                         .HasColumnType("int");
@@ -177,8 +280,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("ActivityPostStatusId")
                         .HasColumnType("int");
@@ -231,8 +335,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ActivityPostStatusName")
                         .HasColumnType("nvarchar(max)");
@@ -246,8 +351,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AktivitetsBeskrivning")
                         .HasColumnType("nvarchar(max)");
@@ -346,15 +452,16 @@ namespace ProLab.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.Arena", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ArenaName")
                         .HasColumnType("nvarchar(max)");
@@ -379,27 +486,85 @@ namespace ProLab.Migrations
                     b.ToTable("Arena");
                 });
 
-            modelBuilder.Entity("ProLab.Models.DataModels.CSPStatus", b =>
+            modelBuilder.Entity("ProLab.Models.DataModels.BillingPost", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<string>("CSPStatusName")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("BPStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Customer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Ended")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Hours")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Incident")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Outlay")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PONumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("Started")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("WLNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CSPStatus");
+                    b.HasIndex("BPStatusId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("BillingPosts");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.BPStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("BPStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BPStatus");
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.CleverServicePayments", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("CSPStatusId")
                         .HasColumnType("int");
@@ -438,8 +603,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClubName")
                         .HasColumnType("nvarchar(max)");
@@ -456,8 +622,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -501,8 +668,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CompanyRoleName")
                         .HasColumnType("nvarchar(max)");
@@ -516,8 +684,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CompanyStatusName")
                         .HasColumnType("nvarchar(max)");
@@ -531,8 +700,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CompanyTypeName")
                         .HasColumnType("nvarchar(max)");
@@ -542,12 +712,213 @@ namespace ProLab.Migrations
                     b.ToTable("CompanyTypes");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.CSPStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CSPStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CSPStatus");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.CupKvitto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("Allowance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("DateTimeChanged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateTimePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("GameFee1")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee10")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee11")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee12")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee13")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee14")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee15")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee2")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee3")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee4")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee5")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee6")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee7")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee8")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GameFee9")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("HockeyGameId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId10")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId11")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId12")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId13")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId14")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId5")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId6")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId7")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId8")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyGameId9")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Km")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LateGameStart")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LostErnings")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RefRecStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RefereeId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalFee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("TournamentId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TravelExpenses")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TravelSalarySupplement")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HockeyGameId");
+
+                    b.HasIndex("HockeyGameId1");
+
+                    b.HasIndex("HockeyGameId10");
+
+                    b.HasIndex("HockeyGameId11");
+
+                    b.HasIndex("HockeyGameId12");
+
+                    b.HasIndex("HockeyGameId13");
+
+                    b.HasIndex("HockeyGameId14");
+
+                    b.HasIndex("HockeyGameId2");
+
+                    b.HasIndex("HockeyGameId3");
+
+                    b.HasIndex("HockeyGameId4");
+
+                    b.HasIndex("HockeyGameId5");
+
+                    b.HasIndex("HockeyGameId6");
+
+                    b.HasIndex("HockeyGameId7");
+
+                    b.HasIndex("HockeyGameId8");
+
+                    b.HasIndex("HockeyGameId9");
+
+                    b.HasIndex("RefRecStatusId");
+
+                    b.HasIndex("RefereeId");
+
+                    b.HasIndex("TournamentId");
+
+                    b.ToTable("CupKvitto");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
@@ -581,8 +952,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
@@ -664,8 +1036,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Arena")
                         .HasColumnType("nvarchar(max)");
@@ -712,8 +1085,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("GameCategoryName")
                         .HasColumnType("nvarchar(max)");
@@ -727,8 +1101,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("GameStatusName")
                         .HasColumnType("nvarchar(max)");
@@ -742,8 +1117,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("GameTypeName")
                         .HasColumnType("nvarchar(max)");
@@ -757,8 +1133,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("HealthActivityName")
                         .HasColumnType("nvarchar(max)");
@@ -775,8 +1152,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("ArenaId")
                         .HasColumnType("int");
@@ -799,7 +1177,7 @@ namespace ProLab.Migrations
                     b.Property<int?>("GameCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("GameDateTime")
+                    b.Property<DateTime?>("GameDateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("GameNumber")
@@ -862,12 +1240,116 @@ namespace ProLab.Migrations
                     b.ToTable("HockeyGame");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.HockeyPlayer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PlayerTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SSN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerTypeId");
+
+                    b.ToTable("HockeyPlayer");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.HockeyStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Arena")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AwayTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AwayTeamScore")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateTimeChanged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateTimePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("GameDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("HD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HomeTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HomeTeamScore")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsMatch")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMatchRef")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPractise")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LD1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LD2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MatchNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Series")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Supervisor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TotalPayments")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HockeyStats");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.MDProtocol", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BodyTemp")
                         .HasColumnType("nvarchar(max)");
@@ -919,8 +1401,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BoothDoor1")
                         .HasColumnType("nvarchar(max)");
@@ -970,8 +1453,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AktivitetId")
                         .HasColumnType("int");
@@ -1006,12 +1490,32 @@ namespace ProLab.Migrations
                     b.ToTable("PlanPost");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.PlayerType", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<string>("PlayerTypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlayerTypeShortName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PlayerType");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<double>("BudgetHours")
                         .HasColumnType("float");
@@ -1063,8 +1567,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime?>("DateTimeChanged")
                         .HasColumnType("datetime2");
@@ -1119,8 +1624,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ProjectPostStatusName")
                         .HasColumnType("nvarchar(max)");
@@ -1134,8 +1640,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ProjectStatusName")
                         .HasColumnType("nvarchar(max)");
@@ -1145,12 +1652,70 @@ namespace ProLab.Migrations
                     b.ToTable("ProjectStatus");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.Referee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BankAccount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrivateEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ssn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SwishNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Referee");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.RefFees", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
@@ -1169,27 +1734,13 @@ namespace ProLab.Migrations
                     b.ToTable("RefFees");
                 });
 
-            modelBuilder.Entity("ProLab.Models.DataModels.RefRecStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("RefRecStatusName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RefRecStatus");
-                });
-
             modelBuilder.Entity("ProLab.Models.DataModels.RefReceipt", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal>("AllowanceHD1")
                         .HasColumnType("decimal(18,2)");
@@ -1320,68 +1871,29 @@ namespace ProLab.Migrations
                     b.ToTable("RefReceipt");
                 });
 
-            modelBuilder.Entity("ProLab.Models.DataModels.Referee", b =>
+            modelBuilder.Entity("ProLab.Models.DataModels.RefRecStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("BankAccount")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BankName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PrivateEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ssn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SwishNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ZipCode")
+                    b.Property<string>("RefRecStatusName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("Referee");
+                    b.ToTable("RefRecStatus");
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.Series", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("SeriesName")
                         .HasColumnType("nvarchar(max)");
@@ -1401,8 +1913,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime?>("EventDay")
                         .HasColumnType("datetime2");
@@ -1421,12 +1934,211 @@ namespace ProLab.Migrations
                     b.ToTable("StatsPorest");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.TeamRoster", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AssCoach")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ClubId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateTimeChanged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateTimePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("HeadCoach")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HockeyPlayerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId10")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId11")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId12")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId13")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId14")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId15")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId16")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId17")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId18")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId19")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId20")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId21")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId5")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId6")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId7")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId8")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HockeyPlayerId9")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TeamLeader")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeamName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClubId");
+
+                    b.HasIndex("HockeyPlayerId");
+
+                    b.HasIndex("HockeyPlayerId1");
+
+                    b.HasIndex("HockeyPlayerId10");
+
+                    b.HasIndex("HockeyPlayerId11");
+
+                    b.HasIndex("HockeyPlayerId12");
+
+                    b.HasIndex("HockeyPlayerId13");
+
+                    b.HasIndex("HockeyPlayerId14");
+
+                    b.HasIndex("HockeyPlayerId15");
+
+                    b.HasIndex("HockeyPlayerId16");
+
+                    b.HasIndex("HockeyPlayerId17");
+
+                    b.HasIndex("HockeyPlayerId18");
+
+                    b.HasIndex("HockeyPlayerId19");
+
+                    b.HasIndex("HockeyPlayerId2");
+
+                    b.HasIndex("HockeyPlayerId20");
+
+                    b.HasIndex("HockeyPlayerId21");
+
+                    b.HasIndex("HockeyPlayerId3");
+
+                    b.HasIndex("HockeyPlayerId4");
+
+                    b.HasIndex("HockeyPlayerId5");
+
+                    b.HasIndex("HockeyPlayerId6");
+
+                    b.HasIndex("HockeyPlayerId7");
+
+                    b.HasIndex("HockeyPlayerId8");
+
+                    b.HasIndex("HockeyPlayerId9");
+
+                    b.ToTable("TeamRosters");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.Tournament", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DateTimeChanged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("TournamentCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TournamentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TournamentCategoryId");
+
+                    b.ToTable("Tournament");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.TournamentCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("TournamentCategoryDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TournamentCategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TournamentCategory");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.TSMGame", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("ArenaId")
                         .HasColumnType("int");
@@ -1495,8 +2207,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Arena")
                         .HasColumnType("nvarchar(max)");
@@ -1554,8 +2267,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("TSMSeriesName")
                         .HasColumnType("nvarchar(max)");
@@ -1569,8 +2283,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("UploadId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UploadId"), 1L, 1);
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(50)");
@@ -1587,8 +2302,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<decimal>("Alcohol")
                         .HasColumnType("decimal(18,2)");
@@ -1785,8 +2501,9 @@ namespace ProLab.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("DateTimeChanged")
                         .HasColumnType("datetime2");
@@ -1859,6 +2576,93 @@ namespace ProLab.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProLab.Hockey4Life.Models.DataModels.Hockey4LifeLog", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game1")
+                        .WithMany()
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game2")
+                        .WithMany()
+                        .HasForeignKey("GameId1")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game3")
+                        .WithMany()
+                        .HasForeignKey("GameId2")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game4")
+                        .WithMany()
+                        .HasForeignKey("GameId3")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game5")
+                        .WithMany()
+                        .HasForeignKey("GameId4")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game6")
+                        .WithMany()
+                        .HasForeignKey("GameId5")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game7")
+                        .WithMany()
+                        .HasForeignKey("GameId6")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game8")
+                        .WithMany()
+                        .HasForeignKey("GameId7")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game9")
+                        .WithMany()
+                        .HasForeignKey("GameId8")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Game", "Game10")
+                        .WithMany()
+                        .HasForeignKey("GameId9")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Referee", "Ref")
+                        .WithMany()
+                        .HasForeignKey("RefereeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Game1");
+
+                    b.Navigation("Game10");
+
+                    b.Navigation("Game2");
+
+                    b.Navigation("Game3");
+
+                    b.Navigation("Game4");
+
+                    b.Navigation("Game5");
+
+                    b.Navigation("Game6");
+
+                    b.Navigation("Game7");
+
+                    b.Navigation("Game8");
+
+                    b.Navigation("Game9");
+
+                    b.Navigation("Ref");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ProLab.ImageUpload.Models.ImageModel", b =>
                 {
                     b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame")
@@ -1895,6 +2699,23 @@ namespace ProLab.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.BillingPost", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.BPStatus", "BPStatus")
+                        .WithMany()
+                        .HasForeignKey("BPStatusId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("BPStatus");
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.CleverServicePayments", b =>
                 {
                     b.HasOne("ProLab.Models.DataModels.CSPStatus", "CSPStatus")
@@ -1907,9 +2728,9 @@ namespace ProLab.Migrations
                         .HasForeignKey("ClubId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("Club");
-
                     b.Navigation("CSPStatus");
+
+                    b.Navigation("Club");
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.Company", b =>
@@ -1934,6 +2755,135 @@ namespace ProLab.Migrations
                     b.Navigation("CompanyStatus");
 
                     b.Navigation("CompanyType");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.CupKvitto", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame1")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame2")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId1")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame11")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId10")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame12")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId11")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame13")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId12")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame14")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId13")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame15")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId14")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame3")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId2")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame4")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId3")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame5")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId4")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame6")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId5")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame7")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId6")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame8")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId7")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame9")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId8")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame10")
+                        .WithMany()
+                        .HasForeignKey("HockeyGameId9")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.RefRecStatus", "Status")
+                        .WithMany()
+                        .HasForeignKey("RefRecStatusId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Referee", "Referee")
+                        .WithMany()
+                        .HasForeignKey("RefereeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.Tournament", "Tournament")
+                        .WithMany()
+                        .HasForeignKey("TournamentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("HockeyGame1");
+
+                    b.Navigation("HockeyGame10");
+
+                    b.Navigation("HockeyGame11");
+
+                    b.Navigation("HockeyGame12");
+
+                    b.Navigation("HockeyGame13");
+
+                    b.Navigation("HockeyGame14");
+
+                    b.Navigation("HockeyGame15");
+
+                    b.Navigation("HockeyGame2");
+
+                    b.Navigation("HockeyGame3");
+
+                    b.Navigation("HockeyGame4");
+
+                    b.Navigation("HockeyGame5");
+
+                    b.Navigation("HockeyGame6");
+
+                    b.Navigation("HockeyGame7");
+
+                    b.Navigation("HockeyGame8");
+
+                    b.Navigation("HockeyGame9");
+
+                    b.Navigation("Referee");
+
+                    b.Navigation("Status");
+
+                    b.Navigation("Tournament");
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.Employee", b =>
@@ -2036,6 +2986,16 @@ namespace ProLab.Migrations
                     b.Navigation("Series");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.HockeyPlayer", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.PlayerType", "PlayerType")
+                        .WithMany()
+                        .HasForeignKey("PlayerTypeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("PlayerType");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.MDProtocol", b =>
                 {
                     b.HasOne("ProLab.Models.DataModels.Referee", "Referee")
@@ -2086,6 +3046,16 @@ namespace ProLab.Migrations
                     b.Navigation("Status");
                 });
 
+            modelBuilder.Entity("ProLab.Models.DataModels.Referee", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("ProLab.Models.DataModels.RefReceipt", b =>
                 {
                     b.HasOne("ProLab.Models.DataModels.HockeyGame", "HockeyGame")
@@ -2103,14 +3073,178 @@ namespace ProLab.Migrations
                     b.Navigation("RefRecStatus");
                 });
 
-            modelBuilder.Entity("ProLab.Models.DataModels.Referee", b =>
+            modelBuilder.Entity("ProLab.Models.DataModels.TeamRoster", b =>
                 {
-                    b.HasOne("ProLab.Models.DataModels.ApplicationUser", "ApplicationUser")
+                    b.HasOne("ProLab.Models.DataModels.Club", "Team")
                         .WithMany()
-                        .HasForeignKey("ApplicationUserId")
+                        .HasForeignKey("ClubId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("ApplicationUser");
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player1")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player2")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId1")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player11")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId10")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player12")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId11")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player13")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId12")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player14")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId13")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player15")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId14")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player16")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId15")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player17")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId16")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player18")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId17")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player19")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId18")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player20")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId19")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player3")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId2")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player21")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId20")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player22")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId21")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player4")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId3")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player5")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId4")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player6")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId5")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player7")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId6")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player8")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId7")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player9")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId8")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("ProLab.Models.DataModels.HockeyPlayer", "Player10")
+                        .WithMany()
+                        .HasForeignKey("HockeyPlayerId9")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Player1");
+
+                    b.Navigation("Player10");
+
+                    b.Navigation("Player11");
+
+                    b.Navigation("Player12");
+
+                    b.Navigation("Player13");
+
+                    b.Navigation("Player14");
+
+                    b.Navigation("Player15");
+
+                    b.Navigation("Player16");
+
+                    b.Navigation("Player17");
+
+                    b.Navigation("Player18");
+
+                    b.Navigation("Player19");
+
+                    b.Navigation("Player2");
+
+                    b.Navigation("Player20");
+
+                    b.Navigation("Player21");
+
+                    b.Navigation("Player22");
+
+                    b.Navigation("Player3");
+
+                    b.Navigation("Player4");
+
+                    b.Navigation("Player5");
+
+                    b.Navigation("Player6");
+
+                    b.Navigation("Player7");
+
+                    b.Navigation("Player8");
+
+                    b.Navigation("Player9");
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("ProLab.Models.DataModels.Tournament", b =>
+                {
+                    b.HasOne("ProLab.Models.DataModels.TournamentCategory", "TournamentCategory")
+                        .WithMany()
+                        .HasForeignKey("TournamentCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("TournamentCategory");
                 });
 
             modelBuilder.Entity("ProLab.Models.DataModels.TSMGame", b =>
