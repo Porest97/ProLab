@@ -69,10 +69,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Health">Hälsa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NBS">NBS</a>
-                            </li>
+                            </li>                            
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Projects">Proj.</a>
                             </li>
@@ -84,6 +81,12 @@
                             </li>
                             <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Cups">Cups</a>
+                            </li>
+                             <li class="nav-item">                                
+                                <div class="badge">                                
+                                <a class="nav-link text-dark" asp-area="" asp-controller="NBS" asp-action="NBS">
+                                <img src="~/img/NetelloAB-Logo10procent.jpg" alt="HTML tutorial"></a>
+                            </div>
                             </li>
 
                         }
@@ -141,6 +144,16 @@
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Regus">My Page</a>
+                            </li>
+
+                        }
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("NBS"))
+                        {
+                            <li class="nav-item">                                
+                                <div class="badge">                                
+                                <a class="nav-link text-dark" asp-area="" asp-controller="NBS" asp-action="NBS">
+                                <img src="~/img/NetelloAB-Logo10procent.jpg" alt="HTML tutorial"></a>
+                            </div>
                             </li>
 
                         }

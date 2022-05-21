@@ -10,51 +10,22 @@ using ProLab.Models.DataModels;
 
 namespace ProLab.Controllers.ApplicationControllers
 {
-    public class HockeyStatsController : Controller
+    public class HockeyStats1Controller : Controller
     {
         private readonly ProLabContext _context;
 
-        public HockeyStatsController(ProLabContext context)
+        public HockeyStats1Controller(ProLabContext context)
         {
             _context = context;
         }
 
-        // GET: HockeyStats
+        // GET: HockeyStats1
         public async Task<IActionResult> Index()
         {
               return View(await _context.HockeyStats.ToListAsync());
         }
 
-        //ListHockeyStats
-        public async Task<IActionResult> ListHockeyStats(string searchString,
-            string searchString1, string searchString2)
-        {
-            var hockeyStats = from hs in _context.HockeyStats
-
-                              select hs;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                hockeyStats = hockeyStats
-                    .Where(hs => hs.GameDateTime.ToString().Contains(searchString));
-            }
-
-            if (!String.IsNullOrEmpty(searchString1))
-            {
-                hockeyStats = hockeyStats
-                    .Where(hs => hs.Arena.Contains(searchString1));
-            }
-
-            if (!String.IsNullOrEmpty(searchString2))
-            {
-                hockeyStats = hockeyStats
-                    .Where(hs => hs.Series.Contains(searchString2));
-            }
-            return View(await hockeyStats.ToArrayAsync());
-        }
-
-
-
-        // GET: HockeyStats/Details/5
+        // GET: HockeyStats1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.HockeyStats == null)
@@ -72,30 +43,30 @@ namespace ProLab.Controllers.ApplicationControllers
             return View(hockeyStats);
         }
 
-        // GET: HockeyStats/Create
-        public IActionResult CreateHockeyStat()
+        // GET: HockeyStats1/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        // POST: HockeyStats/Create
+        // POST: HockeyStats1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateHockeyStat([Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,MatchNumber,HomeTeam,AwayTeam,Arena,Series,HD1,HD2,LD1,LD2,Supervisor,Notes,TotalPayments,HomeTeamScore,AwayTeamScore,IsMatch,IsMatchRef,IsPractise")] HockeyStats hockeyStats)
+        public async Task<IActionResult> Create([Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,MatchNumber,HomeTeam,AwayTeam,Arena,Series,HD1,HD2,LD1,LD2,Supervisor,Notes,TotalPayments,HomeTeamScore,AwayTeamScore,IsMatch,IsPractise,IsMatchRef")] HockeyStats hockeyStats)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(hockeyStats);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ListHockeyStats));
+                return RedirectToAction(nameof(Index));
             }
             return View(hockeyStats);
         }
 
-        // GET: HockeyStats/Edit/5
-        public async Task<IActionResult> EditHockeyStat(int? id)
+        // GET: HockeyStats1/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.HockeyStats == null)
             {
@@ -110,12 +81,12 @@ namespace ProLab.Controllers.ApplicationControllers
             return View(hockeyStats);
         }
 
-        // POST: HockeyStats/Edit/5
+        // POST: HockeyStats1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditHockeyStat(int id, [Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,MatchNumber,HomeTeam,AwayTeam,Arena,Series,HD1,HD2,LD1,LD2,Supervisor,Notes,TotalPayments,HomeTeamScore,AwayTeamScore,IsMatch,IsMatchRef,IsPractise")] HockeyStats hockeyStats)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DateTimePosted,DateTimeChanged,GameDateTime,MatchNumber,HomeTeam,AwayTeam,Arena,Series,HD1,HD2,LD1,LD2,Supervisor,Notes,TotalPayments,HomeTeamScore,AwayTeamScore,IsMatch,IsPractise,IsMatchRef")] HockeyStats hockeyStats)
         {
             if (id != hockeyStats.Id)
             {
@@ -140,12 +111,12 @@ namespace ProLab.Controllers.ApplicationControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(ListHockeyStats));
+                return RedirectToAction(nameof(Index));
             }
             return View(hockeyStats);
         }
 
-        // GET: HockeyStats/Delete/5
+        // GET: HockeyStats1/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.HockeyStats == null)
@@ -163,7 +134,7 @@ namespace ProLab.Controllers.ApplicationControllers
             return View(hockeyStats);
         }
 
-        // POST: HockeyStats/Delete/5
+        // POST: HockeyStats1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

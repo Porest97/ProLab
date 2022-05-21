@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Links Page";
+}
+
+<div class="card card-columns text-center" style="width: 50%">
+    <div class="card-header">
+        <h6>Links to external sources</h6>
+    </div>
+    <div class="card-body">
+        <div class="card">
+            <h6>DWorkin Links !</h6>
+            <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="DWKLinks">To DWorkin Links</a>
+        </div>
+        <div class="card">
+            <h6>Netello AB Links !</h6>
+            <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="NBSLinks">To Netello AB Links</a>
+        </div>
+        <div class="card">
+            <h6>External Tools !</h6>
+            <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="Tools">To External Tools</a>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <a class="btn btn-sm btn-success" asp-controller="NBS" asp-action="NBS">Back to NBS</a> 
+    </div>
+</div>

@@ -1,0 +1,115 @@
+﻿@model ProLab.Models.DataModels.HockeyStats
+
+@{
+    ViewData["Title"] = "CreateHockeyStat";
+}
+<div class="card">
+    <div class="card-header">
+        <h6>Registrera ny stat !</h6>
+    </div>
+<div class="row card-body">
+    <div class="col-md-4">
+        <form asp-action="CreateHockeyStat">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-for="DateTimePosted" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimePosted)</div>
+            <div asp-for="DateTimeChanged" class="col-md-4 control-label text-hide">@Html.DisplayFor(Model => Model.DateTimeChanged)</div>
+            <div class="form-group">
+                <label asp-for="GameDateTime" class="control-label"></label>
+                <input asp-for="GameDateTime" class="form-control" />
+                <span asp-validation-for="GameDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchNumber" class="control-label"></label>
+                <input asp-for="MatchNumber" class="form-control" />
+                <span asp-validation-for="MatchNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeam" class="control-label"></label>
+                <input asp-for="HomeTeam" class="form-control" />
+                <span asp-validation-for="HomeTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeam" class="control-label"></label>
+                <input asp-for="AwayTeam" class="form-control" />
+                <span asp-validation-for="AwayTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Arena" class="control-label"></label>
+                <input asp-for="Arena" class="form-control" />
+                <span asp-validation-for="Arena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Series" class="control-label"></label>
+                <input asp-for="Series" class="form-control" />
+                <span asp-validation-for="Series" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HD1" class="control-label"></label>
+                <input asp-for="HD1" class="form-control" />
+                <span asp-validation-for="HD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HD2" class="control-label"></label>
+                <input asp-for="HD2" class="form-control" />
+                <span asp-validation-for="HD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LD1" class="control-label"></label>
+                <input asp-for="LD1" class="form-control" />
+                <span asp-validation-for="LD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LD2" class="control-label"></label>
+                <input asp-for="LD2" class="form-control" />
+                <span asp-validation-for="LD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supervisor" class="control-label"></label>
+                <input asp-for="Supervisor" class="form-control" />
+                <span asp-validation-for="Supervisor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPayments" class="control-label"></label>
+                <input asp-for="TotalPayments" class="form-control" />
+                <span asp-validation-for="TotalPayments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeamScore" class="control-label"></label>
+                <input asp-for="HomeTeamScore" class="form-control" />
+                <span asp-validation-for="HomeTeamScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeamScore" class="control-label"></label>
+                <input asp-for="AwayTeamScore" class="form-control" />
+                <span asp-validation-for="AwayTeamScore" class="text-danger"></span>
+            </div>
+             <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsMatch" /> @Html.DisplayNameFor(model => model.IsMatch)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPractise" /> @Html.DisplayNameFor(model => model.IsPractise)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsMatchRef" /> @Html.DisplayNameFor(model => model.IsMatchRef)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registrera" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card-footer">
+    <a class="btn btn-sm btn-success" asp-controller="HockeyStats" asp-action="ListHockeyStats">Till Hockey Stats</a>
+</div>
+</div>

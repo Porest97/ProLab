@@ -30,6 +30,24 @@ namespace ProLab.Controllers.AdministrationControllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin, NBS")]
+        public IActionResult DWKLinks()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin, NBS")]
+        public IActionResult NBSLinks()
+        {
+            return View();
+        }
+        
+        [Authorize(Roles = "Admin, NBS")]
+        public IActionResult Tools()
+        {
+            return View();
+        }
+
         [Authorize(Roles = "Admin")]
         public IActionResult Health()
         {

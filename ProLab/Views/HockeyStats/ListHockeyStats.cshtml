@@ -7,7 +7,9 @@
     <div class="card-header col-md-12 text-center font-weight-bolder" style="font-size:x-small">
         <h6 style="font-size:x-small">Hockey stats !</h6>
          <h6 style="font-size:x-small">Matcher som jag dömt och spelat !</h6>
-            <h6 style="font-size:x-small">Antal Matcher: @Model.Count(hs => hs.IsMatch)</h6>            
+            <h6 style="font-size:x-small">Antal dömda Matcher: @Model.Count(hs => hs.IsMatchRef)</h6>
+            <h6 style="font-size:x-small">Antal spelade Matcher: @Model.Count(hs => hs.IsMatch)</h6>
+            <h6 style="font-size:x-small">Antal träningar: @Model.Count(hs => hs.IsPractise)</h6>
     </div>    
     <div class="card-header col-md-12 text-center font-weight-bold" style="font-size:xx-small">
         <form asp-controller="HockeyStats" asp-action="ListHockeyStats">
@@ -25,6 +27,9 @@
         </form>
     </div>
     <div class="card-body col-md-12 text-center">
+        <div class="card-header col-md-12 text-center font-weight-bold" style="font-size:xx-small">
+            <a class="btn btn-sm btn-success" asp-controller="HockeyStats" asp-action="CreateHockeyStat">Register New Hockey Stat</a>
+        </div>
         <table class="table table-striped col-md-12 table-bordered" style="font-size:xx-small">
             <thead class="col-md-12 text-center font-weight-bold">
                 <tr>
@@ -55,8 +60,8 @@
                         @Html.DisplayFor(modelItem => item.LD2) 
                     </td>                   
                     <td>
-                        @*<a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGame" asp-route-id="@item.Id">Ändra</a>
-                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGameStatus" asp-route-id="@item.Id">Lag/REF/Status</a>
+                        <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyStat" asp-route-id="@item.Id">Ändra</a>
+                        @*<a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="EditHockeyGameStatus" asp-route-id="@item.Id">Lag/REF/Status</a>
                         <a class="btn btn-sm btn-outline-success font-weight-bolder" style="font-size:xx-small" asp-action="Details" asp-route-id="@item.Id">Info</a>
                         <a class="btn btn-sm btn-outline-danger font-weight-bolder" style="font-size:xx-small" asp-action="Delete" asp-route-id="@item.Id">Del</a>*@
                     </td>

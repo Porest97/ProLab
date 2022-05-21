@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAIF2020", "..\DAIF2020\DAI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAIF2021", "..\DAIF2021\DAIF2021.csproj", "{610B980F-6A2B-4ABB-87E9-7499F3159320}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBS", "..\..\..\..\..\..\NBS\NBS.csproj", "{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBS", "..\NBS\NBS.csproj", "{CEE39541-C38B-4F9A-89FC-A7BA15FBDF82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{610B980F-6A2B-4ABB-87E9-7499F3159320}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B56B9D88-A736-4D48-86EB-FD8F306CCAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE39541-C38B-4F9A-89FC-A7BA15FBDF82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE39541-C38B-4F9A-89FC-A7BA15FBDF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE39541-C38B-4F9A-89FC-A7BA15FBDF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE39541-C38B-4F9A-89FC-A7BA15FBDF82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

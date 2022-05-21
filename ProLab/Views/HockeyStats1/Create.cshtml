@@ -97,6 +97,21 @@
                 <input asp-for="AwayTeamScore" class="form-control" />
                 <span asp-validation-for="AwayTeamScore" class="text-danger"></span>
             </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsMatch" /> @Html.DisplayNameFor(model => model.IsMatch)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPractise" /> @Html.DisplayNameFor(model => model.IsPractise)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsMatchRef" /> @Html.DisplayNameFor(model => model.IsMatchRef)
+                </label>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
