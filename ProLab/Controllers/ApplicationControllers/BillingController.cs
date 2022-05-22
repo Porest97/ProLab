@@ -116,8 +116,8 @@ namespace ProLab.Controllers.ApplicationControllers
             return View(billingPost);
         }
 
-        // GET: Billing/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: INFO
+        public async Task<IActionResult> BillingPostInfo(int? id)
         {
             if (id == null || _context.BillingPosts == null)
             {
@@ -136,36 +136,12 @@ namespace ProLab.Controllers.ApplicationControllers
             return View(billingPost);
         }
 
-        // GET: Billing/Create
-        public IActionResult Create()
-        {
-            ViewData["BPStatusId"] = new SelectList(_context.Set<BPStatus>(), "Id", "BPStatusName");
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name");
-            return View();
-        }
+        
 
-        // POST: Billing/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Customer,Incident,Started,Ended,Hours,Price,Total,Outlay,EmployeeId,Notes,WLNumber,BPStatusId,PONumber")] BillingPost billingPost)
+        // GET: BillingPost/EditBillingPost
+        public async Task<IActionResult> EditBillingPost(int? id)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(billingPost);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["BPStatusId"] = new SelectList(_context.Set<BPStatus>(), "Id", "BPStatusName", billingPost.BPStatusId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
-            return View(billingPost);
-        }
-
-        // GET: Billing/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.BillingPosts == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -175,17 +151,18 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 return NotFound();
             }
-            ViewData["BPStatusId"] = new SelectList(_context.Set<BPStatus>(), "Id", "BPStatusName", billingPost.BPStatusId);
+
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
+            ViewData["BPStatusId"] = new SelectList(_context.BPStatus, "Id", "BPStatusName", billingPost.BPStatusId);
             return View(billingPost);
         }
 
-        // POST: Billing/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: BillingPost/EditStatus        
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Customer,Incident,Started,Ended,Hours,Price,Total,Outlay,EmployeeId,Notes,WLNumber,BPStatusId,PONumber")] BillingPost billingPost)
+        public async Task<IActionResult> EditBillingPost(int id, [Bind("Id,Customer,Incident,Started,Ended,Hours,Price,Total,Outlay,EmployeeId,Notes,WLNumber,BPStatusId,PONumber")] BillingPost billingPost)
         {
             if (id != billingPost.Id)
             {
@@ -196,6 +173,11 @@ namespace ProLab.Controllers.ApplicationControllers
             {
                 try
                 {
+                    var nBSContext = _context.BillingPosts
+                 .Include(t => t.BPStatus)
+                 .Include(t => t.Employee);
+                    billingPost.Total = (billingPost.Hours * billingPost.Price) + billingPost.Outlay;
+
                     _context.Update(billingPost);
                     await _context.SaveChangesAsync();
                 }
@@ -210,10 +192,132 @@ namespace ProLab.Controllers.ApplicationControllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ListBillingPosts));
             }
-            ViewData["BPStatusId"] = new SelectList(_context.Set<BPStatus>(), "Id", "BPStatusName", billingPost.BPStatusId);
             ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
+            ViewData["BPStatusId"] = new SelectList(_context.BPStatus, "Id", "BPStatusName", billingPost.BPStatusId);
+            return View(billingPost);
+        }
+
+        // GET: BillingPost/EditBillingPostEmployee
+        public async Task<IActionResult> EditBillingPostEmployee(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var billingPost = await _context.BillingPosts.FindAsync(id);
+            if (billingPost == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
+            ViewData["BPStatusId"] = new SelectList(_context.BPStatus, "Id", "BPStatusName", billingPost.BPStatusId);
+            return View(billingPost);
+        }
+
+        // POST: BillingPost/EditStatus        
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditBillingPostEmployee(int id, [Bind("Id,Customer,Incident,Started,Ended,Hours,Price,Total,Outlay,EmployeeId,Notes,WLNumber,BPStatusId,PONumber")] BillingPost billingPost)
+        {
+            if (id != billingPost.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var nBSContext = _context.BillingPosts
+                 .Include(t => t.BPStatus)
+                 .Include(t => t.Employee);
+                    billingPost.Total = (billingPost.Hours * billingPost.Price) + billingPost.Outlay;
+
+                    _context.Update(billingPost);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BillingPostExists(billingPost.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(ListBillingPosts));
+            }
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
+            ViewData["BPStatusId"] = new SelectList(_context.BPStatus, "Id", "BPStatusName", billingPost.BPStatusId);
+            return View(billingPost);
+        }
+
+        // GET: BillingPost/EditBillingPost
+        public async Task<IActionResult> EditBillingPostStatus(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var billingPost = await _context.BillingPosts.FindAsync(id);
+            if (billingPost == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
+            ViewData["BPStatusId"] = new SelectList(_context.BPStatus, "Id", "BPStatusName", billingPost.BPStatusId);
+            return View(billingPost);
+        }
+
+        // POST: BillingPost/EditStatus        
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditBillingPostStatus(int id, [Bind("Id,Customer,Incident,Started,Ended,Hours,Price,Total,Outlay,EmployeeId,Notes,WLNumber,BPStatusId,PONumber")] BillingPost billingPost)
+        {
+            if (id != billingPost.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var nBSContext = _context.BillingPosts
+                 .Include(t => t.BPStatus)
+                 .Include(t => t.Employee);
+                    billingPost.Total = (billingPost.Hours * billingPost.Price) + billingPost.Outlay;
+
+                    _context.Update(billingPost);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BillingPostExists(billingPost.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(ListBillingPosts));
+            }
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "Id", "Name", billingPost.EmployeeId);
+            ViewData["BPStatusId"] = new SelectList(_context.BPStatus, "Id", "BPStatusName", billingPost.BPStatusId);
             return View(billingPost);
         }
 

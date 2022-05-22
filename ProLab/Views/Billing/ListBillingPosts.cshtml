@@ -78,9 +78,10 @@
                         <td>@Html.DisplayFor(modelItem => item.PONumber)</td>
                         <td>@Html.DisplayFor(modelItem => item.BPStatus.BPStatusName)</td>
                         <td>
-                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Accounting" asp-action="EditBillingPost" asp-route-id="@item.Id">Ändra Värden</a>
-                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Accounting" asp-action="EditBillingPostStatus" asp-route-id="@item.Id">Ändra Status</a>
-                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Accounting" asp-action="EditBillingPostEmployee" asp-route-id="@item.Id">Ändra Anställd</a>
+                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Billing" asp-action="EditBillingPost" asp-route-id="@item.Id">Ändra Värden</a>
+                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Billing" asp-action="EditBillingPostStatus" asp-route-id="@item.Id">Ändra Status</a>
+                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Billing" asp-action="EditBillingPostEmployee" asp-route-id="@item.Id">Ändra Anställd</a>
+                            <a class="btn btn-sm btn-outline-success font-weight-bold " style="font-size:xx-small" asp-controller="Billing" asp-action="BillingPostInfo" asp-route-id="@item.Id">INFO</a>
                         </td>
                     </tr>
                     }

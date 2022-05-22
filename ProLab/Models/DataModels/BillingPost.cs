@@ -36,7 +36,7 @@ namespace ProLab.Models.DataModels
         [Display(Name = "Utlägg")]
         public decimal Outlay { get; set; }
 
-        [Display(Name = "Ansälld")]
+        [Display(Name = "Anställd")]
         public int? EmployeeId { get; set; }
         [Display(Name = "Anställd")]
         [ForeignKey("EmployeeId")]
